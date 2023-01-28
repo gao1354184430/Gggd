@@ -15,8 +15,8 @@ upstream mjtjp{
     server 172.104.125.58:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7
     server 139.162.74.75:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 172.104.83.35:6626 max_fails=3 fail_timeout=30s; #T13  ID12
-    server 172.105.205.223:6626 max_fails=3 fail_timeout=30s; #T14  ID14
-    server 172.104.125.177:6626 max_fails=3 fail_timeout=30s; #T15  ID15
+    server 172.104.75.150:6626 max_fails=3 fail_timeout=30s; #T14  ID14
+    server 172.104.75.231:6626 max_fails=3 fail_timeout=30s; #T15  ID15
     server 139.162.67.222:6626 max_fails=3 fail_timeout=30s backup;
 }
 upstream mjtvn{
@@ -281,7 +281,7 @@ server {
     ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
     ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
     proxy_protocol    on; # 获取真实ip
-    proxy_pass 104.149.133.211:6626;
+    proxy_pass 104.149.138.137:6626;
 }
 server {
     listen  443 ssl;
