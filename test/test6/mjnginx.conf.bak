@@ -522,7 +522,7 @@ server {
 server {
     listen 16639;   #非洲-尼日利亚-拉各斯
     location / {
-		proxy_pass http://185.255.123.100:6616;
+		proxy_pass http://185.255.123.195:6616;
 		include /usr/local/nginx/ws; 
         }
 }
