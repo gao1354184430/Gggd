@@ -10,10 +10,11 @@ set_real_ip_from   120.240.58.0/24; #广州-移动
 #月抛机器保持更新
 #ct
 #set_real_ip_from   125.124.108.0/24; #杭州-电信
-#set_real_ip_from   49.7.221.0/24; #北京-电信
-#set_real_ip_from   180.110.201.0/24; #南京-电信
-set_real_ip_from   14.29.231.0/24; #广州-电信
-#set_real_ip_from   183.56.251.0/24; #广州2-电信
+set_real_ip_from   14.29.174.0/24; #深圳33-电信
+set_real_ip_from   14.29.214.0/24; #深圳22-电信
+set_real_ip_from   14.29.231.0/24; #深圳1-电信
+set_real_ip_from   14.29.170.0/24; #深圳2-电信
+
 #特殊方案-AZ临时机器
 #over
 proxy_http_version 1.1;
