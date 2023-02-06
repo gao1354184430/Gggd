@@ -8,20 +8,6 @@ server {
 		include /usr/local/nginx/ws; 
         }
 }
-server {
-    listen 26604;
-    location / {
-		proxy_pass http://cvtw;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 23330;
-    location / {
-		proxy_pass http://fqtw;
-		include /usr/local/nginx/ws; 
-        }
-}
 #按落地分组
 #新加坡
 upstream mjhksg{
@@ -63,14 +49,6 @@ upstream tw{
         server mjtw.ddns.me:6617;
         #server yftw2.ddns.me:6617;
 }
-#upstream fqtw{
-        #dynamic_resolve fallback=stale fail_timeout=60s; 
-        #server lbtw.ddns.net:7717;
-#}
-#upstream cvtw{
-        #dynamic_resolve fallback=stale fail_timeout=60s; 
-        #server lbtw.ddns.net:8818;
-#}
 upstream dogtw{
         dynamic_resolve fallback=stale fail_timeout=60s; 
         server mjtw.ddns.me:10651;
@@ -78,7 +56,7 @@ upstream dogtw{
 #日本-FDC-JP
 upstream mjhkjp{
         ip_hash;
-        server 172.105.221.77:6617;      #日本2-Linode
+        server 172.104.125.81:6617;      #日本2-Linode--ID72
         server 172.104.99.41:6617;   #日本3-Linode-月抛
         server 172.105.221.129:6617;    #日本4-linode
         server 103.29.68.209:6617;  #日本5-Linode
@@ -427,14 +405,14 @@ server {
 server {
     listen 10049; #香港 V1 C
     location / {
-		proxy_pass http://jzhkt.ddns.me:7717;   
+		proxy_pass http://kcdhkt.ddns.me:17717;   
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 10020; #香港 V1 A
     location / {
-		proxy_pass http://220.246.250.139:17717;   
+		proxy_pass http://46.20.99.185:7717;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -448,21 +426,21 @@ server {
 server {
     listen 10027; #香港 V3 A
     location / {
-		proxy_pass http://46.20.109.27:777;   
+		proxy_pass http://141.11.22.112:777;   
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 10046; #香港 HKT V2
     location / {
-		proxy_pass http://46.20.109.35:7717;   
+		proxy_pass http://wzhkt.ddns.me:17717;   
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 10014; #台湾 V3
     location / {
-		proxy_pass http://kcdtw2.ddns.me:7788;   
+		proxy_pass http://yftw2.ddns.me:7737;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -480,23 +458,47 @@ server {
 		include /usr/local/nginx/ws; 
         }
 }
+#####台湾负载均衡#####
+upstream fqtw{
+        dynamic_resolve fallback=stale fail_timeout=60s; 
+        server kcdtw.ddns.me:7737;
+}
+upstream cvtw{
+        dynamic_resolve fallback=stale fail_timeout=60s; 
+        server lbtw.ddns.net:8818;
+}
+#####端口监听#####
+server {
+    listen 23330;
+    location / {
+    proxy_pass http://fqtw;
+    include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 26604;
+    location / {
+    proxy_pass http://cvtw;
+    include /usr/local/nginx/ws; 
+        }
+}
 ####################悦跑香港负载均衡###################
 upstream yptw{
         #ip_hash;  #台湾
-        server kcdtw.ddns.me:5519;   #快车道台湾
-	server kcdtw2.ddns.me:5519;   #gkd快车道台湾
-	server mjtw.ddns.me:5519;   #要饭台湾
-	server yftw2.ddns.me:5519;   #要饭台湾
-	#server lbtw.ddns.net:5519;   #laoba要饭台湾
+        server kcdtw.ddns.me:5521;   #快车道台湾
+	server kcdtw2.ddns.me:5521;   #gkd快车道台湾
+	server mjtw.ddns.me:5521;   #要饭台湾
+	server yftw2.ddns.me:5521;   #要饭台湾
+	#server lbtw.ddns.net:5521;   #laoba要饭台湾
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream yphkt{
         #ip_hash;  #香港HKT
-        server kcdhgc.ddns.me:5519;   #香港HGC
-	server kcdhkt.ddns.me:5519;   #香港HKT
-	server 210.3.147.111:5519;   #老板要饭云香港HGC
-	server wzhkt2.ddns.me:5519;   #香港HKT
-	server jzhkt.ddns.me:5519;   #香港HKT
+        server kcdhgc.ddns.me:5520;   #香港HGC
+	server kcdhkt.ddns.me:5520;   #香港HKT
+	server 210.3.147.111:5520;   #老板要饭云香港HGC
+	server wzhkt2.ddns.me:5520;   #香港HKT
+	server jzhkt.ddns.me:5520;   #香港HKT
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream ypsg{
