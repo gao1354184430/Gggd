@@ -12,7 +12,7 @@ upstream cvtsg{
 }
 upstream mjtjp{
     #hash $remote_addr;
-    server 139.162.117.173:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7
+    server 172.104.103.43:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7
     server 139.162.74.75:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 172.104.83.35:6626 max_fails=3 fail_timeout=30s; #T13  ID12
     server 172.104.75.150:6626 max_fails=3 fail_timeout=30s; #T14  ID14
@@ -21,7 +21,7 @@ upstream mjtjp{
 }
 upstream mjtvn{
     hash $remote_addr;
-    server 103.187.168.45:6626 max_fails=3 fail_timeout=30s weight=1; #T0到期后删除
+    #server 103.187.168.45:6626 max_fails=3 fail_timeout=30s weight=1; #T0到期后删除
     server 103.187.168.155:6626 max_fails=3 fail_timeout=30s weight=3; #T1
     server 103.187.168.162:6626 max_fails=3 fail_timeout=30s weight=3;  #T2
 }
@@ -32,8 +32,9 @@ upstream mjttw{
 }
 upstream mjtkr{
     hash $remote_addr;
-    server 165.154.240.254:6626 max_fails=3 fail_timeout=30s; #ID30 T1
-    server 165.154.240.88:6626 max_fails=3 fail_timeout=30s;  #ID31 T2
+    server 152.67.211.153:6626 max_fails=3 fail_timeout=30s; #ID35 T1-甲骨文
+    server 152.70.244.180:6626 max_fails=3 fail_timeout=30s;  #ID36 T2
+    server 130.162.143.166:6626 max_fails=3 fail_timeout=30s;  #ID37 T3
 }
 ###负载均衡方案结束，以下为单点转发
 ##亚洲asia
