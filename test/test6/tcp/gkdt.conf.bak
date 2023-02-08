@@ -309,17 +309,6 @@ server {
 }
 server {
     listen  443 ssl;
-    server_name hk01.trojanyyds.xyz;
-    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
-    ssl_certificate /usr/local/nginx/cert/awtls.pem;
-    ssl_certificate_key /usr/local/nginx/cert/awtls.key; 
-    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
-    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
-    proxy_protocol    on; # 获取真实ip
-    proxy_pass 220.246.250.102:2338;
-}
-server {
-    listen  443 ssl;
     server_name sk01.trojanyyds.xyz;
     ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
     ssl_certificate /usr/local/nginx/cert/awtls.pem;
@@ -359,14 +348,14 @@ server {
 }	
 upstream awthk10{
     #hash $remote_addr;
-    server 27.0.232.236:2338 max_fails=3 fail_timeout=30s; 
-    server 27.0.232.238:2338 max_fails=3 fail_timeout=30s backup;
-    server 27.0.232.240:2338 max_fails=3 fail_timeout=30s backup;
-    server 27.0.232.247:2338 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25265 max_fails=3 fail_timeout=30s; 
+    server 127.0.0.1:25263 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25264 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25266 max_fails=3 fail_timeout=30s backup;
 }
 server {
     listen  443 ssl;
-    server_name hk02.trojanyyds.xyz;
+    server_name hk01.trojanyyds.xyz;
     ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
     ssl_certificate /usr/local/nginx/cert/awtls.pem;
     ssl_certificate_key /usr/local/nginx/cert/awtls.key; 
@@ -377,14 +366,14 @@ server {
 }	
 upstream awthk11{
     #hash $remote_addr;
-    server 27.0.232.236:2338 max_fails=3 fail_timeout=30s backup; 
-    server 27.0.232.238:2338 max_fails=3 fail_timeout=30s;
-    server 27.0.232.240:2338 max_fails=3 fail_timeout=30s backup;
-    server 27.0.232.247:2338 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25265 max_fails=3 fail_timeout=30s backup; 
+    server 127.0.0.1:25263 max_fails=3 fail_timeout=30s;
+    server 127.0.0.1:25264 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25266 max_fails=3 fail_timeout=30s backup;
 }
 server {
     listen  443 ssl;
-    server_name hk03.trojanyyds.xyz;
+    server_name hk02.trojanyyds.xyz;
     ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
     ssl_certificate /usr/local/nginx/cert/awtls.pem;
     ssl_certificate_key /usr/local/nginx/cert/awtls.key; 
@@ -395,14 +384,14 @@ server {
 }	
 upstream awthk12{
     #hash $remote_addr;
-    server 27.0.232.236:2338 max_fails=3 fail_timeout=30s backup; 
-    server 27.0.232.238:2338 max_fails=3 fail_timeout=30s backup;
-    server 27.0.232.240:2338 max_fails=3 fail_timeout=30s;
-    server 27.0.232.247:2338 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25265 max_fails=3 fail_timeout=30s backup; 
+    server 127.0.0.1:25263 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25264 max_fails=3 fail_timeout=30s;
+    server 127.0.0.1:25266 max_fails=3 fail_timeout=30s backup;
 }
 server {
     listen  443 ssl;
-    server_name hk04.trojanyyds.xyz;
+    server_name hk03.trojanyyds.xyz;
     ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
     ssl_certificate /usr/local/nginx/cert/awtls.pem;
     ssl_certificate_key /usr/local/nginx/cert/awtls.key; 
@@ -413,14 +402,14 @@ server {
 }	
 upstream awthk13{
     #hash $remote_addr;
-    server 27.0.232.236:2338 max_fails=3 fail_timeout=30s backup; 
-    server 27.0.232.238:2338 max_fails=3 fail_timeout=30s backup;
-    server 27.0.232.240:2338 max_fails=3 fail_timeout=30s backup;
-    server 27.0.232.247:2338 max_fails=3 fail_timeout=30s;
+    server 127.0.0.1:25265 max_fails=3 fail_timeout=30s backup; 
+    server 127.0.0.1:25263 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25264 max_fails=3 fail_timeout=30s backup;
+    server 127.0.0.1:25266 max_fails=3 fail_timeout=30s;
 }
 server {
     listen  443 ssl;
-    server_name hk05.trojanyyds.xyz;
+    server_name hk04.trojanyyds.xyz;
     ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
     ssl_certificate /usr/local/nginx/cert/awtls.pem;
     ssl_certificate_key /usr/local/nginx/cert/awtls.key; 
