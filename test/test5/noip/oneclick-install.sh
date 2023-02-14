@@ -40,6 +40,10 @@ cd /usr/local/src/
 wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
 tar xf noip-duc-linux.tar.gz
 cd noip-2.1.9-1/
+
+# 修改 Makefile，跳过输入用户名和密码的步骤
+sed -i 's/ifneq (,$(wildcard $${HOME}\/.no-ip2-login))/ifeq ($$(findstring $$(MAKECMDGOALS),install),)\nifneq (,$(wildcard $${HOME}\/.no-ip2-login))\n\t@cp $${HOME}\/.no-ip2-login .\nendif\nendif/' Makefile
+
 ./configure
 make
 make install
