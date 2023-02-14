@@ -19,7 +19,7 @@ fi
 case $os in
     centos)
         if [[ $version == "7" ]]; then
-            yum -y install wget make gcc openssl-devel
+            yum -y install wget
         else
             echo "Error: This script only supports CentOS 7."
             exit 1
@@ -27,7 +27,7 @@ case $os in
         ;;
     debian|ubuntu)
         apt-get update
-        apt-get -y install wget make gcc libssl-dev
+        apt-get -y install wget
         ;;
     *)
         echo "Error: This script only supports CentOS 7, Debian and Ubuntu."
@@ -35,11 +35,12 @@ case $os in
         ;;
 esac
 
-# 安装noip客户端
+# 下载和安装 DUC
 cd /usr/local/src/
 wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
 tar xf noip-duc-linux.tar.gz
 cd noip-2.1.9-1/
+./configure
 make
 make install
 
