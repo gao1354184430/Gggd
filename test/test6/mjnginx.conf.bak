@@ -270,7 +270,7 @@ upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落�
 		server 104.208.65.51:6622;    #AZHK24  ID275
 		server 20.205.100.100:6622;  #AZHK22   ID274
 		server 20.205.7.7:6622;  #AZHK10   ID167
-		server 20.205.4.157:6622;  #AZHK15F8S   ID238
+		server 20.187.76.151:6622;  #AZHK15F8S   ID238
         #server 20.24.64.119:6622 weight=3;  #由椰子添加AWS1-测试，ID267
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
