@@ -284,16 +284,11 @@ upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落�
         #server 20.24.64.119:6622 weight=3;  #由椰子添加AWS1-测试，ID267
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
-upstream mjeufi{  #欧洲承载（DE）目的地芬兰
-        server 89.163.224.151:16643;  #直连IP 37.157.255.188
-        server 54.38.220.90:16643 backup;  #直连 54.37.203.19
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
 upstream mjde{
         #ip_hash;	#de德国
-        server 167.235.69.211:6616;  #直连IP 37.157.255.188
-        #server 54.38.220.90:6616 backup; #直连 54.37.203.19
-		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
+        server 89.163.224.151:6616;  #直连IP 37.157.255.188
+        server 54.38.220.90:6616 backup; #直连 54.37.203.19
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream mjusla{
         ip_hash;	#美国
@@ -325,12 +320,6 @@ upstream mjkh{
         #ip_hash;    #魔戒柬埔寨
         server 220.158.232.156:6616;
         #server 220.158.232.157:6616;
-		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
-upstream mjeupt{	 #欧洲承载（DE）目的地葡萄牙
-        server 5.182.39.30:6616;
-        #server 89.163.224.151:16624;
-        #server 54.38.220.90:16624;
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream cvhgc{
@@ -473,7 +462,7 @@ server {
 server {
     listen 16624;
     location / {
-		proxy_pass http://mjeupt;
+		proxy_pass http://185.113.143.187:6616;
 		include /usr/local/nginx/ws; 
         }
 }
@@ -571,14 +560,7 @@ server {
 server {
     listen 16643;   #芬兰-经德国中转
     location / {
-		proxy_pass http://mjeufi;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16644;   #德国
-    location / {
-		proxy_pass http://mjde;
+		proxy_pass http://37.143.129.238:6616;
 		include /usr/local/nginx/ws; 
         }
 }
@@ -721,6 +703,13 @@ server {
     listen 23321;
     location / {
 		proxy_pass http://fqhgc;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 23309;
+    location / {
+		proxy_pass http://mjde;
 		include /usr/local/nginx/ws; 
         }
 }
