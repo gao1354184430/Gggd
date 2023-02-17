@@ -666,3 +666,14 @@ server {
     proxy_protocol    on; # 获取真实ip
     proxy_pass kapokthk04;
 }
+server {
+    listen  443 ssl;
+    server_name us100.trojanyyds.xyz;
+    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
+    ssl_certificate /usr/local/nginx/cert/awtls.pem;
+    ssl_certificate_key /usr/local/nginx/cert/awtls.key; 
+    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
+    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
+    proxy_protocol    on; # 获取真实ip
+    proxy_pass awtus1;
+}	
