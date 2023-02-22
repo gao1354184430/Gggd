@@ -26,6 +26,7 @@
 #azhk23-f4s  20.255.70.93
 #awshk24-c5  18.162.77.30   #编号暂定，随时修改
 #awshk25-c5  43.198.111.155   #编号暂定，随时修改
+#awshk26-c5  43.198.108.110   #编号暂定，随时修改
 #azhk-backup 153.122.102.51 gmo日本1
 #azhk-backup 153.122.173.25 gmo日本2
 #azbackup 日本NTT 164.70.90.243   香港103.166.247.35
@@ -218,6 +219,7 @@ upstream mjfdchk{
 		server 20.205.63.9:16622 backup; #az16
 		server 18.162.77.30:16622; #awshk24-c5
 		server 43.198.111.155:16622; #awshk25-c5
+		server 43.198.108.110:16622; #awshk26-c5
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhk{
