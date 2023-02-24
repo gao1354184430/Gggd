@@ -18,7 +18,7 @@
 #azsg9-f2s   20.205.235.253
 #azsg10-f2s  4.194.81.234
 #azsg11-f2s  4.194.81.231
-#azsg12-f2s  4.193.145.25
+#azsg12-f2s  20.212.26.250
 #azhk12-f4s  20.24.93.173
 #azhk13-f4s  20.187.98.250
 #azhk14-f4s  20.239.178.16
@@ -49,7 +49,7 @@ upstream jp{
 		server 20.205.235.253:16617 backup; #azhk9临时
 		server 4.194.81.234:16617 backup; #azhk9临时
 		server 4.194.81.231:16617 backup; #azhk9临时
-		server 4.193.145.25:16617 backup; #azhk9临时
+		server 20.212.26.250:16617 backup; #azhk9临时
         server 20.255.70.93:16617 backup; 
 		server 20.24.93.173:16617 backup;
 		server 20.187.98.250:16617 backup;
@@ -76,7 +76,7 @@ upstream cvjp{
 		server 20.205.235.253:26601 backup;
 		server 4.194.81.234:26601 backup;
 		server 4.194.81.231:26601 backup;
-		server 4.193.145.25:26601 backup;
+		server 20.212.26.250:26601 backup;
         server 20.255.70.93:26601 backup;
 		server 20.24.93.173:26601 backup;
 		server 20.187.98.250:26601 backup;
@@ -103,7 +103,7 @@ upstream mjusla{
 		server 20.205.235.253:16648 backup; #azhk9临时
 		server 4.194.81.234:16648 backup; #azhk9临时
 		server 4.194.81.231:16648 backup; #azhk9临时
-		server 4.193.145.25:16648 backup; #azhk9临时
+		server 20.212.26.250:16648 backup; #azhk9临时
         server 20.255.70.93:16648 backup; 
 		server 20.24.93.173:16648 backup;
 		server 20.187.98.250:16648 backup;
@@ -130,7 +130,7 @@ upstream mjeupt{
 		server 20.205.235.253:16624 backup; #azhk9临时
 		server 4.194.81.234:16624 backup; #azhk9临时
 		server 4.194.81.231:16624 backup; #azhk9临时
-		server 4.193.145.25:16624 backup; #azhk9临时
+		server 20.212.26.250:16624 backup; #azhk9临时
         server 20.255.70.93:16624 backup; 
 		server 20.24.93.173:16624 backup;
 		server 20.187.98.250:16624 backup;
@@ -157,7 +157,7 @@ upstream sg{
 		server 20.205.235.253:16618; #
 		server 4.194.81.234:16618; #
 		server 4.194.81.231:16618; #
-		server 4.193.145.25:16618; #
+		server 20.212.26.250:16618; #
         server 20.24.93.173:16618 backup; #az13
 		server 20.187.98.250:16618 backup; #az13
 		server 20.255.70.93:16618 backup; #az23
@@ -184,7 +184,7 @@ upstream cvsg{
 		server 20.205.235.253:26603;
 		server 4.194.81.234:26603;
 		server 4.194.81.231:26603;
-		server 4.193.145.25:26603;
+		server 20.212.26.250:26603;
         server 20.255.70.93:26603 backup;
 		server 20.24.93.173:26603 backup;
 		server 20.187.98.250:26603 backup;
@@ -211,7 +211,7 @@ upstream mjfdchk{
 		#server 20.205.235.253:16622; #
 		#server 4.194.81.234:16622; #
 		#server 4.194.81.231:16622; #
-		#server 4.193.145.25:16622; #
+		#server 20.212.26.250:16622; #
         server 20.24.93.173:16622 backup; #az13
 		server 20.187.98.250:16622 backup; #az13
 		server 20.255.70.93:16622 backup; #az23
@@ -241,7 +241,7 @@ upstream cvhk{
 		server 20.205.235.253:26607; #azhk9
 		server 4.194.81.234:26607; #azhk9
 		server 4.194.81.231:26607; #azhk9
-		server 4.193.145.25:26607; #azhk9
+		server 20.212.26.250:26607; #azhk9
         server 20.24.93.173:26607; #az13
 		server 20.187.98.250:26607; #az13
 		server 20.255.70.93:26607; #az23
@@ -267,7 +267,7 @@ upstream tw_n{
 		server 20.205.235.253:16616; #azhk9
 		server 4.194.81.234:16616; #azhk9
 		server 4.194.81.231:16616; #azhk9
-		server 4.193.145.25:16616; #azhk9
+		server 20.212.26.250:16616; #azhk9
         server 20.24.93.173:16616; #azjp13
 		server 20.187.98.250:16616; #azjp13
 		server 20.255.70.93:16616; #azjp23
@@ -295,7 +295,7 @@ upstream cvtw{
 		server 20.205.235.253:26604; #azhk9
 		server 4.194.81.234:26604; #azhk9
 		server 4.194.81.231:26604; #azhk9
-		server 4.193.145.25:26604; #azhk9
+		server 20.212.26.250:26604; #azhk9
 		server 20.24.93.173:26604; #azjp13
         server 20.187.98.250:26604; #azjp13
 		server 20.255.70.93:26604; #azjp23
@@ -323,7 +323,7 @@ upstream fqtw{
 		server 20.205.235.253:23330; #azhk9
 		server 4.194.81.234:23330; #azhk9
 		server 4.194.81.231:23330; #azhk9
-		server 4.193.145.25:23330; #azhk9
+		server 20.212.26.250:23330; #azhk9
         server 20.24.93.173:23330; #azjp13
 		server 20.187.98.250:23330; #azjp13
 		server 20.255.70.93:23330; #azjp23
@@ -351,7 +351,7 @@ upstream mjhk{
 		server 20.205.235.253:16620 backup; #azhk9
 		server 4.194.81.234:16620 backup; #azhk9
 		server 4.194.81.231:16620 backup; #azhk9
-		server 4.193.145.25:16620 backup; #azhk9
+		server 20.212.26.250:16620 backup; #azhk9
         server 20.24.93.173:16620; #az13
 		server 20.187.98.250:16620; #az13
 		server 20.255.70.93:16620; #az23
@@ -422,7 +422,7 @@ upstream cvhgc{
 		server 20.205.235.253:26608;
 		server 4.194.81.234:26608;
 		server 4.194.81.231:26608;
-		server 4.193.145.25:26608;
+		server 20.212.26.250:26608;
         server 20.255.70.93:26608; 
 		server 20.24.93.173:26608;
 		server 20.187.98.250:26608;
@@ -490,7 +490,7 @@ upstream mjar{
 		server 20.205.235.253:16628; #azhk9
 		server 4.194.81.234:16628; #azhk9
 		server 4.194.81.231:16628; #azhk9
-		server 4.193.145.25:16628; #azhk9
+		server 20.212.26.250:16628; #azhk9
         server 20.24.93.173:16628; #az13
 		server 20.187.98.250:16628; #az13
 		server 20.255.70.93:16628; #az23
