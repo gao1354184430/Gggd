@@ -12,7 +12,7 @@ upstream cvtsg{
 }
 upstream mjtjp{
     #hash $remote_addr;
-    server 172.104.103.43:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7
+    server 172.104.89.215:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7
     server 172.105.242.94:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 139.162.66.194:6626 max_fails=3 fail_timeout=30s; #T13  ID12
     server 172.104.75.150:6626 max_fails=3 fail_timeout=30s; #T14  ID14
@@ -261,17 +261,6 @@ server {
     proxy_protocol    on; # 获取真实ip
     proxy_pass 45.159.250.41:6626;
 }
-server {
-    listen  443 ssl;
-    server_name iran.mjt001.com;
-    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
-    ssl_certificate /usr/local/nginx/cert/mjtls.pem;
-    ssl_certificate_key /usr/local/nginx/cert/mjtls.key; 
-    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
-    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
-    proxy_protocol    on; # 获取真实ip
-    proxy_pass 188.121.105.60:6626;
-}
 ##北美洲NA
 server {
     listen  443 ssl;
@@ -327,7 +316,7 @@ server {
     ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
     ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
     proxy_protocol    on; # 获取真实ip
-    proxy_pass 54.37.203.19:6626;
+    proxy_pass 91.107.192.79:6626;
 }
 server {
     listen  443 ssl;
@@ -349,7 +338,7 @@ server {
     ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
     ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
     proxy_protocol    on; # 获取真实ip
-    proxy_pass 54.37.203.19:8828;
+    proxy_pass 91.107.192.79:8828;
 }
 server {
     listen  443 ssl;
