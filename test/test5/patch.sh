@@ -48,6 +48,27 @@ echo > /usr/local/nginx/logs/access.log
 echo > /usr/local/nginx/logs/error.log
 echo -e "${Info}日志清理完成"
 }
+function crontab_add_patch(){
+    #创建监控文件
+	mkdir /usr/local/cron
+	echo "#!/bin/bash
+#
+/root/patch.sh logs
+">/usr/local/cron/patch_cron
+	#查看是否已经存在监控
+	cron_config=$(crontab -l | grep "patch_cron")
+	#检查并添加自动同步
+    if [[ -z ${cron_config} ]]; then
+		rm -r "/root/crontab.bak"
+		crontab -l > "/root/crontab.bak"
+		echo -e "\n0 4 * * * bash /usr/local/cron/patch_cron" >> "/root/crontab.bak"
+		crontab "/root/crontab.bak"
+		rm -r "/root/crontab.bak"
+        echo -e "${Info} 已添加 patch_cron 自动同步!"        
+    else
+		echo -e "${Error} patch_cron 自动同步已存在" 
+    fi
+}
 #cn菜单
 function menu_server() {
   echo && echo -e "  替一些软件打补丁，软件犯的错交给系统解决
@@ -79,7 +100,9 @@ if [[ -n $action ]]; then
 #增加一个通信检测，如果与GitHub通信失败则停止脚本
 	if [[ $github_test == "success" ]]; then
 		if [[ $action == "logs" ]]; then
-			rm_logs			
+			rm_logs		
+        elif [[ $action == "addcron" ]]; then
+            crontab_add_patch		
 		fi
 	else
 		echo -e "\033[31m 远端通信失败，程序中止 \033[0m"
