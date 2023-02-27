@@ -88,28 +88,31 @@ hksync tbs
 		echo -e "${Error} hksync自动更新已存在" 
     fi
 }
-function crontab_mjt_addcron(){
+#新版：mj承载/tbs承载/mjt入口合并到一个程序，一次性同步
+function crontab_mjhk_addcron(){
     #创建监控文件
 	mkdir /usr/local/cron
 	echo "#!/bin/bash
 #
+hksync cron
+hksync tbs
 hksync mjt
 hksync mjtls
 hksync dog
 hksync dogtls
-">/usr/local/cron/mjtsync_cron
+">/usr/local/cron/mjhksync_cron
 	#查看是否已经存在监控
-	cron_config=$(crontab -l | grep "mjtsync_cron")
+	cron_config=$(crontab -l | grep "mjhksync_cron")
 	#检查并添加自动同步
     if [[ -z ${cron_config} ]]; then
 		rm -r "/root/crontab.bak"
 		crontab -l > "/root/crontab.bak"
-		echo -e "\n*/2 * * * * bash /usr/local/cron/mjtsync_cron" >> "/root/crontab.bak"
+		echo -e "\n*/2 * * * * bash /usr/local/cron/mjhksync_cron" >> "/root/crontab.bak"
 		crontab "/root/crontab.bak"
 		rm -r "/root/crontab.bak"
-        echo -e "${Info} 已添加 mjtsync_cron 自动同步!"        
+        echo -e "${Info} 已添加 mjhksync_cron 自动同步!"        
     else
-		echo -e "${Error} mjtsync_cron 自动同步已存在" 
+		echo -e "${Error} mjhksync_cron 自动同步已存在" 
     fi
 }
 function crontab_gkdt_addcron(){
@@ -370,8 +373,8 @@ if [[ $action == "vnet" ]]; then
   elif [[ $action == "gkdtls" ]]; then
     crontab_gkd_tls
     crontab_aw_tls
-  elif [[ $action == "mjtaddcron" ]]; then
-	crontab_mjt_addcron
+  elif [[ $action == "mjhkaddcron" ]]; then
+	crontab_mjhk_addcron
   elif [[ $action == "gkdtaddcron" ]]; then
 	crontab_gkdt_addcron
   elif [[ $action == "v" ]]; then
