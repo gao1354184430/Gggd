@@ -573,6 +573,7 @@ function menu_server2() {
     install_patch
     hksync mjhkaddcron
 	hksync cron
+	hksync cron
     hksync tbs
     hksync mjt
 	hksync mjtls
@@ -624,6 +625,7 @@ if [[ -n $action ]]; then
 	        install_hksync
             install_patch
             hksync mjhkaddcron
+	        hksync cron
 	        hksync cron
             hksync tbs
             hksync mjt
