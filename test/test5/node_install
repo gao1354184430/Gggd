@@ -323,14 +323,11 @@ function install_hksync() {
 	wget --no-check-certificate $cndownload/hksync -O /usr/bin/hksync	
 	chmod +x /usr/bin/hksync
 }
-function install_hksync_t() {
-	if [[ "${release}" == "centos" ]]; then
-    yum install net-tools -y
-	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
-    apt-get install net-tools -y
-	fi
-	wget --no-check-certificate $cndownload/hksync -O /usr/bin/hksync	
-	chmod +x /usr/bin/hksync
+#patch一键清理日志
+function install_patch() {
+	wget --no-check-certificate $cndownload/patch.sh -O /root/patch.sh	
+	chmod +x /root/patch.sh
+    /root/patch.sh addcron
 }
 #xrayr一键下发配置，实现快速部署
 # node xrayrconf 1 api.mojie.best heihuamojie666666 V2Board 139.162.76.14 80 Trojan
@@ -537,8 +534,7 @@ function menu_server2() {
  ${Green_font_prefix} 5:${Font_color_suffix} 安装brook转发
  ${Green_font_prefix} 6:${Font_color_suffix} 安装cnsync同步
  ${Green_font_prefix} 7.${Font_color_suffix} 安装tengine+hksync-GKDT(实验性功能Trojan入口)
- ${Green_font_prefix} 8.${Font_color_suffix} 安装tengine+hksync(香港/日本承载安装)
- ${Green_font_prefix} 9.${Font_color_suffix} 安装tengine+hksync-T(实验性功能Trojan入口)
+ ${Green_font_prefix} 8.${Font_color_suffix} 安装tengine+hksync+MJT+patch_log(MJ承载和T入口合并部署)
 ————————————
  ${Green_font_prefix} 0.${Font_color_suffix} 安装国tengine+cnsync(国内中转一键部署)" &&echo 
   echo
@@ -565,25 +561,21 @@ function menu_server2() {
   7)
 	install_tengine
     install_iptables
-	install_hksync_t
+	install_hksync
     hksync gkdtaddcron
 	hksync gkdtls
 	hksync gkdt
     ;;
   8)
 	install_tengine
-	install_iptables
-	install_hksync
-    hksync addcron
-	hksync cron
-    ;;
-  9)
-	install_tengine
     install_iptables
-	install_hksync_t
-    hksync mjtaddcron
+	install_hksync
+    install_patch
+    hksync mjhkaddcron
+	hksync cron
+    hksync tbs
+    hksync mjt
 	hksync mjtls
-	hksync mjt
     systemctl restart nginx
     systemctl status nginx
     ;;
@@ -627,20 +619,15 @@ if [[ -n $action ]]; then
 	        hksync gkdtls
 	        hksync gkdt
 		elif [[ $action == "cn8" ]]; then
-		    check_sys
 	        install_tengine
-	        install_iptables
+            install_iptables
 	        install_hksync
-            hksync addcron
+            install_patch
+            hksync mjhkaddcron
 	        hksync cron
-		elif [[ $action == "cn9" ]]; then
-		    check_sys
-	        install_tengine
-	        install_iptables
-	        install_hksync_t
-            hksync mjtaddcron
+            hksync tbs
+            hksync mjt
 	        hksync mjtls
-	        hksync mjt
             systemctl restart nginx
             systemctl status nginx
 		elif [[ $action == "xrayrconf" ]]; then
