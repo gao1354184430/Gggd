@@ -16,7 +16,7 @@ upstream mjtjp{
     server 172.105.242.94:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 139.162.66.194:6626 max_fails=3 fail_timeout=30s; #T13  ID12
     server 172.104.75.150:6626 max_fails=3 fail_timeout=30s; #T14  ID14
-    server 172.105.224.126:6626 max_fails=3 fail_timeout=30s; #T15  ID15
+    server 172.104.125.122:6626 max_fails=3 fail_timeout=30s; #T15  ID15
     server 139.162.67.222:6626 max_fails=3 fail_timeout=30s backup;
 }
 upstream mjtvn{
@@ -32,9 +32,10 @@ upstream mjttw{
 }
 upstream mjtkr{
     hash $remote_addr;
-    server 152.67.211.153:6626 max_fails=3 fail_timeout=30s; #ID35 T1-甲骨文
-    server 152.70.244.180:6626 max_fails=3 fail_timeout=30s;  #ID36 T2
-    server 130.162.143.166:6626 max_fails=3 fail_timeout=30s;  #ID37 T3
+    #server 152.67.211.153:6626 max_fails=3 fail_timeout=30s; #ID35 T1-甲骨文
+    server 144.24.76.120:6626 max_fails=3 fail_timeout=30s;  #ID36 T2
+    server 144.24.92.229:6626 max_fails=3 fail_timeout=30s;  #ID37 T3
+    server 146.56.97.222:6626 max_fails=3 fail_timeout=30s;  #ID43 T4
 }
 ###负载均衡方案结束，以下为单点转发
 ##亚洲asia
@@ -165,7 +166,7 @@ server {
     proxy_next_upstream_timeout 10s;    # 总尝试超时时间为10s
     proxy_socket_keepalive on;  # 开启SO_KEEPALIVE选项进行心跳检测
     proxy_protocol    on; 
-    proxy_pass  59.120.251.209:6626; # 后端T监听端口
+    proxy_pass  211.21.23.37:6626; # 后端T监听端口
 }
 server {
     listen  443 ssl;
@@ -261,6 +262,17 @@ server {
     proxy_protocol    on; # 获取真实ip
     proxy_pass 45.159.250.41:6626;
 }
+server {
+    listen  443 ssl;
+    server_name il.mjt001.com;
+    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
+    ssl_certificate /usr/local/nginx/cert/mjtls.pem;
+    ssl_certificate_key /usr/local/nginx/cert/mjtls.key; 
+    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
+    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
+    proxy_protocol    on; # 获取真实ip
+    proxy_pass 77.91.74.2:6626;
+}
 ##北美洲NA
 server {
     listen  443 ssl;
@@ -331,6 +343,28 @@ server {
 }
 server {
     listen  443 ssl;
+    server_name ch.mjt001.com;
+    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
+    ssl_certificate /usr/local/nginx/cert/mjtls.pem;
+    ssl_certificate_key /usr/local/nginx/cert/mjtls.key; 
+    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
+    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
+    proxy_protocol    on; # 获取真实ip
+    proxy_pass 94.131.3.202:6626;
+}
+server {
+    listen  443 ssl;
+    server_name pt.mjt001.com;
+    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
+    ssl_certificate /usr/local/nginx/cert/mjtls.pem;
+    ssl_certificate_key /usr/local/nginx/cert/mjtls.key; 
+    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
+    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
+    proxy_protocol    on; # 获取真实ip
+    proxy_pass 5.182.39.138:6626;
+}
+server {
+    listen  443 ssl;
     server_name de2.mjt001.com;
     ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
     ssl_certificate /usr/local/nginx/cert/mjtls.pem;
@@ -372,6 +406,17 @@ server {
     ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
     proxy_protocol    on; # 获取真实ip
     proxy_pass 45.84.1.183:8828;
+}
+server {
+    listen  443 ssl;
+    server_name ua.mjt001.com;
+    ssl_protocols   TLSv1.2 TLSv1.3;     #SSL协议版本
+    ssl_certificate /usr/local/nginx/cert/mjtls.pem;
+    ssl_certificate_key /usr/local/nginx/cert/mjtls.key; 
+    ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
+    ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
+    proxy_protocol    on; # 获取真实ip
+    proxy_pass 45.87.155.63:6626;
 }
 server {
     listen  443 ssl;
