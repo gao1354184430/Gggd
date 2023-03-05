@@ -15,7 +15,8 @@ upstream mjhksg{
         #server 50.7.60.26:6616;   #新加坡2-FDC
         server 15.235.163.124:6616;   #新加坡3-OVH
         server 15.235.163.186:6616;    #新加坡4-OVH-代购
-        #server 15.235.171.180:6616;    #新加坡5-OVH-代购	
+        server 51.79.159.71:6616;    #新加坡6-OVH-自购	
+        server 51.79.158.204:6616;    #新加坡7-OVH-自购
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhksg{
@@ -58,7 +59,7 @@ upstream mjhkjp{
         ip_hash;
         server 172.104.125.81:6617;      #日本2-Linode--ID72
         server 172.104.103.103:6617;   #日本3-Linode-月抛
-        server 172.104.111.157:6617;    #日本4-linode
+        server 172.105.227.76:6617;    #日本4-linode
         server 172.104.95.183:6617;  #日本5-Linode
         server 139.162.84.26:6617;   #日本6-Linode-月抛####nodeID=229
         server 172.104.103.36:6617;   #日本7-Linode-月抛####nodeID=230
@@ -94,7 +95,7 @@ upstream mjazhgc{
 }
 upstream cvazhgc{
         ip_hash;
-        server 210.3.147.111:8818;   #老板要饭HGC
+        server 210.3.147.111:8817;   #老板要饭HGC
         #server 210.0.159.89:8818;    #HGC-N
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
@@ -113,9 +114,30 @@ server {
         }
 }
 server {
+    listen 16622; #MJ-FDC-HK
+    location / {
+		proxy_pass http://66.90.115.58:6616;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 16624; #MJEUPT
+    location / {
+		proxy_pass http://5.182.39.30:6616; #PT
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
     listen 16631; #MJ
     location / {
 		proxy_pass http://103.143.40.211:6616;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 16648; #MJUSLA
+    location / {
+		proxy_pass http://5.78.68.168:6616; #advinservers   #暂时换HZ的OR
 		include /usr/local/nginx/ws; 
         }
 }
@@ -419,7 +441,7 @@ server {
 server {
     listen 10021; #香港 V1 B
     location / {
-		proxy_pass http://210.3.147.111:7717;   
+		proxy_pass http://wzhkt2.ddns.me:27717;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -440,14 +462,14 @@ server {
 server {
     listen 10014; #台湾 V3
     location / {
-		proxy_pass http://lbtw.ddns.net:7737;   
+		proxy_pass http://yftw2.ddns.me:7788;   
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 10003; #日本 V1 B
     location / {
-		proxy_pass http://172.105.239.52:7717;   
+		proxy_pass http://172.105.239.52:7716;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -458,14 +480,42 @@ server {
 		include /usr/local/nginx/ws; 
         }
 }
+server {
+    listen 10013; #美国 西部 V1 A
+    location / {
+		proxy_pass http://23.239.1.119:7714;   
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 10029; #香港 HKBN
+    location / {
+		proxy_pass http://46.20.99.113:7714;   
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 10004; #日本 V1 A
+    location / {
+		proxy_pass http://139.162.90.150:7714;   
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 10010; #日本 V3 B
+    location / {
+		proxy_pass http://172.105.234.196:7712;   
+		include /usr/local/nginx/ws; 
+        }
+}
 #####台湾负载均衡#####
 upstream fqtw{
         dynamic_resolve fallback=stale fail_timeout=60s; 
-        server kcdtw.ddns.me:7737;
+        server lbtw.ddns.net:7737;
 }
 upstream cvtw{
         dynamic_resolve fallback=stale fail_timeout=60s; 
-        server lbtw.ddns.net:8818;
+        server lbtw.ddns.net:8888;
 }
 #####端口监听#####
 server {
@@ -485,20 +535,20 @@ server {
 ####################悦跑香港负载均衡###################
 upstream yptw{
         #ip_hash;  #台湾
-        server kcdtw.ddns.me:5521;   #快车道台湾
-	server kcdtw2.ddns.me:5521;   #gkd快车道台湾
-	server mjtw.ddns.me:5521;   #要饭台湾
-	server yftw2.ddns.me:5521;   #要饭台湾
-	server lbtw.ddns.net:5521;   #laoba要饭台湾
+        server kcdtw.ddns.me:5520;   #快车道台湾
+	server kcdtw2.ddns.me:5520;   #gkd快车道台湾
+	server mjtw.ddns.me:5520;   #要饭台湾
+	server yftw2.ddns.me:5520;   #要饭台湾
+	server lbtw.ddns.net:5520;   #laoba要饭台湾
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream yphkt{
         #ip_hash;  #香港HKT
-        server kcdhgc.ddns.me:5520;   #香港HGC
-	server kcdhkt.ddns.me:5520;   #香港HKT
-	server 210.3.147.111:5520;   #老板要饭云香港HGC
-	server wzhkt2.ddns.me:5520;   #香港HKT
-	server jzhkt.ddns.me:5520;   #香港HKT
+        #server kcdhgc.ddns.me:5519;   #香港HGC
+	server kcdhkt.ddns.me:5519;   #香港HKT
+	server 210.3.147.111:5519;   #老板要饭云香港HGC
+	server wzhkt2.ddns.me:5519;   #香港HKT
+	server jzhkt.ddns.me:5519;   #香港HKT
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream ypsg{
@@ -508,6 +558,38 @@ upstream ypsg{
 	server 172.105.114.56:5515;   #Linode
 	server 172.104.175.145:5515;   #Linode
 	server 172.104.175.61:5515;   #Linode
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
+}
+upstream yphkbgp{
+        #ip_hash;  #香港BGP Xhosts
+        server 46.20.99.185:5512;   #Xhosts
+	server 46.20.99.113:5512;   #Xhosts
+	server 46.20.99.71:5512;   #Xhosts
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
+}
+upstream ypkr{
+        #ip_hash;  #韩国
+        server 158.247.227.22:5512;   #Vultr
+	server 158.247.232.27:5512;   #Vultr
+	server 141.164.41.110:5512;   #Vultr 
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
+}
+upstream ypmy{
+        #ip_hash;  #要饭马来
+        server 58.26.140.33:5512;   #要饭马来
+	#server 118.101.192.178:5512;   #要饭马来
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
+}
+upstream ypin{
+        #ip_hash;  #Linode 印度
+        server 194.195.115.31:5512;   #Linode 印度
+	server 192.46.213.179:5512;   #Linode 印度
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
+}
+upstream ypus{
+        #ip_hash;  #Linode 美国
+        server 173.255.250.95:5512;   #Linode 美国
+	server 23.239.1.119:5512;   #Linode 美国
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 ######悦跑香港负载均衡端口监听######
@@ -530,6 +612,63 @@ server {
     location / {
     proxy_pass http://ypsg;
     include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 15504;
+    location / {
+		proxy_pass http://yphkbgp;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 15502;
+    location / {
+		proxy_pass http://ypkr;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 15506;
+    location / {
+		proxy_pass http://ypmy;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 15507;
+    location / {
+		proxy_pass http://ypin;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 15508;
+    location / {
+		proxy_pass http://ypus;
+		include /usr/local/nginx/ws; 
+        }
+}
+####################CV2二次反代配置###################
+server {
+    listen 26606;
+    location / {
+		proxy_pass http://173.255.250.95:8815; #Linode美国
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 26602;
+    location / {
+		proxy_pass http://158.247.227.22:8815;
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
+    listen 26609; #香港 HKBN
+    location / {
+		proxy_pass http://46.20.99.35:8815;   
+		include /usr/local/nginx/ws; 
         }
 }
 #end
