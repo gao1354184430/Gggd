@@ -620,6 +620,7 @@ if [[ -n $action ]]; then
 	        hksync gkdtls
 	        hksync gkdt
 		elif [[ $action == "cn8" ]]; then
+            check_sys
 	        install_tengine
             install_iptables
 	        install_hksync
