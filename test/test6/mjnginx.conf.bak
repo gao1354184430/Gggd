@@ -13,7 +13,7 @@
 #azjp9-f4s   20.210.206.163
 #azsg5-f4s   20.205.215.210    #sg承载开始
 #azsg6-f4s   20.212.193.96
-#azsg7-f4s   4.193.145.67
+#azsg7-f4s   4.193.80.236
 #azsg8-f2s   20.24.41.21        #这个似乎没有墙过-墙了
 #azsg9-f2s   20.205.235.253
 #azsg10-f2s  4.194.92.254              #todog  ZKM-1  这个pass没有加IP作为测试3.1
@@ -48,7 +48,7 @@ upstream jp{
 		server 20.210.206.163:16617;
         server 20.205.215.210:16617 backup;
 		server 20.212.193.96:16617 backup;
-        server 4.193.145.67:16617 backup;
+        server 4.193.80.236:16617 backup;
         server 20.24.41.21:16617 backup; #azhk9临时
 		server 20.205.235.253:16617 backup; #azhk9临时
 		server 4.194.92.254:16617 backup; #azhk9临时
@@ -75,7 +75,7 @@ upstream cvjp{
 		server 20.210.206.163:26601;
         server 20.205.215.210:26601 backup;
 		server 20.212.193.96:26601 backup;
-        server 4.193.145.67:26601 backup;
+        server 4.193.80.236:26601 backup;
         server 20.24.41.21:26601 backup;
 		server 20.205.235.253:26601 backup;
 		server 4.194.92.254:26601 backup;
@@ -102,7 +102,7 @@ upstream mjusla{
 		server 20.210.206.163:16648;
         server 20.205.215.210:16648 backup;
 		server 20.212.193.96:16648 backup;
-        server 4.193.145.67:16648 backup;
+        server 4.193.80.236:16648 backup;
         server 20.24.41.21:16648 backup; #azhk9临时
 		server 20.205.235.253:16648 backup; #azhk9临时
 		server 4.194.92.254:16648 backup; #azhk9临时
@@ -129,7 +129,7 @@ upstream mjeupt{
 		server 20.210.206.163:16624;
         server 20.205.215.210:16624 backup;
 		server 20.212.193.96:16624 backup;
-        server 4.193.145.67:16624 backup;
+        server 4.193.80.236:16624 backup;
         server 20.24.41.21:16624 backup; #azhk9临时
 		server 20.205.235.253:16624 backup; #azhk9临时
 		server 4.194.92.254:16624 backup; #azhk9临时
@@ -156,7 +156,7 @@ upstream sg{
 		server 20.210.206.163:16618 backup;
         server 20.205.215.210:16618;
 		server 20.212.193.96:16618;
-        server 4.193.145.67:16618;
+        server 4.193.80.236:16618;
         server 20.24.41.21:16618; #
 		server 20.205.235.253:16618; #
 		server 4.194.92.254:16618; #
@@ -173,7 +173,7 @@ upstream cvsg{
         #ip_hash;  #BGP承载，AZ备用
         server 20.205.215.210:26603 backup;
 		server 20.212.193.96:26603 backup;
-        server 4.193.145.67:26603 backup;
+        server 4.193.80.236:26603 backup;
         server 20.210.223.194:26603 backup;
 		server 20.18.109.213:26603 backup;
 		server 20.78.221.207:26603 backup;
@@ -210,7 +210,7 @@ upstream mjfdchk{
 		server 20.210.206.163:16622 backup;
         #server 20.205.215.210:16622;  #注释掉整个SG承载
 		#server 20.212.193.96:16622;
-        #server 4.193.145.67:16622;
+        #server 4.193.80.236:16622;
         #server 20.24.41.21:16622; #azsg8 这个暂时是aws所以注释
 		#server 20.205.235.253:16622; #
 		#server 4.194.92.254:16622; #
@@ -230,7 +230,7 @@ upstream cvhk{
         #ip_hash;  #BGP承载，AZ备用
         server 20.205.215.210:26607;
 		server 20.212.193.96:26607;
-        server 4.193.145.67:26607;
+        server 4.193.80.236:26607;
         server 20.210.223.194:26607;
 		server 20.18.109.213:26607;
 		server 20.78.221.207:26607;
@@ -266,7 +266,7 @@ upstream tw_n{
 		server 20.210.206.163:16616;
         server 20.205.215.210:16616;
 		server 20.212.193.96:16616;
-        server 4.193.145.67:16616;
+        server 4.193.80.236:16616;
         server 20.24.41.21:16616; #azhk9
 		server 20.205.235.253:16616; #azhk9
 		server 4.194.92.254:16616; #azhk9
@@ -284,7 +284,7 @@ upstream tw_n{
 upstream cvtw{
         server 20.205.215.210:26604;
 		server 20.212.193.96:26604;
-        server 4.193.145.67:26604;
+        server 4.193.80.236:26604;
         server 20.210.223.194:26604;  #二次反代-包含BGP
 		server 20.18.109.213:26604;  #二次反代-包含BGP
 		server 20.78.221.207:26604;  #二次反代-包含BGP
@@ -322,7 +322,7 @@ upstream fqtw{
 		server 20.210.206.163:23330;
         server 20.205.215.210:23330;
 		server 20.212.193.96:23330;
-        server 4.193.145.67:23330;
+        server 4.193.80.236:23330;
         server 20.24.41.21:23330; #azhk9
 		server 20.205.235.253:23330; #azhk9
 		server 4.194.92.254:23330; #azhk9
@@ -340,7 +340,7 @@ upstream fqtw{
 upstream mjhk{
         server 20.205.215.210:16620 backup;   #HKT
 		server 20.212.193.96:16620 backup;   #HKT
-        server 4.193.145.67:16620 backup;
+        server 4.193.80.236:16620 backup;
         server 20.210.223.194:16620 backup;
 		server 20.18.109.213:16620 backup;
 		server 20.78.221.207:16620 backup;
@@ -415,7 +415,7 @@ upstream cvhgc{
 		server 20.210.206.163:26608;
         server 20.205.215.210:26608;
 		server 20.212.193.96:26608;
-        server 4.193.145.67:26608;
+        server 4.193.80.236:26608;
         server 20.24.41.21:26608;
 		server 20.205.235.253:26608;
 		server 4.194.92.254:26608;
@@ -446,7 +446,7 @@ upstream cvmalai_vnet{
 		server 20.210.206.163:26610;
         server 20.205.215.210:26610;
 		server 20.212.193.96:26610;
-        server 4.193.145.67:26610;
+        server 4.193.80.236:26610;
         server 153.122.102.51:26610 backup;
 		server 153.122.173.25:26610 backup;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
@@ -464,7 +464,7 @@ upstream fqmalai_vnet{
 		server 20.210.206.163:10044;
         server 20.205.215.210:10044;
 		server 20.212.193.96:10044;
-        server 4.193.145.67:10044;
+        server 4.193.80.236:10044;
         server 153.122.102.51:10044 backup;
         server 153.122.173.25:10044 backup;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
@@ -483,7 +483,7 @@ upstream mjar{
 		server 20.210.206.163:16628;
         server 20.205.215.210:16628;
 		server 20.212.193.96:16628;
-        server 4.193.145.67:16628;
+        server 4.193.80.236:16628;
         server 20.24.41.21:16628; #azhk9
 		server 20.205.235.253:16628; #azhk9
 		server 4.194.92.254:16628; #azhk9
