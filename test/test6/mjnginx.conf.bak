@@ -609,7 +609,7 @@ server {
 server {
     listen 16639;   #非洲-尼日利亚-拉各斯
     location / {
-		proxy_pass http://185.255.123.195:6642;
+		proxy_pass http://185.255.123.195:6644;
 		include /usr/local/nginx/ws; 
         }
 }
