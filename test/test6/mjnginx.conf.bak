@@ -623,7 +623,7 @@ server {
 server {
     listen 16641;   #加拿大东海岸
     location / {
-		proxy_pass http://149.56.133.8:6642;
+		proxy_pass http://149.56.133.8:6644;
 		include /usr/local/nginx/ws; 
         }
 }
