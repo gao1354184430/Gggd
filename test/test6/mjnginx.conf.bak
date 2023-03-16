@@ -381,12 +381,12 @@ upstream mjde{
 }
 upstream br{
         #ip_hash;	#vu巴西负载
-        server 216.238.103.47:6642;
+        server 216.238.103.47:6644;
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream mjmx{
         #ip_hash;	#vu墨西哥负载
-        server 216.238.81.179:6644;	
+        server 216.238.81.179:6646;	
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ru{
@@ -560,7 +560,7 @@ server {
 server {
     listen 16626;
     location / {
-		proxy_pass http://45.79.125.94:6646;  #魔戒印度mjin
+		proxy_pass http://45.79.125.94:6648;  #魔戒印度mjin
 		include /usr/local/nginx/ws; 
         }
 }
@@ -630,7 +630,7 @@ server {
 server {
     listen 16642;   #荷兰
     location / {
-		proxy_pass http://62.4.14.33:6646;
+		proxy_pass http://62.4.14.33:6648;
 		include /usr/local/nginx/ws; 
         }
 }
@@ -651,7 +651,7 @@ server {
 server {
     listen 16645;  #法国
     location / {
-		proxy_pass http://212.129.58.216:6644;
+		proxy_pass http://212.129.58.216:6646;
 		include /usr/local/nginx/ws; 
         }
 }
