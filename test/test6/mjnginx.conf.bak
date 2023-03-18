@@ -645,14 +645,14 @@ server {
 server {
     listen 16644;   #德国
     location / {
-		proxy_pass http://167.235.69.211:6648;
+		proxy_pass http://167.235.69.211:6650;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16645;  #法国
     location / {
-		proxy_pass http://212.129.58.216:6648;
+		proxy_pass http://212.129.58.216:6650;
 		include /usr/local/nginx/ws; 
         }
 }
