@@ -603,14 +603,14 @@ server {
 server {
     listen 16638;   #澳洲-悉尼
     location / {
-		proxy_pass http://170.187.240.57:6648;
+		proxy_pass http://170.187.240.57:6650;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16639;   #非洲-尼日利亚-拉各斯
     location / {
-		proxy_pass http://185.255.123.195:6650;
+		proxy_pass http://185.255.123.195:6652;
 		include /usr/local/nginx/ws; 
         }
 }
