@@ -382,12 +382,12 @@ upstream mjde{
 }
 upstream br{
         #ip_hash;	#vu巴西负载
-        server 216.238.103.47:6648;
+        server 216.238.103.47:6650;
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream mjmx{
         #ip_hash;	#vu墨西哥负载
-        server 216.238.81.179:6650;	
+        server 216.238.81.179:6652;	
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ru{
