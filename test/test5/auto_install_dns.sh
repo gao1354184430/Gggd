@@ -61,7 +61,7 @@ case "$country_code" in
     fi
     if [ "$country_code" = "JP" ]; then
       geosite="${geosite},dazn_jp"
-      domain_rules="domain:www.videopass.jp,douga.geo-online.co.jp,video.tv-tokyo.co.jp,www.ytv.co.jp,dizm.mbs.jp,osaka-channel.hikaritv.net,www.tbs.co.jp,games.dmm.com,konosubafd.jp,worldflipper.jp,pjsekai.sega.jp,www.wowow.co.jp,music-book.jp,www.videomarket.jp,video.unext.jp,umamusume.jp,nierreincarnation.jp,p-eternal.jp,erogamescape.dyndns.org,radiko.jp,www.clubdam.com,disneyplus.disney.co.jp,vod.skyperfectv.co.jp,spoox.skyperfectv.co.jp,store.jp.square-enix.com,manga.line.me,tv.dmm.com,tv.dmm.co.jp" # 将 example.jp 替换为实际的日本域名
+      domain_rules="www.videopass.jp,douga.geo-online.co.jp,video.tv-tokyo.co.jp,www.ytv.co.jp,dizm.mbs.jp,osaka-channel.hikaritv.net,www.tbs.co.jp,games.dmm.com,konosubafd.jp,worldflipper.jp,pjsekai.sega.jp,www.wowow.co.jp,music-book.jp,www.videomarket.jp,video.unext.jp,umamusume.jp,nierreincarnation.jp,p-eternal.jp,erogamescape.dyndns.org,radiko.jp,www.clubdam.com,disneyplus.disney.co.jp,vod.skyperfectv.co.jp,spoox.skyperfectv.co.jp,store.jp.square-enix.com,manga.line.me,tv.dmm.com,tv.dmm.co.jp" # 将 example.jp 替换为实际的日本域名
     else
       geosite="${geosite},dazn_us"
       domain_rules=""
@@ -110,7 +110,7 @@ echo "${dns_ips}:
   strategy: ipv4_first
   rules:
   - geosite:${geosite}
-  - ${domain_rules}
+  - domain:${domain_rules}
 178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
   strategy: ipv4_first
   rules:
