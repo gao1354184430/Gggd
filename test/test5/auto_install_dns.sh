@@ -63,7 +63,7 @@ case "$country_code" in
       geosite="${geosite},dazn_jp"
       domain_rules="www.videopass.jp,douga.geo-online.co.jp,video.tv-tokyo.co.jp,www.ytv.co.jp,dizm.mbs.jp,osaka-channel.hikaritv.net,www.tbs.co.jp,games.dmm.com,konosubafd.jp,worldflipper.jp,pjsekai.sega.jp,www.wowow.co.jp,music-book.jp,www.videomarket.jp,video.unext.jp,umamusume.jp,nierreincarnation.jp,p-eternal.jp,erogamescape.dyndns.org,radiko.jp,www.clubdam.com,disneyplus.disney.co.jp,vod.skyperfectv.co.jp,spoox.skyperfectv.co.jp,store.jp.square-enix.com,manga.line.me,tv.dmm.com,tv.dmm.co.jp" # 将 example.jp 替换为实际的日本域名
     else
-      geosite="${geosite},dazn_us"
+      geosite="${geosite}"
       domain_rules=""
     fi
     ;;
@@ -118,7 +118,7 @@ echo "${dns_ips}:
 54.185.77.141,3.144.167.186,3.144.167.186,18.237.220.28:
   strategy: ipv4_first
   rules:
-    - geosite:hulu
+    - geosite:hulu,dazn_us
     - geosite:hbo
     - domain:control.kochava.com
     - domain:d151l6v8er5bdm.cloudfront.net
@@ -148,6 +148,5 @@ echo "${dns_ips}:
   rules:
     - geosite:bbc
 ">/etc/soga/dns.yml
-soga restart
-docker restart $( docker ps -a -q) 
+
 echo "已成功部署 DNS 解锁配置。"
