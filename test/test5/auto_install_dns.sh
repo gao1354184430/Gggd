@@ -55,7 +55,7 @@ fi
 # 根据国家代码生成 DNS 解锁配置
 case "$country_code" in
   "SG"|"KR"|"JP"|"HK"|"US"|"UK"|"DE"|"TW")
-    geosite="netflix,disney,geosite:${country_code},geosite:TW,geosite:UK"
+    geosite="netflix,disney,geosite:${country_code}"
     if [ "$country_code" = "UK" ]; then
       geosite="${geosite},bbc"
     fi
@@ -72,8 +72,6 @@ case "$country_code" in
     exit 1
     ;;
 esac
-
-domain_rules="${domain_rules},platform.openai.com,beta.openai.com,auth0.openai.com,auth1.openai.com,auth2.openai.com,openai.com,chat.openai.com"
 
 # 为不同地区设置不同的 DNS IP
 case "$country_code" in
@@ -111,8 +109,44 @@ esac
 echo "${dns_ips}:
   strategy: ipv4_first
   rules:
-,geosite:${geosite}
-,${domain_rules}
+  - geosite:${geosite}
+  - ${domain_rules}
+178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
+  strategy: ipv4_first
+  rules:
+    - geosite:bilibili
+54.185.77.141,3.144.167.186,3.144.167.186,18.237.220.28:
+  strategy: ipv4_first
+  rules:
+    - geosite:hulu
+    - geosite:hbo
+    - domain:control.kochava.com
+    - domain:d151l6v8er5bdm.cloudfront.net
+    - domain:d1sgwhnao7452x.cloudfront.net
+    - domain:dazn-api.com
+    - domain:dazn.com
+    - domain:dazndn.com
+    - domain:dc2-vodhls-perform.secure.footprint.net
+    - domain:dca-ll-livedazn-dznlivejp.s.llnwi.net
+    - domain:dcalivedazn.akamaized.net
+    - domain:dcblivedazn.akamaized.net
+    - domain:indazn.com
+    - domain:indaznlab.com
+    - domain:intercom.io
+    - domain:logx.optimizely.com
+    - domain:s.yimg.jp
+    - domain:sentry.io
+    - domain:platform.openai.com 
+    - domain:beta.openai.com 
+    - domain:auth0.openai.com 
+    - domain:auth1.openai.com 
+    - domain:auth2.openai.com 
+    - domain:openai.com 
+    - domain:chat.openai.com
+143.47.225.58:
+  strategy: ipv4_first
+  rules:
+    - geosite:bbc
 ">/etc/soga/dns.yml
 
 echo "已成功部署 DNS 解锁配置。"
