@@ -148,5 +148,6 @@ echo "${dns_ips}:
   rules:
     - geosite:bbc
 ">/etc/soga/dns.yml
-
+soga restart
+docker restart $( docker ps -a -q) 
 echo "已成功部署 DNS 解锁配置。"
