@@ -38,14 +38,6 @@ country_code=$(echo $ip_info | jq -r '.country')
 echo "检测到 VPS 的 IP 地址为：${public_ip}"
 echo "检测到 VPS 所在的国家代码：${country_code}"
 
-# 确认是否要部署
-read -p "是否要为这个地区部署 DNS 解锁配置？ (y/n): " confirm
-
-if [ "$confirm" != "y" ]; then
-  echo "已取消部署。"
-  exit 1
-fi
-
 # 如果检测出的地区不对，请输入正确的地区代码
 read -p "如果地区代码不正确，请输入正确的地区代码（否则按回车键）：" manual_country_code
 if [ ! -z "$manual_country_code" ]; then
@@ -63,7 +55,7 @@ case "$country_code" in
       geosite="${geosite},dazn_jp"
       domain_rules="www.videopass.jp,douga.geo-online.co.jp,video.tv-tokyo.co.jp,www.ytv.co.jp,dizm.mbs.jp,osaka-channel.hikaritv.net,www.tbs.co.jp,games.dmm.com,konosubafd.jp,worldflipper.jp,pjsekai.sega.jp,www.wowow.co.jp,music-book.jp,www.videomarket.jp,video.unext.jp,umamusume.jp,nierreincarnation.jp,p-eternal.jp,erogamescape.dyndns.org,radiko.jp,www.clubdam.com,disneyplus.disney.co.jp,vod.skyperfectv.co.jp,spoox.skyperfectv.co.jp,store.jp.square-enix.com,manga.line.me,tv.dmm.com,tv.dmm.co.jp" # 将 example.jp 替换为实际的日本域名
     else
-      geosite="${geosite},dazn_us"
+      geosite="${geosite}"
       domain_rules=""
     fi
     ;;
@@ -76,7 +68,7 @@ esac
 # 为不同地区设置不同的 DNS IP
 case "$country_code" in
   "SG")
-    dns_ips="54.179.215.42,159.89.211.38,188.166.196.55,146.190.200.114,139.59.109.225,139.59.109.242"
+    dns_ips="159.89.211.38,188.166.196.55,146.190.200.114,139.59.109.225,139.59.109.242"
     ;;
   "KR")
     dns_ips="144.24.65.233"
@@ -88,7 +80,7 @@ case "$country_code" in
     dns_ips="104.208.65.88,20.187.76.178,20.239.75.33,20.2.83.186"
     ;;
   "US")
-    dns_ips="208.67.222.222,8.8.4.4"
+    dns_ips="54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28"
     ;;
   "UK")
     dns_ips="143.47.225.58"
@@ -115,10 +107,10 @@ echo "${dns_ips}:
   strategy: ipv4_first
   rules:
     - geosite:bilibili
-54.185.77.141,3.144.167.186,3.144.167.186,18.237.220.28:
+54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
   strategy: ipv4_first
   rules:
-    - geosite:hulu
+    - geosite:hulu,dazn_us
     - geosite:hbo
     - domain:control.kochava.com
     - domain:d151l6v8er5bdm.cloudfront.net
