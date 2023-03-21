@@ -107,7 +107,7 @@ echo "${dns_ips}:
   strategy: ipv4_first
   rules:
     - geosite:bilibili
-54.185.77.141,3.144.167.186,3.144.167.186,18.237.220.28:
+54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
   strategy: ipv4_first
   rules:
     - geosite:hulu,dazn_us
