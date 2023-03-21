@@ -38,14 +38,6 @@ country_code=$(echo $ip_info | jq -r '.country')
 echo "检测到 VPS 的 IP 地址为：${public_ip}"
 echo "检测到 VPS 所在的国家代码：${country_code}"
 
-# 确认是否要部署
-read -p "是否要为这个地区部署 DNS 解锁配置？ (y/n): " confirm
-
-if [ "$confirm" != "y" ]; then
-  echo "已取消部署。"
-  exit 1
-fi
-
 # 如果检测出的地区不对，请输入正确的地区代码
 read -p "如果地区代码不正确，请输入正确的地区代码（否则按回车键）：" manual_country_code
 if [ ! -z "$manual_country_code" ]; then
