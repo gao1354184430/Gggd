@@ -44,36 +44,11 @@ if [ ! -z "$manual_country_code" ]; then
   country_code=$manual_country_code
 fi
 
-# 根据国家代码生成 DNS 解锁配置
-geosite=" - geosite:netflix
-     - geosite:disney
-     - geosite:youtube"
-    if [ "$country_code" = "UK" ]; then
-      geosite="${geosite}"
-      general_rules="
-  143.47.225.58:
-  strategy: ipv4_first
-  rules:
-    - geosite:bbc
-  178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
-  strategy: ipv4_first
-  rules:
-    - geosite:bilibili
-    "
-    fi
-    if [ "$country_code" = "US" ]; then
-      general_rules="
-  178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
-  strategy: ipv4_first
-  rules:
-    - geosite:bilibili"
-    fi
-    if [ "$country_code" = "TW" ]; then
-      general_rules="
-  54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
-  strategy: ipv4_first
-  rules:
-    - geosite:hulu,dazn_us
+general_rules="    - geosite:netflix
+    - geosite:disney"
+
+us_rules="
+    - geosite:hulu
     - geosite:hbo
     - domain:control.kochava.com
     - domain:d151l6v8er5bdm.cloudfront.net
@@ -98,53 +73,15 @@ geosite=" - geosite:netflix
     - domain:auth2.openai.com 
     - domain:openai.com 
     - domain:chat.openai.com"
-    fi
-    if [ "$country_code" = "JP" ]; then
-      geosite="${geosite}"
-      general_rules="
-    - geosite:dazn_jp
-    - domain:www.videopass.jp
-    - domain:douga.geo-online.co.jp
-    - domain:video.tv-tokyo.co.jp
-    - domain:www.ytv.co.jp
-    - domain:dizm.mbs.jp
-    - domain:osaka-channel.hikaritv.net
-    - domain:www.tbs.co.jp
-    - domain:games.dmm.com
-    - domain:konosubafd.jp
-    - domain:worldflipper.jp
-    - domain:pjsekai.sega.jp
-    - domain:www.wowow.co.jp
-    - domain:music-book.jp
-    - domain:www.videomarket.jp
-    - domain:video.unext.jp
-    - domain:umamusume.jp
-    - domain:nierreincarnation.jp
-    - domain:p-eternal.jp
-    - domain:erogamescape.dyndns.org
-    - domain:radiko.jp
-    - domain:www.clubdam.com
-    - domain:disneyplus.disney.co.jp
-    - domain:vod.skyperfectv.co.jp
-    - domain:spoox.skyperfectv.co.jp
-    - domain:store.jp.square-enix.com
-    - domain:manga.line.me
-    - domain:tv.dmm.com
-    - domain:tv.dmm.co.jp"
-    fi # 将 example.jp 替换为实际的日本域名
-    else
-      geosite="${geosite}"
-      general_rules="
-178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
-  strategy: ipv4_first
-  rules:
-    - geosite:bilibili
-54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
-  strategy: ipv4_first
-  rules:
-    - geosite:hulu
-    - geosite:hbo
-    - geosite:dazn_us
+
+uk_rules="
+    - geosite:bbc"
+
+jp_rules="
+    - geosite:bahamut
+    - geosite:abema
+    - geosite:dmm
+    - geosite:niconico
     - domain:control.kochava.com
     - domain:d151l6v8er5bdm.cloudfront.net
     - domain:d1sgwhnao7452x.cloudfront.net
@@ -167,13 +104,82 @@ geosite=" - geosite:netflix
     - domain:auth1.openai.com 
     - domain:auth2.openai.com 
     - domain:openai.com 
-    - domain:chat.openai.com
-143.47.225.58:
-  strategy: ipv4_first
-  rules:
-    - geosite:bbc
+    - domain:chat.openai.com"
+
+hk_rules=""
+
+sg_rules=""
+
+tw_rules=""
+
+kr_rules="
+    - domain:www.wavve.com"
+
+# 根据国家代码生成 DNS 解锁配置
+case "$country_code" in
+  SG)
+      country_rules="${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}
       "
-    fi
+    ;;
+  UK)
+      country_rules="${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}"
+    ;;
+  US)
+      country_rules="${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}"
+    ;;
+  TW)
+      country_rules="${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}"
+    ;;
+  JP)
+      country_rules="${jp_rules}
+      ${model}
+      ${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}"
+    ;;
+  KR)
+      country_rules="${kr_rules}
+      ${model}
+      ${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}"
+    ;;
+  HK)
+      country_rules="${hk_rules}
+      ${model}
+      ${us_rules}
+      ${model}
+      ${uk_rules}
+      "
+    ;;
+  DE)
+      country_rules="${de_rules}
+      ${model}
+      ${us_rules}
+      ${model}
+      ${tw_rules}
+      ${model}
+      ${uk_rules}"
     ;;
   *)
     echo "暂不支持该地区的配置。"
@@ -181,31 +187,43 @@ geosite=" - geosite:netflix
     ;;
 esac
 
+tw_dns="178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123"
+us_dns="3.144.167.186,54.185.77.141,34.215.124.151,18.237.220.28"
+kr_dns="144.24.65.233"
+uk_dns="143.47.225.58"
+sg_dns="146.190.200.114,54.179.215.42,159.89.211.38,188.166.196.55,139.59.109.225,139.59.109.242"
+jp_dns="172.105.214.160,172.104.97.87,172.105.225.18,172.104.76.30,139.162.86.212"
+hk_dns="104.208.65.88,20.187.76.178,20.239.75.33,20.2.83.186"
+de_dns="152.70.165.99"
+
+model="strategy: ipv4_first
+  rules:"
+
 # 为不同地区设置不同的 DNS IP
 case "$country_code" in
   "SG")
-    dns_ips="146.190.200.114,54.179.215.42,159.89.211.38,188.166.196.55,139.59.109.225,139.59.109.242"
+    dns_ips="${sg_dns}"
     ;;
   "KR")
-    dns_ips="144.24.65.233"
+    dns_ips="${kr_dns}"
     ;;
   "JP")
-    dns_ips="172.105.214.160,172.104.97.87,172.105.225.18,172.104.76.30,139.162.86.212"
+    dns_ips="${jp_dns}"
     ;;
   "HK")
-    dns_ips="104.208.65.88,20.187.76.178,20.239.75.33,20.2.83.186"
+    dns_ips="${hk_dns}"
     ;;
   "US")
-    dns_ips="3.144.167.186,54.185.77.141,34.215.124.151,18.237.220.28"
+    dns_ips="${us_dns}"
     ;;
   "UK")
-    dns_ips="143.47.225.58"
+    dns_ips="${uk_dns}"
     ;;
   "DE")
-    dns_ips="152.70.165.99"
+    dns_ips="${de_dns}"
     ;;
   "TW")
-    dns_ips="178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123"
+    dns_ips="${tw_dns}"
     ;;
   *)
     echo "暂不支持该地区的配置。"
@@ -214,11 +232,12 @@ case "$country_code" in
 esac
 
 # 写入配置文件
-echo "${dns_ips}:
+echo "
+${dns_ips}:
   strategy: ipv4_first
   rules:
-${geosite}
 ${general_rules}
+${country_rules}
 ">/etc/soga/dns.yml
 soga restart
 docker restart $( docker ps -a -q) 
