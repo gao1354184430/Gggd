@@ -45,9 +45,7 @@ if [ ! -z "$manual_country_code" ]; then
 fi
 
 # 根据国家代码生成 DNS 解锁配置
-case "$country_code" in
-  "SG"|"KR"|"JP"|"HK"|"US"|"UK"|"DE"|"TW")
-    geosite=" - geosite:netflix
+geosite=" - geosite:netflix
      - geosite:disney
      - geosite:youtube"
     if [ "$country_code" = "UK" ]; then
