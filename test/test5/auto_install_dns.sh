@@ -118,66 +118,91 @@ kr_rules="
 # 根据国家代码生成 DNS 解锁配置
 case "$country_code" in
   SG)
-      country_rules="${us_rules}
+      country_rules="${sg_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${uk_dns}
       ${model}
       ${uk_rules}
+      ${us_dns}
+      ${model}
+      ${us_rules}
       "
     ;;
   UK)
-      country_rules="${us_rules}
+      country_rules="${uk_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${us_dns}
       ${model}
-      ${uk_rules}"
+      ${us_rules}"
     ;;
   US)
       country_rules="${us_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${uk_dns}
       ${model}
       ${uk_rules}"
     ;;
   TW)
       country_rules="${us_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${uk_dns}
       ${model}
-      ${uk_rules}"
+      ${uk_rules}
+      ${us_dns}
+      ${model}
+      ${us_rules}"
     ;;
   JP)
       country_rules="${jp_rules}
+      ${us_dns}
       ${model}
       ${us_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${uk_dns}
       ${model}
       ${uk_rules}"
     ;;
   KR)
       country_rules="${kr_rules}
+      ${us_dns}
       ${model}
       ${us_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${uk_dns}
       ${model}
       ${uk_rules}"
     ;;
   HK)
       country_rules="${hk_rules}
+      ${us_dns}
       ${model}
       ${us_rules}
+      ${uk_dns}
       ${model}
       ${uk_rules}
       "
     ;;
   DE)
       country_rules="${de_rules}
+      ${us_dns}
       ${model}
       ${us_rules}
+      ${tw_dns}
       ${model}
       ${tw_rules}
+      ${uk_dns}
       ${model}
       ${uk_rules}"
     ;;
