@@ -47,16 +47,134 @@ fi
 # 根据国家代码生成 DNS 解锁配置
 case "$country_code" in
   "SG"|"KR"|"JP"|"HK"|"US"|"UK"|"DE"|"TW")
-    geosite="netflix,disney,youtube"
+    geosite=" - geosite:netflix
+     - geosite:disney
+     - geosite:youtube"
     if [ "$country_code" = "UK" ]; then
-      geosite="${geosite},bbc"
+      geosite="${geosite}"
+      general_rules="
+  143.47.225.58:
+  strategy: ipv4_first
+  rules:
+    - geosite:bbc
+  178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
+  strategy: ipv4_first
+  rules:
+    - geosite:bilibili
+    "
+    fi
+    if [ "$country_code" = "US" ]; then
+      general_rules="
+  178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
+  strategy: ipv4_first
+  rules:
+    - geosite:bilibili"
+    fi
+    if [ "$country_code" = "TW" ]; then
+      general_rules="
+  54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
+  strategy: ipv4_first
+  rules:
+    - geosite:hulu,dazn_us
+    - geosite:hbo
+    - domain:control.kochava.com
+    - domain:d151l6v8er5bdm.cloudfront.net
+    - domain:d1sgwhnao7452x.cloudfront.net
+    - domain:dazn-api.com
+    - domain:dazn.com
+    - domain:dazndn.com
+    - domain:dc2-vodhls-perform.secure.footprint.net
+    - domain:dca-ll-livedazn-dznlivejp.s.llnwi.net
+    - domain:dcalivedazn.akamaized.net
+    - domain:dcblivedazn.akamaized.net
+    - domain:indazn.com
+    - domain:indaznlab.com
+    - domain:intercom.io
+    - domain:logx.optimizely.com
+    - domain:s.yimg.jp
+    - domain:sentry.io
+    - domain:platform.openai.com 
+    - domain:beta.openai.com 
+    - domain:auth0.openai.com 
+    - domain:auth1.openai.com 
+    - domain:auth2.openai.com 
+    - domain:openai.com 
+    - domain:chat.openai.com"
     fi
     if [ "$country_code" = "JP" ]; then
-      geosite="${geosite},dazn_jp"
-      domain_rules="www.videopass.jp,douga.geo-online.co.jp,video.tv-tokyo.co.jp,www.ytv.co.jp,dizm.mbs.jp,osaka-channel.hikaritv.net,www.tbs.co.jp,games.dmm.com,konosubafd.jp,worldflipper.jp,pjsekai.sega.jp,www.wowow.co.jp,music-book.jp,www.videomarket.jp,video.unext.jp,umamusume.jp,nierreincarnation.jp,p-eternal.jp,erogamescape.dyndns.org,radiko.jp,www.clubdam.com,disneyplus.disney.co.jp,vod.skyperfectv.co.jp,spoox.skyperfectv.co.jp,store.jp.square-enix.com,manga.line.me,tv.dmm.com,tv.dmm.co.jp" # 将 example.jp 替换为实际的日本域名
+      geosite="${geosite}"
+      general_rules="
+    - geosite:dazn_jp
+    - domain:www.videopass.jp
+    - domain:douga.geo-online.co.jp
+    - domain:video.tv-tokyo.co.jp
+    - domain:www.ytv.co.jp
+    - domain:dizm.mbs.jp
+    - domain:osaka-channel.hikaritv.net
+    - domain:www.tbs.co.jp
+    - domain:games.dmm.com
+    - domain:konosubafd.jp
+    - domain:worldflipper.jp
+    - domain:pjsekai.sega.jp
+    - domain:www.wowow.co.jp
+    - domain:music-book.jp
+    - domain:www.videomarket.jp
+    - domain:video.unext.jp
+    - domain:umamusume.jp
+    - domain:nierreincarnation.jp
+    - domain:p-eternal.jp
+    - domain:erogamescape.dyndns.org
+    - domain:radiko.jp
+    - domain:www.clubdam.com
+    - domain:disneyplus.disney.co.jp
+    - domain:vod.skyperfectv.co.jp
+    - domain:spoox.skyperfectv.co.jp
+    - domain:store.jp.square-enix.com
+    - domain:manga.line.me
+    - domain:tv.dmm.com
+    - domain:tv.dmm.co.jp"
+    fi # 将 example.jp 替换为实际的日本域名
     else
       geosite="${geosite}"
-      domain_rules=""
+      general_rules="
+178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
+  strategy: ipv4_first
+  rules:
+    - geosite:bilibili
+54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
+  strategy: ipv4_first
+  rules:
+    - geosite:hulu
+    - geosite:hbo
+    - geosite:dazn_us
+    - domain:control.kochava.com
+    - domain:d151l6v8er5bdm.cloudfront.net
+    - domain:d1sgwhnao7452x.cloudfront.net
+    - domain:dazn-api.com
+    - domain:dazn.com
+    - domain:dazndn.com
+    - domain:dc2-vodhls-perform.secure.footprint.net
+    - domain:dca-ll-livedazn-dznlivejp.s.llnwi.net
+    - domain:dcalivedazn.akamaized.net
+    - domain:dcblivedazn.akamaized.net
+    - domain:indazn.com
+    - domain:indaznlab.com
+    - domain:intercom.io
+    - domain:logx.optimizely.com
+    - domain:s.yimg.jp
+    - domain:sentry.io
+    - domain:platform.openai.com 
+    - domain:beta.openai.com 
+    - domain:auth0.openai.com 
+    - domain:auth1.openai.com 
+    - domain:auth2.openai.com 
+    - domain:openai.com 
+    - domain:chat.openai.com
+143.47.225.58:
+  strategy: ipv4_first
+  rules:
+    - geosite:bbc
+      "
     fi
     ;;
   *)
@@ -101,44 +219,8 @@ esac
 echo "${dns_ips}:
   strategy: ipv4_first
   rules:
-  - geosite:${geosite}
-  - domain:${domain_rules}
-178.128.212.56,157.230.242.187,178.128.223.178,20.2.249.123:
-  strategy: ipv4_first
-  rules:
-    - geosite:bilibili
-54.185.77.141,3.144.167.186,34.215.124.151,18.237.220.28:
-  strategy: ipv4_first
-  rules:
-    - geosite:hulu,dazn_us
-    - geosite:hbo
-    - domain:control.kochava.com
-    - domain:d151l6v8er5bdm.cloudfront.net
-    - domain:d1sgwhnao7452x.cloudfront.net
-    - domain:dazn-api.com
-    - domain:dazn.com
-    - domain:dazndn.com
-    - domain:dc2-vodhls-perform.secure.footprint.net
-    - domain:dca-ll-livedazn-dznlivejp.s.llnwi.net
-    - domain:dcalivedazn.akamaized.net
-    - domain:dcblivedazn.akamaized.net
-    - domain:indazn.com
-    - domain:indaznlab.com
-    - domain:intercom.io
-    - domain:logx.optimizely.com
-    - domain:s.yimg.jp
-    - domain:sentry.io
-    - domain:platform.openai.com 
-    - domain:beta.openai.com 
-    - domain:auth0.openai.com 
-    - domain:auth1.openai.com 
-    - domain:auth2.openai.com 
-    - domain:openai.com 
-    - domain:chat.openai.com
-143.47.225.58:
-  strategy: ipv4_first
-  rules:
-    - geosite:bbc
+${geosite}
+${general_rules}
 ">/etc/soga/dns.yml
 soga restart
 docker restart $( docker ps -a -q) 
