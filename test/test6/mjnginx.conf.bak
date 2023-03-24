@@ -603,7 +603,7 @@ server {
 server {
     listen 16638;   #澳洲-悉尼
     location / {
-		proxy_pass http://170.187.240.57:6662;
+		proxy_pass http://170.187.240.57:6664;
 		include /usr/local/nginx/ws; 
         }
 }
