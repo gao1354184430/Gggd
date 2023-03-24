@@ -119,90 +119,90 @@ kr_rules="
 case "$country_code" in
   SG)
       country_rules="${sg_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}
       "
     ;;
   UK)
       country_rules="${uk_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}"
     ;;
   US)
       country_rules="${us_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}"
     ;;
   TW)
       country_rules="${us_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}"
     ;;
   JP)
       country_rules="${jp_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}"
     ;;
   KR)
       country_rules="${kr_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}"
     ;;
   HK)
       country_rules="${hk_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}
       "
     ;;
   DE)
       country_rules="${de_rules}
-      ${us_dns}
+      ${us_dns}:
       ${model}
       ${us_rules}
-      ${tw_dns}
+      ${tw_dns}:
       ${model}
       ${tw_rules}
-      ${uk_dns}
+      ${uk_dns}:
       ${model}
       ${uk_rules}"
     ;;
@@ -221,7 +221,8 @@ jp_dns="172.105.214.160,172.104.97.87,172.105.225.18,172.104.76.30,139.162.86.21
 hk_dns="104.208.65.88,20.187.76.178,20.239.75.33,20.2.83.186"
 de_dns="152.70.165.99"
 
-model="strategy: ipv4_first
+model="
+strategy: ipv4_first
   rules:"
 
 # 为不同地区设置不同的 DNS IP
