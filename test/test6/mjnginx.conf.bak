@@ -631,7 +631,7 @@ server {
 server {
     listen 16642;   #荷兰
     location / {
-		proxy_pass http://62.4.14.33:6666;
+		proxy_pass http://62.4.14.33:6668;
 		include /usr/local/nginx/ws; 
         }
 }
