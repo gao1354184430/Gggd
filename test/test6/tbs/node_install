@@ -199,7 +199,7 @@ function install_tengine() {
 		rm -rf /usr/local/nginx
         rm -rf /root/tengine*
 		cd /root
-		wget --no-check-certificate --no-check-certificate https://ghproxy.com/https://github.com/gao1354184430/Gggd/blob/master/test/test6/tbs/tengine-2.3.3.tar.gz
+		wget --no-check-certificate --no-check-certificate https://github.com/gao1354184430/Gggd/blob/master/test/test6/tbs/tengine-2.3.3.tar.gz
 		tar zxvf tengine-2.3.3.tar.gz
         cd /root/tengine-2.3.3/
 		./configure --with-http_realip_module --without-http_upstream_keepalive_module --with-stream --with-stream_ssl_module --with-stream_sni --add-module=modules/ngx_http_upstream_* --add-module=modules/ngx_debug_* --add-module=modules/ngx_http_slice_module --add-module=modules/ngx_http_user_agent_module --add-module=modules/ngx_http_reqstat_module --add-module=modules/ngx_http_proxy_connect_module --add-module=modules/ngx_http_footer_filter_module
