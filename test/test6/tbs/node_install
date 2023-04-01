@@ -1,0 +1,647 @@
+#!/bin/bash
+#远端文件储存地址
+Github="https://ghproxy.com/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test6"
+GostService="https://ghproxy.com/https://raw.githubusercontent.com/KANIKIG/Multi-EasyGost/master"
+cndownload="https://ghproxy.com/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test5"
+tcp2ws_download="https://ghproxy.com/https://github.com/zanjie1999/tcp-over-websocket/releases/download/3.5/tcp2ws-linux"
+#gost指定版本
+ct_new_ver="2.11.1"
+#测试与GitHub连通性
+rm -rf /root/.test.txt
+curl -s -k $Github/test > /root/.test.txt
+github_test=`sed -n '1p' /root/.test.txt`
+rm -rf /root/.test.txt /root/.crontab.txt
+#颜色文字
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
+Info="${Green_font_prefix}[信息]${Font_color_suffix}"
+Error="${Red_font_prefix}[错误]${Font_color_suffix}"
+Tip="${Green_font_prefix}[注意]${Font_color_suffix}"
+#CentOS7开放防火墙 or Debian10/11开启BBR
+function install_iptables(){
+	if [[ "${release}" == "centos" ]]; then
+	systemctl stop firewalld
+	systemctl mask firewalld
+	yum install -y iptables
+	yum install iptables-services -y
+	iptables -F
+	iptables -P INPUT ACCEPT
+	iptables -X
+	service iptables save
+	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
+	run_status=$(cat /proc/sys/net/ipv4/tcp_congestion_control | awk '{print $1}')
+      if [[ ${run_status} == "bbr" ]]; then
+        echo "BBR启动已开启状态，无需启动BBR"
+      else
+        echo "正在开启BBR"
+	    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+        echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+        sysctl -p 
+      fi
+	fi
+}
+#检查系统
+check_sys(){
+	if [[ -f /etc/redhat-release ]]; then
+		release="centos"
+	elif cat /etc/issue | grep -q -E -i "debian"; then
+		release="debian"
+	elif cat /etc/issue | grep -q -E -i "ubuntu"; then
+		release="ubuntu"
+	elif cat /etc/issue | grep -q -E -i "centos|red hat|redhat"; then
+		release="centos"
+	elif cat /proc/version | grep -q -E -i "debian"; then
+		release="debian"
+	elif cat /proc/version | grep -q -E -i "ubuntu"; then
+		release="ubuntu"
+	elif cat /proc/version | grep -q -E -i "centos|red hat|redhat"; then
+		release="centos"
+    fi
+}
+function install_vnets(){
+	if [[ "${release}" == "centos" ]]; then
+	yum -y install zip unzip
+	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
+	apt-get install zip unzip -y
+	fi
+    mkdir /usr/local/vnet
+    cd /usr/local/vnet
+    wget --no-check-certificate -N --no-check-certificate "https://www.isyunyi.com/download/linux/tunnel.zip"
+    unzip tunnel.zip 
+    rm -f /usr/local/vnet/tunnel.zip
+    rm -f /usr/local/vnet/client
+    echo '#!/bin/bash
+sleep 0.5
+cd /usr/local/vnet
+./server' >/usr/local/vnet/server.sh  
+	rm -rf /usr/local/vnet/server.conf
+	wget --no-check-certificate -N --no-check-certificate $Github/node/$diQu/server.conf -O /usr/local/vnet/server.conf
+    chmod +x /usr/local/vnet/server /usr/local/vnet/server.sh /usr/local/vnet/server.conf
+	echo '
+[Unit]
+Description=VnetServer.Service
+After=rc-local.service syslog.target network.target remote-fs.target nss-lookup.target
+[Service]
+Type=simple
+ExecStart=/usr/local/vnet/server.sh
+ExecStartPost=/usr/local/vnet/server.conf
+Restart=always
+LimitNOFILE=512000
+LimitNPROC=512000
+[Install]
+WantedBy=multi-user.target' >/usr/lib/systemd/system/vnets.service
+	cd /root
+	systemctl start vnets
+	systemctl status vnets
+	systemctl enable vnets
+	echo -e "\033[42;37mvnet服务端安装完成\033[0m" 
+}
+#支持CentOS7/Debian10/11一键安装
+function install_vnetc(){
+	if [[ "${release}" == "centos" ]]; then
+	yum -y install zip unzip
+	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
+	apt-get install zip unzip -y
+	fi
+    mkdir /usr/local/vnet
+    cd /usr/local/vnet
+    wget --no-check-certificate -N --no-check-certificate "https://www.isyunyi.com/download/linux/tunnel.zip"
+    unzip tunnel.zip 
+    rm -f /usr/local/vnet/tunnel.zip
+    rm -f /usr/local/vnet/server
+    echo '#!/bin/bash
+sleep 0.5
+cd /usr/local/vnet
+./client' >/usr/local/vnet/client.sh 
+	rm -rf /usr/local/vnet/client.conf
+	echo '#!/bin/bash
+sleep 1.5
+#在下方编写规则
+' >/usr/local/vnet/client.conf
+    chmod +x /usr/local/vnet/client /usr/local/vnet/client.sh /usr/local/vnet/client.conf
+	echo '
+[Unit]
+Description=VnetClient.Service
+After=rc-local.service
+[Service]
+Type=simple
+ExecStart=/usr/local/vnet/client.sh
+ExecStartPost=/usr/local/vnet/client.conf
+Restart=always
+LimitNOFILE=512000
+LimitNPROC=512000
+[Install]
+WantedBy=multi-user.target' >/usr/lib/systemd/system/vnetc.service
+	cd /root
+	systemctl start vnetc
+	systemctl enable vnetc
+	#systemctl status vnetc
+	echo -e "\033[42;37mvnet服务端安装完成\033[0m" 
+}
+function install_docker(){
+wget --no-check-certificate -qO- get.docker.com | bash
+systemctl start docker
+systemctl enable docker
+systemctl status docker
+sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+rm -rf /root/docker.run
+wget --no-check-certificate --no-check-certificate $Github/node/$diQu/docker -O /root/docker.run
+chmod +x /root/docker.run
+/root/docker.run
+}
+function install_gost() {
+	bit="amd64"
+	yum install -y gzip
+    rm -rf /root/gost-linux-"$bit"-"$ct_new_ver".gz
+    wget --no-check-certificate --no-check-certificate https://ghproxy.com/https://github.com/ginuerzh/gost/releases/download/v$ct_new_ver/gost-linux-$bit-$ct_new_ver.gz -O /root/gost-linux-$bit-$ct_new_ver.gz
+    gunzip /root/gost-linux-"$bit"-"$ct_new_ver".gz
+    mv /root/gost-linux-"$bit"-"$ct_new_ver" /usr/bin/gost
+    chmod -R 777 /usr/bin/gost
+    wget --no-check-certificate --no-check-certificate $GostService/gost.service && chmod -R 777 gost.service && mv gost.service /usr/lib/systemd/system
+	rm -rf /etc/gost/config.json
+    mkdir /etc/gost && wget --no-check-certificate --no-check-certificate $Github/node/$diQu/config.json && mv config.json /etc/gost && chmod -R 777 /etc/gost
+	systemctl enable gost && systemctl restart gost
+	echo "------------------------------"
+if test -a /usr/bin/gost -a /usr/lib/systemctl/gost.service -a /etc/gost/config.json; then
+    echo "gost安装成功"
+    rm -rf "$(pwd)"/gost
+    rm -rf "$(pwd)"/gost.service
+    rm -rf "$(pwd)"/config.json
+else
+    echo "gost没有安装成功，可以在Github[EasyGost]中提交issue"
+    rm -rf "$(pwd)"/gost
+    rm -rf "$(pwd)"/gost.service
+    rm -rf "$(pwd)"/config.json
+    rm -rf "$(pwd)"/gost.sh
+fi
+}
+#Tengine支持CentOS7/Debian10/11一键安装
+function install_tengine() {
+	if [[ "${release}" == "centos" ]]; then
+        yum update -y
+        yum install epel-release -y
+        yum install gcc gcc-c++ autoconf automake -y
+        yum install pcre-devel -y
+        yum install openssl-devel -y
+        yum install libmcrypt libmcrypt-devel mcrypt mhash -y
+		yum install kernel-headers kernel-devel make -y
+	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
+        apt-get update
+		apt-get upgrade -y
+        apt-get install build-essential -y
+        #PCRE
+        apt-get install libpcre3 libpcre3-dev -y
+        apt-get install zlib1g-dev -y
+        apt-get install openssl libssl-dev -y
+        apt-get install gcc make -y
+        apt-get install iperf3 vim -y
+	fi
+		rm -rf /usr/local/nginx
+        rm -rf /root/tengine*
+		cd /root
+		wget --no-check-certificate --no-check-certificate https://ghproxy.com/https://github.com/gao1354184430/Gggd/blob/master/test/test6/tbs/tengine-2.3.3.tar.gz
+		tar zxvf tengine-2.3.3.tar.gz
+        cd /root/tengine-2.3.3/
+		./configure --with-http_realip_module --without-http_upstream_keepalive_module --with-stream --with-stream_ssl_module --with-stream_sni --add-module=modules/ngx_http_upstream_* --add-module=modules/ngx_debug_* --add-module=modules/ngx_http_slice_module --add-module=modules/ngx_http_user_agent_module --add-module=modules/ngx_http_reqstat_module --add-module=modules/ngx_http_proxy_connect_module --add-module=modules/ngx_http_footer_filter_module
+#        ./configure --with-http_realip_module --without-http_upstream_keepalive_module --with-stream --with-stream_ssl_module --with-stream_sni --add-module=modules/ngx_http_upstream_check_module --add-module=modules/ngx_debug_pool --add-module=modules/ngx_http_slice_module --add-module=modules/ngx_http_user_agent_module --add-module=modules/ngx_http_reqstat_module --add-module=modules/ngx_http_proxy_connect_module --add-module=modules/ngx_http_footer_filter_module
+        make
+        make install
+        mkdir /usr/local/nginx/tcp
+		mkdir /usr/local/nginx/cert
+        wget --no-check-certificate --no-check-certificate -N -P /usr/local/nginx/ $cndownload/download/ws
+        echo "user  root;
+worker_processes auto;
+worker_rlimit_nofile 51200;
+pid        /usr/local/nginx/logs/nginx.pid;
+events
+    {
+        use epoll;
+        worker_connections 51200;
+        multi_accept on;
+    }
+stream {
+    include /usr/local/nginx/tcp/*.conf;
+}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  120;
+    keepalive_requests 10000;
+    check_shm_size 50m;
+    access_log  off;
+    #vmess-ws
+    include /usr/local/nginx/*.conf;
+}">/usr/local/nginx/conf/nginx.conf
+		echo "[Unit]
+Description=The nginx HTTP and reverse proxy server
+After=syslog.target network.target remote-fs.target nss-lookup.target
+ 
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+PrivateTmp=true
+ 
+[Install]
+WantedBy=multi-user.target" >/lib/systemd/system/nginx.service
+        systemctl daemon-reload
+        systemctl start nginx
+        systemctl enable nginx
+        echo -e "${Green}done!${Font}"
+}
+#Brook支持CentOS7/Debian10/11一键安装
+function install_brook() {
+		wget --no-check-certificate -N -P /root $cndownload/brook-pf-mod.sh
+		chmod +x /root/brook-pf-mod.sh
+		/root/brook-pf-mod.sh install
+		#添加DDNS监控
+	if [[ "${release}" == "centos" ]]; then
+		yum install bind-utils -y
+	fi
+    cron_config=$(crontab -l | grep "brook-pf-mod.sh monitor")
+    if [[ -z ${cron_config} ]]; then
+		crontab -l > "/root/crontab.bak"
+		sed -i "/brook-pf-mod.sh monitor/d" "/root/crontab.bak"
+		echo -e "\n*/2 * * * *  /bin/bash /root/brook-pf-mod.sh monitor" >> "/root/crontab.bak"
+		crontab "/root/crontab.bak"
+		rm -r "/root/crontab.bak"
+        echo -e "${Info} Brook 服务端运行状态监控功能 启动成功 !"
+    else
+		echo -e "${Error} Brook 服务端运行状态监控功能 启动失败 !" 
+    fi
+}
+#安装tcp2ws
+function install_tcp2ws() {
+    #增加killall
+	yum install psmisc -y
+    mkdir /usr/local/tcp2ws
+    wget --no-check-certificate --no-check-certificate $tcp2ws_download -O /usr/bin/tcp2ws
+	echo '#!/bin/bash
+#在下方编写规则
+' >/usr/local/tcp2ws/config.conf
+chmod +x /usr/bin/tcp2ws /usr/local/tcp2ws/config.conf
+
+echo "[Unit]
+Description=Tcp2WS.Server
+After=syslog.target network.target remote-fs.target nss-lookup.target
+ 
+[Service]
+Type=forking
+ExecStart=/usr/local/tcp2ws/config.conf
+ExecStop=/usr/bin/killall tcp2ws
+Restart=always
+PrivateTmp=true
+ 
+[Install]
+WantedBy=multi-user.target" >/lib/systemd/system/tcp2ws.service
+        systemctl daemon-reload
+        systemctl start tcp2ws
+        systemctl enable tcp2ws
+}
+#安装cnsync-支持CentOS7/Debian10/11一键安装
+function install_cnsync() {
+	if [[ "${release}" == "centos" ]]; then
+    yum install net-tools -y
+	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
+    apt-get install net-tools -y
+	fi
+	wget --no-check-certificate $cndownload/cnsync -O /usr/bin/cnsync
+	chmod +x /usr/bin/cnsync
+	cnsync addcron
+}
+#安装hksync-支持CentOS7/Debian10/11一键安装
+function install_hksync() {
+	if [[ "${release}" == "centos" ]]; then
+    yum install net-tools -y
+	elif [[ "${release}" == "debian" || "${release}" == "ubuntu" ]]; then
+    apt-get install net-tools -y
+	fi
+	wget --no-check-certificate $cndownload/hksync -O /usr/bin/hksync	
+	chmod +x /usr/bin/hksync
+}
+#patch一键清理日志
+function install_patch() {
+	wget --no-check-certificate $cndownload/patch.sh -O /root/patch.sh	
+	chmod +x /root/patch.sh
+    /root/patch.sh addcron
+}
+#xrayr一键下发配置，实现快速部署
+# node xrayrconf 1 api.mojie.best heihuamojie666666 V2Board 139.162.76.14 80 Trojan
+function xrayr_config() {
+xrayrnodestatus=`sed -n '$p' /etc/XrayR/config.yml`  #获取节点状态是否对接
+xrayrnodestatus2=${xrayrnodestatus##*#}  #获取节点状态是否对接
+#判断是否首次对接
+	if [[ "$xrayrnodestatus2" == "nodeisdone" ]]; then
+    #非首次对接，风险较低，直接执行
+    echo -e "${Green_font_prefix}开始对接第N个XrayR节点${Font_color_suffix}"
+    xrayr_node_n
+    xrayrnodenum=`grep -o "nodeisdone" /etc/XrayR/config.yml | wc -l`  #获取节点对接数量
+    echo "对接完成，当前XrayR对接了 $xrayrnodenum 个节点"
+	elif [[ "$xrayrnodestatus2" != "nodeisdone" ]]; then
+    #此次为首次对接，会覆盖配置文件，发出警告并停留5s
+#    echo -e "${Red_font_prefix}识别为首次对接，会覆盖配置文件。${Font_color_suffix}"
+#      echo -e "即将开始对接...如果识别错误请使用 ${Red_font_prefix}Ctrl + C${Font_color_suffix} 中断"
+#        echo -ne "\r5"
+#        sleep 1
+#        echo -ne "\r4"
+#        sleep 1
+#        echo -ne "\r3"
+#        sleep 1
+#        echo -ne "\r2"
+#        sleep 1
+#        echo -ne "\r1"
+#        sleep 1
+#        echo -e '\r0'
+#        echo -e "${Green_font_prefix}开始对接首个个XrayR节点${Font_color_suffix}"
+#        sleep 1
+###取消倒计时，改用输入任意键继续
+    echo -e "${Red_font_prefix}识别为首次对接，会覆盖配置文件。${Font_color_suffix}"
+    read -s -n1 -p "按任意键继续...或使用Ctrl+C中断 "
+    xrayr_node_fast
+	fi
+}
+function xrayr_node_n() {
+#输出配置文件
+    echo "  -
+    PanelType: \"$xrPanel\" # Panel type: SSpanel, V2board
+    ApiConfig:
+      ApiHost: \"https://$xrApi\"
+      ApiKey: \"$xrKey\"
+      NodeID: $xrID
+      NodeType: $xrNode # Node type: V2ray, Shadowsocks, Trojan
+      Timeout: 30 # Timeout for the api request
+      EnableVless: false # Enable Vless for V2ray Type, Prefer remote configuration
+      EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
+      RuleListPath: /etc/XrayR/rulelist
+    ControllerConfig:
+      ListenIP: 0.0.0.0 # IP address you want to listen
+      UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
+      EnableDNS: false # Enable custom DNS config, Please ensure that you set the dns.json well
+      EnableProxyProtocol: true 
+      EnableFallback: true # Only support for Trojan and Vless
+      FallBackConfigs:  # Support multiple fallbacks
+        -
+          SNI: # TLS SNI(Server Name Indication), Empty for any
+          Path: # HTTP PATH, Empty for any
+          Dest: $xrDest:$xrDestPort # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
+      CertConfig:
+        CertMode: none # Option about how to get certificate: none, file, http, dns. Choose \"none\" will forcedly disable the tls config.
+        CertDomain: \"node2.test.com\" # Domain to cert
+        CertFile: /etc/XrayR/cert/node2.test.com.cert # Provided if the CertMode is file
+        KeyFile: /etc/XrayR/cert/node2.test.com.key
+        Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
+        Email: test@me.com
+        DNSEnv: # DNS ENV option used by DNS provider
+          ALICLOUD_ACCESS_KEY: aaa
+          ALICLOUD_SECRET_KEY: bbb #nodeisdone">>/etc/XrayR/config.yml
+}
+function xrayr_node_fast() {
+##首次对接：会输出配置文件，审计规则，封禁BT协议
+#输出审计规则
+    echo "(torrent|\.torrent|peer_id=|info_hash|get_peers|find_node|BitTorrent|announce_peer|announce\.php\?passkey=)
+(api|ps|sv|offnavi|newvector|ulog\.imap|newloc)(\.map|)\.(baidu|n\.shifen)\.com
+(.+\.|^)(360|so)\.(cn|com)
+(Subject|HELO|SMTP)
+(^.*\@)(guerrillamail|guerrillamailblock|sharklasers|grr|pokemail|spam4|bccto|chacuo|027168)\.(info|biz|com|de|net|org|me|la)
+(.?)(xunlei|sandai|Thunder|XLLiveUD)(.)
+.*bank.*
+(.*\.)(gash)\.(com|tw)
+(.*\.)(mycard)\.(com|tw)
+(.*\.)(dafahao|minghui|dongtaiwang|epochtimes|ntdtv|falundafa|wujieliulan|wforum)\.(org|com|net)
+(.?)(xunlei|sandai|Thunder|XLLiveUD|IDM|IDMan)(.)
+(api|ps|sv|offnavi|newvector|ulog\.imap|newloc)(\.map|)\.(baidu|n\.shifen)\.com
+(.*\.)(mycard|gash)\.(com|tw)
+(.*\.)(appledaily|dafahao|minghui|dongtaiwang|epochtimes|ntdtv|falundafa|wujieliulan|zhengjian|soundofhope)\.(org|com|net|tw|hk|rocks)
+(^.*\@)(guerrillamail|guerrillamailblock|sharklasers|grr|pokemail|spam4|bccto|chacuo|027168)\.(info|biz|com|de|net|org|me|la)
+(.*\.)(metatrader4|metatrader5|mql5)\.(org|com|net)
+(.*\.)(gov|12377|12315|talk.news.pts|zhuichaguoji|efcc|cyberpolice|tuidang|falundafa|falunaz|110.qq|mingjingnews|inmediahk|xinsheng|12321|epochweekly|cn.rfi|mingjing|chinaaid|botanwang|xinsheng|breakgfw|chengmingmag|jinpianwang|xizang-zhiye|breakgfw|qi-gong|mhradio|edoors|edoors|renminbao|soundofhope|zhengjian|dafahao|minghui|dongtaiwang|epochtimes|ntdtv|falundafa|wujieliulan|aboluowang|bannedbook|secretchina|dajiyuan|boxun|chinadigitaltimes|huaglad|creaders|oneplusnews|nextdigital|pincong|gtv|kwok7)\.(cn|com|org|net|club|net|info|me|rocks)
+(^.*\@)(guerrillamail|guerrillamailblock|sharklasers|grr|pokemail|spam4|bccto|chacuo|027168)\.(info|biz|com|de|net|org|me|la)
+(.?)(xunlei|sandai|Thunder|XLLiveUD|IDM|IDMan)(.)
+(.*\.)(gash)\.(com|tw)
+(.*\.)(mycard)\.(com|tw)
+(.*\.)(360|so)\.(cn|com|com.cn)
+(\.guanjia\.qq\.com|qqpcmgr|QQPCMGR)
+(api|ps|sv|offnavi|newvector|ulog\.imap|newloc)(\.map|)\.(baidu|n\.shifen)\.com
+(.*\.)(gash)\.(com|tw)
+(.*\.)(mycard)\.(com|tw)
+(.*\.)(metatrader4|metatrader5|mql5)\.(org|com|net)
+(.*\.)(rising|kingsoft|duba|xindubawukong|jinshanduba)\.(com|net|org)
+(.*\.)(.*\.)\.(onion)">/etc/XrayR/rulelist
+#输出路由规则
+    echo "{
+    \"domainStrategy\": \"IPOnDemand\",
+    \"rules\": [
+        {
+            \"type\": \"field\",
+            \"outboundTag\": \"block\",
+            \"ip\": [
+                \"geoip:private\"
+            ]
+        },
+        {
+            \"type\": \"field\",
+            \"outboundTag\": \"block\",
+            \"protocol\": [
+                \"bittorrent\"
+            ]
+        }
+    ]
+}">/etc/XrayR/route.json
+#输出配置文件
+    echo "Log:
+  Level: error # Log level: none, error, warning, info, debug
+  AccessPath: # /etc/XrayR/access.Log
+  ErrorPath: # /etc/XrayR/error.log
+DnsConfigPath: # /etc/XrayR/dns.json
+RouteConfigPath: /etc/XrayR/route.json
+InboundConfigPath: # /etc/XrayR/custom_inbound.json
+OutboundConfigPath: # /etc/XrayR/custom_outbound.json
+ConnetionConfig:
+  Handshake: 4 # Handshake time limit, Second
+  ConnIdle: 30 # Connection idle time limit, Second
+  UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
+  DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
+  BufferSize: 64 # The internal cache size of each connection, kB 
+Nodes:
+  -
+    PanelType: \"$xrPanel\" # Panel type: SSpanel, V2board
+    ApiConfig:
+      ApiHost: \"https://$xrApi\"
+      ApiKey: \"$xrKey\"
+      NodeID: $xrID
+      NodeType: $xrNode # Node type: V2ray, Shadowsocks, Trojan
+      Timeout: 30 # Timeout for the api request
+      EnableVless: false # Enable Vless for V2ray Type, Prefer remote configuration
+      EnableXTLS: false # Enable XTLS for V2ray and Trojan， Prefer remote configuration
+      RuleListPath: /etc/XrayR/rulelist
+    ControllerConfig:
+      ListenIP: 0.0.0.0 # IP address you want to listen
+      UpdatePeriodic: 60 # Time to update the nodeinfo, how many sec.
+      EnableDNS: false # Enable custom DNS config, Please ensure that you set the dns.json well
+      EnableProxyProtocol: true 
+      EnableFallback: true # Only support for Trojan and Vless
+      FallBackConfigs:  # Support multiple fallbacks
+        -
+          SNI: # TLS SNI(Server Name Indication), Empty for any
+          Path: # HTTP PATH, Empty for any
+          Dest: $xrDest:$xrDestPort # Required, Destination of fallback, check https://xtls.github.io/config/fallback/ for details.
+          ProxyProtocolVer: 0 # Send PROXY protocol version, 0 for dsable
+      CertConfig:
+        CertMode: none # Option about how to get certificate: none, file, http, dns. Choose \"none\" will forcedly disable the tls config.
+        CertDomain: \"node2.test.com\" # Domain to cert
+        CertFile: /etc/XrayR/cert/node2.test.com.cert # Provided if the CertMode is file
+        KeyFile: /etc/XrayR/cert/node2.test.com.key
+        Provider: alidns # DNS cert provider, Get the full support list here: https://go-acme.github.io/lego/dns/
+        Email: test@me.com
+        DNSEnv: # DNS ENV option used by DNS provider
+          ALICLOUD_ACCESS_KEY: aaa
+          ALICLOUD_SECRET_KEY: bbb #nodeisdone">/etc/XrayR/config.yml
+}
+#菜单选项
+function menu_server() {
+  echo && echo -e "  月抛/正常鸡 一键安装docker/vnet/gost
+  支持一键安装并从远端下发配置-直接黑化
+ ————————————
+ ${Green_font_prefix} tw:${Font_color_suffix} 安装至台湾机器
+ ${Green_font_prefix} tw2:${Font_color_suffix} 安装至台湾2号机
+ ${Green_font_prefix} jp:${Font_color_suffix} 安装至日本机器
+————————————
+ ${Green_font_prefix} 3.${Font_color_suffix} 安装脚本" &&echo 
+	echo -e "输入\033[32m tw\033[0m|\033[32m jp\033[0m来进行安装" 
+  echo
+  read -erp " 请输入国家地区代码:" diQu
+	yum update -y
+	install_iptables
+	install_docker
+	install_vnets
+	install_gost
+}
+#cn菜单  
+function menu_server2() {
+  echo && echo -e "  国内机器 一键安装Nginx/Brook等
+  支持一键安装并从远端下发配置-直接黑化
+  tengine为nginx1.7分支，该分支支持DDNS
+ ————————————
+ ${Green_font_prefix} 1:${Font_color_suffix} 安装Tcp2WS
+ ${Green_font_prefix} 2:${Font_color_suffix} 安装tengine负载支持DDNS/主动健康检查
+ ${Green_font_prefix} 3:${Font_color_suffix} 安装gost隧道
+ ${Green_font_prefix} 4:${Font_color_suffix} 安装vnet隧道
+ ${Green_font_prefix} 5:${Font_color_suffix} 安装brook转发
+ ${Green_font_prefix} 6:${Font_color_suffix} 安装cnsync同步
+ ${Green_font_prefix} 7.${Font_color_suffix} 安装tengine+hksync-GKDT(实验性功能Trojan入口)
+ ${Green_font_prefix} 8.${Font_color_suffix} 安装tengine+hksync+MJT+patch_log(MJ承载和T入口合并部署)
+————————————
+ ${Green_font_prefix} 0.${Font_color_suffix} 安装国tengine+cnsync(国内中转一键部署)" &&echo 
+  echo
+  read -erp " 请输入对应的数字:" Num
+  case "$Num" in
+  1)
+    install_tcp2ws
+    ;;
+  2)
+    install_tengine
+    ;;
+  3)
+    install_gost
+    ;;
+  4)
+    install_vnetc
+    ;;
+  5)
+    install_brook
+    ;;
+  6)
+    install_cnsync
+    ;;
+  7)
+	install_tengine
+    install_iptables
+	install_hksync
+    hksync gkdtaddcron
+	hksync gkdtls
+	hksync gkdt
+    ;;
+  8)
+	install_tengine
+    install_iptables
+	install_hksync
+    install_patch
+    hksync mjhkaddcron
+	hksync cron
+	hksync cron
+    hksync tbs
+    hksync mjt
+	hksync mjtls
+    systemctl restart nginx
+    systemctl status nginx
+    ;;
+  0)
+	install_tengine
+	install_iptables
+    install_cnsync
+	cnsync all
+    ;;
+  *)
+    echo "请输入正确数字 [1-3]"
+    ;;
+  esac
+}
+action=$1
+xrID=$2
+xrApi=$3
+xrKey=$4
+xrPanel=$5
+xrDest=$6
+xrDestPort=$7
+xrNode=$8
+if [[ -n $action ]]; then
+#增加一个通信检测，如果与GitHub通信失败则停止脚本
+	if [[ $github_test == "success" ]]; then
+		if [[ $action == "cn" ]]; then
+		    check_sys
+			menu_server2
+		elif [[ $action == "cn0" ]]; then
+		    check_sys
+	        install_tengine
+	        install_iptables
+	        install_cnsync
+	        cnsync all
+		elif [[ $action == "cn7" ]]; then
+		    check_sys
+	        install_tengine
+	        install_iptables
+	        install_hksync_t
+            hksync gkdtaddcron
+	        hksync gkdtls
+	        hksync gkdt
+		elif [[ $action == "cn8" ]]; then
+            check_sys
+	        install_tengine
+            install_iptables
+	        install_hksync
+            install_patch
+            hksync mjhkaddcron
+	        hksync cron
+	        hksync cron
+            hksync tbs
+            hksync mjt
+	        hksync mjtls
+            systemctl restart nginx
+            systemctl status nginx
+		elif [[ $action == "xrayrconf" ]]; then
+			xrayr_config
+		elif [[ $action == "cron" ]]; then
+			echo -e "\033[32m 还没写 \033[0m"
+		fi
+	else
+		echo -e "\033[31m 远端通信失败，程序中止 \033[0m"
+	fi
+else
+    check_sys
+	menu_server
+fi
