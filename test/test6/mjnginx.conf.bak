@@ -645,7 +645,7 @@ server {
 server {
     listen 16644;   #德国
     location / {
-		proxy_pass http://167.235.69.211:6662;
+		proxy_pass http://167.235.69.211:6664;
 		include /usr/local/nginx/ws; 
         }
 }
