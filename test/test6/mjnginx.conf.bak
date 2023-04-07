@@ -222,7 +222,7 @@ upstream mjfdchk{
 		server 20.239.82.249:16622 backup;
 		server 20.24.74.24:16622 backup;
         server 16.163.95.95:6616;
-		server 18.167.51.232:6616;
+		server 43.198.108.207:6616;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhk{
