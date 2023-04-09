@@ -413,14 +413,14 @@ server {
 server {
     listen 16641;   #加拿大东海岸
     location / {
-		proxy_pass http://149.56.133.8:6692;
+		proxy_pass http://149.56.133.8:6694;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16642;   #荷兰
     location / {
-		proxy_pass http://62.4.14.33:6698;
+		proxy_pass http://62.4.14.33:6700;
 		include /usr/local/nginx/ws; 
         }
 }
@@ -434,14 +434,14 @@ server {
 server {
     listen 16644;   #德国
     location / {
-		proxy_pass http://167.235.69.211:6670;
+		proxy_pass http://167.235.69.211:6672;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16645;  #法国
     location / {
-		proxy_pass http://212.129.58.216:6696;
+		proxy_pass http://212.129.58.216:6698;
 		include /usr/local/nginx/ws; 
         }
 }
