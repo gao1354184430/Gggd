@@ -392,14 +392,14 @@ server {
 server {
     listen 16638;   #澳洲-悉尼
     location / {
-		proxy_pass http://170.187.240.57:6692;
+		proxy_pass http://170.187.240.57:6694;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16639;   #非洲-尼日利亚-拉各斯
     location / {
-		proxy_pass http://185.255.123.195:6690;
+		proxy_pass http://185.255.123.195:6692;
 		include /usr/local/nginx/ws; 
         }
 }
