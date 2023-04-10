@@ -5,7 +5,7 @@
 #azjp1-f4s   20.194.152.241    #todog  LKM-1
 #azjp2-f4s   20.194.152.180    #todog  LKM-2
 #azjp3-f4s   20.89.130.230
-#azjp4-f4s   20.89.110.73   #psa #passwd Aa112211.....
+#azjp4-f4s   20.48.27.147   #psa #passwd Aa112211.....
 #azjp5-f4s   3.112.132.113     #mjaws1
 #azjp6-f4s   18.177.141.206    #mj2
 #azjp7-f4s   18.183.186.31    #mjaws4
@@ -40,7 +40,7 @@ upstream jp{
 		server 20.194.152.241:16617;
 		server 20.194.152.180:16617;
 		server 20.89.130.230:16617;
-        server 20.89.110.73:16617;
+        server 20.48.27.147:16617;
         server 3.112.132.113:16617;
 		server 18.177.141.206:16617;
 		server 18.183.186.31:16617;
@@ -67,7 +67,7 @@ upstream mjusla{
 		server 20.194.152.241:16648;
 		server 20.194.152.180:16648;
 		server 20.89.130.230:16648;
-        server 20.89.110.73:16648;
+        server 20.48.27.147:16648;
         server 3.112.132.113:16648;
 		server 18.177.141.206:16648;
 		server 18.183.186.31:16648;
@@ -94,7 +94,7 @@ upstream mjeupt{
 		server 20.194.152.241:16624;
 		server 20.194.152.180:16624;
 		server 20.89.130.230:16624;
-        server 20.89.110.73:16624;
+        server 20.48.27.147:16624;
         server 3.112.132.113:16624;
 		server 18.177.141.206:16624;
 		server 18.183.186.31:16624;
@@ -121,7 +121,7 @@ upstream sg{
 		server 20.194.152.241:16618 backup;
 		server 20.194.152.180:16618 backup;
 		server 20.89.130.230:16618 backup;
-        server 20.89.110.73:16618 backup;
+        server 20.48.27.147:16618 backup;
         server 3.112.132.113:16618 backup;
 		server 18.177.141.206:16618 backup;
 		server 18.183.186.31:16618 backup;
@@ -151,7 +151,7 @@ upstream mjfdchk{
 		server 20.194.152.241:16622 backup;
 		server 20.194.152.180:16622 backup;
 		server 20.89.130.230:16622 backup;
-        server 20.89.110.73:16622 backup;
+        server 20.48.27.147:16622 backup;
         server 3.112.132.113:16622 backup;
 		server 18.177.141.206:16622 backup;
 		server 13.212.113.179:16622 backup;
@@ -176,7 +176,7 @@ upstream tw_n{
 		server 20.194.152.241:16616;
 		server 20.194.152.180:16616;
 		server 20.89.130.230:16616;
-        server 20.89.110.73:16616;
+        server 20.48.27.147:16616;
         server 3.112.132.113:16616;
 		server 18.177.141.206:16616;
 		server 18.183.186.31:16616;
@@ -207,7 +207,7 @@ upstream mjhk{
 		server 20.194.152.241:16620 backup;
 		server 20.194.152.180:16620 backup;
 		server 20.89.130.230:16620 backup;
-        server 20.89.110.73:16620 backup;
+        server 20.48.27.147:16620 backup;
         server 3.112.132.113:16620 backup;
 		server 18.177.141.206:16620 backup;
 		server 13.212.113.179:16620 backup;
@@ -239,7 +239,7 @@ upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落�
 }
 upstream br{
         #ip_hash;	#vu巴西负载
-        server 216.238.103.47:66924;
+        server 216.238.103.47:6694;
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream mjmx{
@@ -263,7 +263,7 @@ upstream mjar{
 		server 20.194.152.241:16628;
 		server 20.194.152.180:16628;
 		server 20.89.130.230:16628;
-        server 20.89.110.73:16628;
+        server 20.48.27.147:16628;
         server 3.112.132.113:16628;
 		server 18.177.141.206:16628;
 		server 18.183.186.31:16628;
@@ -284,6 +284,55 @@ upstream mjar{
 		server 20.24.74.24:16628; #az16
         server 153.122.102.51:16628 backup;
         server 153.122.173.25:16628 backup;
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
+}
+##魔戒欧洲承载部分
+upstream mjeunl{
+        server 91.107.239.119:16642; #az13
+		server 128.140.13.231:16642; #az13
+        server 20.243.227.112:16642 backup; #todog jp
+		server 20.194.152.241:16642 backup; #todog jp
+		server 20.194.152.180:16642 backup; #todog jp
+        server 20.48.27.147:16642 backup;   #psa jp
+		server 20.24.185.12:16642 backup; #todog sg
+		server 20.24.186.253:16642 backup; #todog sg
+		server 4.193.82.237:16642 backup; #todog sg
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
+}
+upstream mjeude{
+        server 91.107.239.119:16644; #az13
+		server 128.140.13.231:16644; #az13
+        server 20.243.227.112:16644 backup; #todog jp
+		server 20.194.152.241:16644 backup; #todog jp
+		server 20.194.152.180:16644 backup; #todog jp
+        server 20.48.27.147:16644 backup;   #psa jp
+		server 20.24.185.12:16644 backup; #todog sg
+		server 20.24.186.253:16644 backup; #todog sg
+		server 4.193.82.237:16644 backup; #todog sg
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
+}
+upstream mjeufr{
+        server 91.107.239.119:16645; #az13
+		server 128.140.13.231:16645; #az13
+        server 20.243.227.112:16645 backup; #todog jp
+		server 20.194.152.241:16645 backup; #todog jp
+		server 20.194.152.180:16645 backup; #todog jp
+        server 20.48.27.147:16645 backup;   #psa jp
+		server 20.24.185.12:16645 backup; #todog sg
+		server 20.24.186.253:16645 backup; #todog sg
+		server 4.193.82.237:16645 backup; #todog sg
+		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
+}
+upstream mjeupl{
+        server 91.107.239.119:16646; #az13
+		server 128.140.13.231:16646; #az13
+        server 20.243.227.112:16646 backup; #todog jp
+		server 20.194.152.241:16646 backup; #todog jp
+		server 20.194.152.180:16646 backup; #todog jp
+        server 20.48.27.147:16646 backup;   #psa jp
+		server 20.24.185.12:16646 backup; #todog sg
+		server 20.24.186.253:16646 backup; #todog sg
+		server 4.193.82.237:16646 backup; #todog sg
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 #魔戒端口监听
@@ -420,7 +469,7 @@ server {
 server {
     listen 16642;   #荷兰
     location / {
-		proxy_pass http://62.4.14.33:6702;
+		proxy_pass http://mjeunl;
 		include /usr/local/nginx/ws; 
         }
 }
@@ -434,21 +483,21 @@ server {
 server {
     listen 16644;   #德国
     location / {
-		proxy_pass http://167.235.69.211:6692;
+		proxy_pass http://mjeude;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16645;  #法国
     location / {
-		proxy_pass http://212.129.58.216:6700;
+		proxy_pass http://mjeufr;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16646;
     location / {
-		proxy_pass http://77.91.102.96:6618;
+		proxy_pass http://mjeupl;
 		include /usr/local/nginx/ws; 
         }
 }
