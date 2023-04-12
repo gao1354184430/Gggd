@@ -237,16 +237,6 @@ upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落�
         #server 20.24.64.119:6622 weight=3;  #由椰子添加AWS1-测试，ID267
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
-upstream br{
-        #ip_hash;	#vu巴西负载
-        server 216.238.103.47:6694;
-		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
-upstream mjmx{
-        #ip_hash;	#vu墨西哥负载
-        server 216.238.81.179:6696;	
-		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
 upstream ru{
         server 45.144.179.69:6616;  #魔戒俄罗斯
 		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
@@ -286,55 +276,7 @@ upstream mjar{
         server 153.122.173.25:16628 backup;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
-##魔戒欧洲承载部分
-upstream mjeunl{
-        server 91.107.239.119:16642; #az13
-		server 128.140.13.231:16642; #az13
-        server 20.222.244.85:16642 backup; #todog jp
-		server 20.222.53.101:16642 backup; #todog jp
-		server 20.222.154.254:16642 backup; #todog jp
-        server 20.48.27.147:16642 backup;   #psa jp
-		server 20.212.199.84:16642 backup; #todog sg
-		server 20.24.40.240:16642 backup; #todog sg
-		server 20.205.239.49:16642 backup; #todog sg
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
-upstream mjeude{
-        server 91.107.239.119:16644; #az13
-		server 128.140.13.231:16644; #az13
-        server 20.222.244.85:16644 backup; #todog jp
-		server 20.222.53.101:16644 backup; #todog jp
-		server 20.222.154.254:16644 backup; #todog jp
-        server 20.48.27.147:16644 backup;   #psa jp
-		server 20.212.199.84:16644 backup; #todog sg
-		server 20.24.40.240:16644 backup; #todog sg
-		server 20.205.239.49:16644 backup; #todog sg
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
-upstream mjeufr{
-        server 91.107.239.119:16645; #az13
-		server 128.140.13.231:16645; #az13
-        server 20.222.244.85:16645 backup; #todog jp
-		server 20.222.53.101:16645 backup; #todog jp
-		server 20.222.154.254:16645 backup; #todog jp
-        server 20.48.27.147:16645 backup;   #psa jp
-		server 20.212.199.84:16645 backup; #todog sg
-		server 20.24.40.240:16645 backup; #todog sg
-		server 20.205.239.49:16645 backup; #todog sg
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
-upstream mjeupl{
-        server 91.107.239.119:16646; #az13
-		server 128.140.13.231:16646; #az13
-        server 20.222.244.85:16646 backup; #todog jp
-		server 20.222.53.101:16646 backup; #todog jp
-		server 20.222.154.254:16646 backup; #todog jp
-        server 20.48.27.147:16646 backup;   #psa jp
-		server 20.212.199.84:16646 backup; #todog sg
-		server 20.24.40.240:16646 backup; #todog sg
-		server 20.205.239.49:16646 backup; #todog sg
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
+#欧洲开始迁移至pass
 #魔戒端口监听
 server {
     listen 16616;
@@ -425,79 +367,23 @@ server {
         }
 }
 server {
-    listen 16635;
-    location / {
-		proxy_pass http://br;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16636;
-    location / {
-		proxy_pass http://mjmx;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
     listen 16638;   #澳洲-悉尼
     location / {
-		proxy_pass http://170.187.240.57:6696;
+		proxy_pass http://170.187.240.57:6698;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16639;   #非洲-尼日利亚-拉各斯
     location / {
-		proxy_pass http://185.255.123.195:6694;
+		proxy_pass http://185.255.123.195:6696;
 		include /usr/local/nginx/ws; 
         }
 }
 server {
     listen 16640;   #非洲-南非
     location / {
-		proxy_pass http://197.189.207.7:6616;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16641;   #加拿大东海岸
-    location / {
-		proxy_pass http://149.56.133.8:6696;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16642;   #荷兰
-    location / {
-		proxy_pass http://mjeunl;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16643;   #芬兰-经德国中转
-    location / {
-		proxy_pass http://37.143.129.238:6616;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16644;   #德国
-    location / {
-		proxy_pass http://mjeude;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16645;  #法国
-    location / {
-		proxy_pass http://mjeufr;
-		include /usr/local/nginx/ws; 
-        }
-}
-server {
-    listen 16646;
-    location / {
-		proxy_pass http://mjeupl;
+		proxy_pass http://197.189.207.7:6618;
 		include /usr/local/nginx/ws; 
         }
 }
