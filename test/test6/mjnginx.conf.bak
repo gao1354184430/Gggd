@@ -1,11 +1,11 @@
 #start
 #魔戒负载均衡dynamic_resolve fallback=stale fail_timeout=60s;  
 #azure承载节点-直接查找替换
-#azjp0-f4s   20.78.67.134    #todog  MKS2    #pass没有改
+#azjp0-f4s   20.63.177.77    #todog  MKS2    #pass没有改
 #azjp1-f4s   20.243.222.120    #todog  LKM-1
 #azjp2-f4s   20.243.222.77    #todog  LKM-2
 #azjp3-f4s   20.89.130.230
-#azjp4-f4s   20.48.27.147   #psa #passwd Aa112211.....
+#azjp4-f4s   20.222.159.107   #psa #passwd Aa112211.....
 #azjp5-f4s   54.250.243.178     #mjaws1
 #azjp6-f4s   52.199.48.254    #mj2
 #azjp7-f4s   13.231.209.60    #mjaws4
@@ -36,11 +36,11 @@
 ######结束
 upstream jp{
         #ip_hash;  #MJ-JP AZ承载  微调后由azjp3.4.5.6联入，其他备份
-        server 20.78.67.134:16617;
+        server 20.63.177.77:16617;
 		server 20.243.222.120:16617;
 		server 20.243.222.77:16617;
 		server 20.89.130.230:16617;
-        server 20.48.27.147:16617;
+        server 20.222.159.107:16617;
         server 54.250.243.178:16617;
 		server 52.199.48.254:16617;
 		server 13.231.209.60:16617;
@@ -63,11 +63,11 @@ upstream jp{
 }
 upstream mjusla{
         #ip_hash;	#美国的连接方案跟日本一样，优先走日本承载
-        server 20.78.67.134:16648;
+        server 20.63.177.77:16648;
 		server 20.243.222.120:16648;
 		server 20.243.222.77:16648;
 		server 20.89.130.230:16648;
-        server 20.48.27.147:16648;
+        server 20.222.159.107:16648;
         server 54.250.243.178:16648;
 		server 52.199.48.254:16648;
 		server 13.231.209.60:16648;
@@ -90,11 +90,11 @@ upstream mjusla{
 }
 upstream mjeupt{
         #ip_hash;	#葡萄牙的连接方案跟日本一样，优先走日本承载
-        server 20.78.67.134:16624;
+        server 20.63.177.77:16624;
 		server 20.243.222.120:16624;
 		server 20.243.222.77:16624;
 		server 20.89.130.230:16624;
-        server 20.48.27.147:16624;
+        server 20.222.159.107:16624;
         server 54.250.243.178:16624;
 		server 52.199.48.254:16624;
 		server 13.231.209.60:16624;
@@ -117,11 +117,11 @@ upstream mjeupt{
 }
 upstream sg{
         #ip_hash;  #BGP承载，AZ备用
-        server 20.78.67.134:16618 backup;
+        server 20.63.177.77:16618 backup;
 		server 20.243.222.120:16618 backup;
 		server 20.243.222.77:16618 backup;
 		server 20.89.130.230:16618 backup;
-        server 20.48.27.147:16618 backup;
+        server 20.222.159.107:16618 backup;
         server 54.250.243.178:16618 backup;
 		server 52.199.48.254:16618 backup;
 		server 13.231.209.60:16618 backup;
@@ -147,11 +147,11 @@ upstream mjfdchk{
         server 20.205.215.210:16622 backup;
 		server 20.212.37.29:16622 backup;
         server 13.231.209.60:16622 backup;
-        server 20.78.67.134:16622 backup;
+        server 20.63.177.77:16622 backup;
 		server 20.243.222.120:16622 backup;
 		server 20.243.222.77:16622 backup;
 		server 20.89.130.230:16622 backup;
-        server 20.48.27.147:16622 backup;
+        server 20.222.159.107:16622 backup;
         server 54.250.243.178:16622 backup;
 		server 52.199.48.254:16622 backup;
 		server 18.143.177.60:16622 backup;
@@ -172,11 +172,11 @@ upstream mjfdchk{
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream tw_n{
-        server 20.78.67.134:16616;
+        server 20.63.177.77:16616;
 		server 20.243.222.120:16616;
 		server 20.243.222.77:16616;
 		server 20.89.130.230:16616;
-        server 20.48.27.147:16616;
+        server 20.222.159.107:16616;
         server 54.250.243.178:16616;
 		server 52.199.48.254:16616;
 		server 13.231.209.60:16616;
@@ -203,11 +203,11 @@ upstream mjhk{
         server 20.205.215.210:16620 backup;   #HKT
 		server 20.212.37.29:16620 backup;   #HKT
         server 13.231.209.60:16620 backup;
-        server 20.78.67.134:16620 backup;
+        server 20.63.177.77:16620 backup;
 		server 20.243.222.120:16620 backup;
 		server 20.243.222.77:16620 backup;
 		server 20.89.130.230:16620 backup;
-        server 20.48.27.147:16620 backup;
+        server 20.222.159.107:16620 backup;
         server 54.250.243.178:16620 backup;
 		server 52.199.48.254:16620 backup;
 		server 18.143.177.60:16620 backup;
@@ -249,11 +249,11 @@ upstream mjkh{
 }
 #结束
 upstream mjar{
-        server 20.78.67.134:16628;
+        server 20.63.177.77:16628;
 		server 20.243.222.120:16628;
 		server 20.243.222.77:16628;
 		server 20.89.130.230:16628;
-        server 20.48.27.147:16628;
+        server 20.222.159.107:16628;
         server 54.250.243.178:16628;
 		server 52.199.48.254:16628;
 		server 13.231.209.60:16628;
