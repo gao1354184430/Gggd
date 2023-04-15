@@ -167,7 +167,7 @@ upstream mjfdchk{
 		server 20.239.78.68:16622 backup;
 		server 20.24.95.25:16622 backup;
 		server 20.24.74.24:16622 backup;
-        server 16.163.29.24:6616;
+        server 18.163.24.17:6616;
 		server 16.162.88.227:6616;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
