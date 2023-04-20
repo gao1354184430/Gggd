@@ -61,8 +61,8 @@ upstream mjhkjp{
         server 13.231.173.92:6619;   #日本3-Linode-月抛
         server 13.115.54.168:6617;    #日本4-linode
         server 52.198.91.38:6617;  #日本5-Linode
-        server 52.69.30.18:6617;   #日本6-Linode-月抛####nodeID=229
-        server 13.230.185.237:6617;   #日本7-Linode-月抛####nodeID=230
+        server 18.183.244.158:6617;   #日本6-Linode-月抛####nodeID=229
+        server 3.112.48.38:6617;   #日本7-Linode-月抛####nodeID=230
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhkjp{
