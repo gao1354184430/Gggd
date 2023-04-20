@@ -6,10 +6,10 @@
 #azjp2-f4s   20.89.16.205    #todog  JPC-3
 #azjp3-f4s   20.222.138.23   #psa
 #azjp4-f4s   20.210.119.176   #psa #passwd Aa112211.....
-#azjp5-f4s   54.95.233.152     #mjaws1
+#azjp5-f4s   54.178.72.210     #mjaws1
 #azjp6-f4s   43.206.237.24    #mj2
 #azjp7-f4s   43.206.239.90    #mjaws4
-#azjp8-f4s   3.112.243.27    #mjaws5
+#azjp8-f4s   13.115.214.120    #mjaws5
 #azjp9-f4s   20.222.254.45    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
 #azsg6-f4s   20.212.37.29      #lansing
@@ -41,10 +41,10 @@ upstream jp{
 		server 20.89.16.205:16617;
 		server 20.222.138.23:16617;
         server 20.210.119.176:16617;
-        server 54.95.233.152:16617;
+        server 54.178.72.210:16617;
 		server 43.206.237.24:16617;
 		server 43.206.239.90:16617;
-		server 3.112.243.27:16617;
+		server 13.115.214.120:16617;
 		server 20.222.254.45:16617;
         server 20.205.215.210:16617 backup;
 		server 20.212.37.29:16617 backup;
@@ -68,10 +68,10 @@ upstream mjusla{
 		server 20.89.16.205:16648;
 		server 20.222.138.23:16648;
         server 20.210.119.176:16648;
-        server 54.95.233.152:16648;
+        server 54.178.72.210:16648;
 		server 43.206.237.24:16648;
 		server 43.206.239.90:16648;
-		server 3.112.243.27:16648;
+		server 13.115.214.120:16648;
 		server 20.222.254.45:16648;
         server 20.205.215.210:16648 backup;
 		server 20.212.37.29:16648 backup;
@@ -95,10 +95,10 @@ upstream mjeupt{
 		server 20.89.16.205:16624;
 		server 20.222.138.23:16624;
         server 20.210.119.176:16624;
-        server 54.95.233.152:16624;
+        server 54.178.72.210:16624;
 		server 43.206.237.24:16624;
 		server 43.206.239.90:16624;
-		server 3.112.243.27:16624;
+		server 13.115.214.120:16624;
 		server 20.222.254.45:16624;
         server 20.205.215.210:16624 backup;
 		server 20.212.37.29:16624 backup;
@@ -122,10 +122,10 @@ upstream sg{
 		server 20.89.16.205:16618 backup;
 		server 20.222.138.23:16618 backup;
         server 20.210.119.176:16618 backup;
-        server 54.95.233.152:16618 backup;
+        server 54.178.72.210:16618 backup;
 		server 43.206.237.24:16618 backup;
 		server 43.206.239.90:16618 backup;
-		server 3.112.243.27:16618 backup;
+		server 13.115.214.120:16618 backup;
 		server 20.222.254.45:16618 backup;
         server 20.205.215.210:16618;
 		server 20.212.37.29:16618;
@@ -152,10 +152,10 @@ upstream mjfdchk{
 		server 20.89.16.205:16622 backup;
 		server 20.222.138.23:16622 backup;
         server 20.210.119.176:16622 backup;
-        server 54.95.233.152:16622 backup;
+        server 54.178.72.210:16622 backup;
 		server 43.206.237.24:16622 backup;
 		server 3.0.94.14:16622 backup;
-		server 3.112.243.27:16622 backup;
+		server 13.115.214.120:16622 backup;
 		server 20.222.254.45:16622 backup;
         server 54.169.90.65:16622 backup;
 		server 4.194.82.178:16622 backup;
@@ -177,10 +177,10 @@ upstream tw_n{
 		server 20.89.16.205:16616;
 		server 20.222.138.23:16616;
         server 20.210.119.176:16616;
-        server 54.95.233.152:16616;
+        server 54.178.72.210:16616;
 		server 43.206.237.24:16616;
 		server 43.206.239.90:16616;
-		server 3.112.243.27:16616;
+		server 13.115.214.120:16616;
 		server 20.222.254.45:16616;
         server 20.205.215.210:16616;
 		server 20.212.37.29:16616;
@@ -208,10 +208,10 @@ upstream mjhk{
 		server 20.89.16.205:16620 backup;
 		server 20.222.138.23:16620 backup;
         server 20.210.119.176:16620 backup;
-        server 54.95.233.152:16620 backup;
+        server 54.178.72.210:16620 backup;
 		server 43.206.237.24:16620 backup;
 		server 3.0.94.14:16620 backup;
-		server 3.112.243.27:16620 backup;
+		server 13.115.214.120:16620 backup;
 		server 20.222.254.45:16620 backup;
         server 54.169.90.65:16620 backup; #azhk9
 		server 4.194.82.178:16620 backup; #azhk9
@@ -254,10 +254,10 @@ upstream mjar{
 		server 20.89.16.205:16628;
 		server 20.222.138.23:16628;
         server 20.210.119.176:16628;
-        server 54.95.233.152:16628;
+        server 54.178.72.210:16628;
 		server 43.206.237.24:16628;
 		server 43.206.239.90:16628;
-		server 3.112.243.27:16628;
+		server 13.115.214.120:16628;
 		server 20.222.254.45:16628;
         server 20.205.215.210:16628;
 		server 20.212.37.29:16628;
