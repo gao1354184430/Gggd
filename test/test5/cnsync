@@ -1,7 +1,7 @@
 #!/bin/bash
 #远端文件储存地址
-Github="https://ghproxy.com/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test6"
-Github_shell="https://ghproxy.com/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test5"
+Github="https://ghproxy.net/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test6"
+Github_shell="https://ghproxy.net/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test5"
 #定义探针函数
 SERVER_NAME=`sed -n '1p' /root/.status_name`  #请在root目录下创建 .status_name文件并填入机器名称
 NGX=`netstat -anput | grep nginx | wc -l`
