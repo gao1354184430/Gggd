@@ -5,7 +5,7 @@
 #azjp1-f4s   20.188.27.7    #todog  JPC-2
 #azjp2-f4s   20.89.16.205    #todog  JPC-3
 #azjp3-f4s   20.48.21.156   #psa
-#azjp4-f4s   20.210.119.176   #psa #passwd Aa112211.....
+#azjp4-f4s   20.63.182.109   #psa #passwd Aa112211.....
 #azjp5-f4s   175.41.213.230     #mjaws1
 #azjp6-f4s   43.207.48.171    #日本承载6
 #azjp7-f4s   20.78.83.9    #mjaws4
@@ -40,7 +40,7 @@ upstream jp{
 		server 20.188.27.7:16617;
 		server 20.89.16.205:16617;
 		server 20.48.21.156:16617;
-        server 20.210.119.176:16617;
+        server 20.63.182.109:16617;
         server 175.41.213.230:16617;
 		server 43.207.48.171:16617;
 		server 20.78.83.9:16617;
@@ -67,7 +67,7 @@ upstream mjusla{
 		server 20.188.27.7:16648;
 		server 20.89.16.205:16648;
 		server 20.48.21.156:16648;
-        server 20.210.119.176:16648;
+        server 20.63.182.109:16648;
         server 175.41.213.230:16648;
 		server 43.207.48.171:16648;
 		server 20.78.83.9:16648;
@@ -94,7 +94,7 @@ upstream mjeupt{
 		server 20.188.27.7:16624;
 		server 20.89.16.205:16624;
 		server 20.48.21.156:16624;
-        server 20.210.119.176:16624;
+        server 20.63.182.109:16624;
         server 175.41.213.230:16624;
 		server 43.207.48.171:16624;
 		server 20.78.83.9:16624;
@@ -121,7 +121,7 @@ upstream sg{
 		server 20.188.27.7:16618 backup;
 		server 20.89.16.205:16618 backup;
 		server 20.48.21.156:16618 backup;
-        server 20.210.119.176:16618 backup;
+        server 20.63.182.109:16618 backup;
         server 175.41.213.230:16618 backup;
 		server 43.207.48.171:16618 backup;
 		server 20.78.83.9:16618 backup;
@@ -151,7 +151,7 @@ upstream mjfdchk{
 		server 20.188.27.7:16622 backup;
 		server 20.89.16.205:16622 backup;
 		server 20.48.21.156:16622 backup;
-        server 20.210.119.176:16622 backup;
+        server 20.63.182.109:16622 backup;
         server 175.41.213.230:16622 backup;
 		server 43.207.48.171:16622 backup;
 		server 54.251.189.107:16622 backup;
@@ -176,7 +176,7 @@ upstream tw_n{
 		server 20.188.27.7:16616;
 		server 20.89.16.205:16616;
 		server 20.48.21.156:16616;
-        server 20.210.119.176:16616;
+        server 20.63.182.109:16616;
         server 175.41.213.230:16616;
 		server 43.207.48.171:16616;
 		server 20.78.83.9:16616;
@@ -207,7 +207,7 @@ upstream mjhk{
 		server 20.188.27.7:16620 backup;
 		server 20.89.16.205:16620 backup;
 		server 20.48.21.156:16620 backup;
-        server 20.210.119.176:16620 backup;
+        server 20.63.182.109:16620 backup;
         server 175.41.213.230:16620 backup;
 		server 43.207.48.171:16620 backup;
 		server 54.251.189.107:16620 backup;
@@ -253,7 +253,7 @@ upstream mjar{
 		server 20.188.27.7:16628;
 		server 20.89.16.205:16628;
 		server 20.48.21.156:16628;
-        server 20.210.119.176:16628;
+        server 20.63.182.109:16628;
         server 175.41.213.230:16628;
 		server 43.207.48.171:16628;
 		server 20.78.83.9:16628;
