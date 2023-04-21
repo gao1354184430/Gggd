@@ -13,8 +13,8 @@
 #azjp9-f4s   20.222.186.50    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
 #azsg6-f4s   20.212.37.29      #lansing
-#azsg7-f4s   52.221.246.130   #mj新加坡7
-#azsg8-f2s   3.0.97.52        #mj新加坡8
+#azsg7-f4s   54.251.189.107   #mj新加坡7
+#azsg8-f2s   13.215.156.103        #mj新加坡8
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  20.205.184.55              #todog  SGF-1  这个pass没有加IP作为测试3.1
 #azsg11-f2s  20.205.211.177              #todog  SGF-2
@@ -48,8 +48,8 @@ upstream jp{
 		server 20.222.186.50:16617;
         server 20.205.215.210:16617 backup;
 		server 20.212.37.29:16617 backup;
-        server 52.221.246.130:16617 backup;
-        server 3.0.97.52:16617 backup; #azhk9临时
+        server 54.251.189.107:16617 backup;
+        server 13.215.156.103:16617 backup; #azhk9临时
 		server 4.194.82.178:16617 backup; #azhk9临时
 		server 20.205.184.55:16617 backup; #azhk9临时
 		server 20.205.211.177:16617 backup; #azhk9临时
@@ -75,8 +75,8 @@ upstream mjusla{
 		server 20.222.186.50:16648;
         server 20.205.215.210:16648 backup;
 		server 20.212.37.29:16648 backup;
-        server 52.221.246.130:16648 backup;
-        server 3.0.97.52:16648 backup; #azhk9临时
+        server 54.251.189.107:16648 backup;
+        server 13.215.156.103:16648 backup; #azhk9临时
 		server 4.194.82.178:16648 backup; #azhk9临时
 		server 20.205.184.55:16648 backup; #azhk9临时
 		server 20.205.211.177:16648 backup; #azhk9临时
@@ -102,8 +102,8 @@ upstream mjeupt{
 		server 20.222.186.50:16624;
         server 20.205.215.210:16624 backup;
 		server 20.212.37.29:16624 backup;
-        server 52.221.246.130:16624 backup;
-        server 3.0.97.52:16624 backup; #azhk9临时
+        server 54.251.189.107:16624 backup;
+        server 13.215.156.103:16624 backup; #azhk9临时
 		server 4.194.82.178:16624 backup; #azhk9临时
 		server 20.205.184.55:16624 backup; #azhk9临时
 		server 20.205.211.177:16624 backup; #azhk9临时
@@ -129,8 +129,8 @@ upstream sg{
 		server 20.222.186.50:16618 backup;
         server 20.205.215.210:16618;
 		server 20.212.37.29:16618;
-        server 52.221.246.130:16618;
-        server 3.0.97.52:16618; #
+        server 54.251.189.107:16618;
+        server 13.215.156.103:16618; #
 		server 4.194.82.178:16618; #
 		server 20.205.184.55:16618; #
 		server 20.205.211.177:16618; #
@@ -154,10 +154,10 @@ upstream mjfdchk{
         server 20.210.119.176:16622 backup;
         server 175.41.213.230:16622 backup;
 		server 43.206.237.24:16622 backup;
-		server 52.221.246.130:16622 backup;
+		server 54.251.189.107:16622 backup;
 		server 54.199.27.129:16622 backup;
 		server 20.222.186.50:16622 backup;
-        server 3.0.97.52:16622 backup;
+        server 13.215.156.103:16622 backup;
 		server 4.194.82.178:16622 backup;
 		server 20.205.184.55:16622 backup;
 		server 20.205.211.177:16622 backup;
@@ -184,8 +184,8 @@ upstream tw_n{
 		server 20.222.186.50:16616;
         server 20.205.215.210:16616;
 		server 20.212.37.29:16616;
-        server 52.221.246.130:16616;
-        server 3.0.97.52:16616; #azhk9
+        server 54.251.189.107:16616;
+        server 13.215.156.103:16616; #azhk9
 		server 4.194.82.178:16616; #azhk9
 		server 20.205.184.55:16616; #azhk9
 		server 20.205.211.177:16616; #azhk9
@@ -210,10 +210,10 @@ upstream mjhk{
         server 20.210.119.176:16620 backup;
         server 175.41.213.230:16620 backup;
 		server 43.206.237.24:16620 backup;
-		server 52.221.246.130:16620 backup;
+		server 54.251.189.107:16620 backup;
 		server 54.199.27.129:16620 backup;
 		server 20.222.186.50:16620 backup;
-        server 3.0.97.52:16620 backup; #azhk9
+        server 13.215.156.103:16620 backup; #azhk9
 		server 4.194.82.178:16620 backup; #azhk9
 		server 20.205.184.55:16620 backup; #azhk9
 		server 20.205.211.177:16620 backup; #azhk9
@@ -261,8 +261,8 @@ upstream mjar{
 		server 20.222.186.50:16628;
         server 20.205.215.210:16628;
 		server 20.212.37.29:16628;
-        server 52.221.246.130:16628;
-        server 3.0.97.52:16628; #azhk9
+        server 54.251.189.107:16628;
+        server 13.215.156.103:16628; #azhk9
 		server 4.194.82.178:16628; #azhk9
 		server 20.205.184.55:16628; #azhk9
 		server 20.205.211.177:16628; #azhk9
