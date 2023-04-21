@@ -1,9 +1,9 @@
 #!/bin/bash
 #远端文件储存地址
-Github="https://ghproxy.com/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test6"
-GostService="https://ghproxy.com/https://raw.githubusercontent.com/KANIKIG/Multi-EasyGost/master"
-cndownload="https://ghproxy.com/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test5"
-tcp2ws_download="https://ghproxy.com/https://github.com/zanjie1999/tcp-over-websocket/releases/download/3.5/tcp2ws-linux"
+Github="https://ghproxy.net/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test6"
+GostService="https://ghproxy.net/https://raw.githubusercontent.com/KANIKIG/Multi-EasyGost/master"
+cndownload="https://ghproxy.net/https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test5"
+tcp2ws_download="https://ghproxy.net/https://github.com/zanjie1999/tcp-over-websocket/releases/download/3.5/tcp2ws-linux"
 #gost指定版本
 ct_new_ver="2.11.1"
 #测试与GitHub连通性
@@ -153,7 +153,7 @@ function install_gost() {
 	bit="amd64"
 	yum install -y gzip
     rm -rf /root/gost-linux-"$bit"-"$ct_new_ver".gz
-    wget --no-check-certificate --no-check-certificate https://ghproxy.com/https://github.com/ginuerzh/gost/releases/download/v$ct_new_ver/gost-linux-$bit-$ct_new_ver.gz -O /root/gost-linux-$bit-$ct_new_ver.gz
+    wget --no-check-certificate --no-check-certificate https://ghproxy.net/https://github.com/ginuerzh/gost/releases/download/v$ct_new_ver/gost-linux-$bit-$ct_new_ver.gz -O /root/gost-linux-$bit-$ct_new_ver.gz
     gunzip /root/gost-linux-"$bit"-"$ct_new_ver".gz
     mv /root/gost-linux-"$bit"-"$ct_new_ver" /usr/bin/gost
     chmod -R 777 /usr/bin/gost
