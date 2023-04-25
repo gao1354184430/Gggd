@@ -16,7 +16,7 @@ upstream mjtjp{
     server 52.194.189.7:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 18.183.58.168:6626 max_fails=3 fail_timeout=30s; #T13  ID12
     server 35.77.196.70:6626 max_fails=3 fail_timeout=30s; #T14  ID14
-    server 172.104.87.178:6626 max_fails=3 fail_timeout=30s; #T15  ID15
+    server 54.199.91.70:6626 max_fails=3 fail_timeout=30s; #T15  ID15
     server 139.162.67.222:6626 max_fails=3 fail_timeout=30s backup;
 }
 upstream mjtvn{
