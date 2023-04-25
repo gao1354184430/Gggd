@@ -66,7 +66,7 @@ upstream mjhkjp{
 		server 18.182.22.137:6617;   #日本8-Linode-月抛####nodeID=282
 		server 54.168.237.84:6617;   #日本9-Linode-月抛####nodeID=283
 		server 3.112.225.243:6617;   #日本10-Linode-月抛####nodeID=284
-		server 13.115.252.120:6617;   #日本11-Linode-月抛####nodeID=285
+		server 35.78.78.56:6617;   #日本11-Linode-月抛####nodeID=285
 		server 43.207.194.220:6617;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
@@ -474,7 +474,7 @@ server {
 server {
     listen 10014; #台湾 V3
     location / {
-		proxy_pass http://yftw2.ddns.me:18889;   
+		proxy_pass http://yftw2.ddns.me:18899;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -523,7 +523,7 @@ server {
 #####台湾负载均衡#####
 upstream fqtw{
         dynamic_resolve fallback=stale fail_timeout=60s; 
-        server lbtw.ddns.net:7738;
+        server lbtw.ddns.net:7788;
 }
 upstream cvtw{
         dynamic_resolve fallback=stale fail_timeout=60s; 
