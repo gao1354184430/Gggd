@@ -64,7 +64,7 @@ upstream mjhkjp{
         server 18.181.203.203:6619;   #日本3-Linode-月抛
         server 52.198.131.125:6617;    #日本4-linode
         server 18.179.198.150:6617;  #日本5-Linode
-        server 172.104.77.100:6617;   #日本6-Linode-月抛####nodeID=229
+        server 139.162.98.175:6617;   #日本6-Linode-月抛####nodeID=229
         server 18.183.232.162:6617;   #日本7-Linode-月抛####nodeID=230
 		server 52.195.1.13:6617;   #日本8-Linode-月抛####nodeID=282
 		server 54.250.177.141:6617;   #日本9-Linode-月抛####nodeID=283
