@@ -17,7 +17,7 @@ upstream mjhksg{
         server 15.235.163.186:6616;    #新加坡4-OVH-代购
         server 128.199.132.114:6616;    #新加坡6-DO月抛号	
         server 68.183.185.80:6616;    #新加坡7-do月抛自购买
-		server 157.245.58.140:6616;    #新加坡7-do月抛自购买
+		server 157.245.58.140:6616;    #新加坡8-do月抛自购买
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhksg{
