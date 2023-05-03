@@ -14,7 +14,7 @@
 #azsg5-f4s   20.205.215.210    #sg承载开始
 #azsg6-f4s   20.212.54.135      #lansing
 #azsg7-f4s   13.250.53.248   #mj新加坡7
-#azsg8-f2s   4.194.74.92        #mj新加坡8
+#azsg8-f2s   4.194.74.92        #lansing
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  4.194.152.70              #todog  KLSC-1  这个pass没有加IP作为测试3.1
 #azsg11-f2s  20.205.232.53              #todog  MKSCS
@@ -200,32 +200,6 @@ upstream tw_n{
         server 153.122.173.25:16616 backup;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
-upstream mjhk{
-        server 20.205.215.210:16620 backup;   #HKT
-		server 20.212.54.135:16620 backup;   #HKT
-        server 52.69.221.209:16620 backup;
-        server 20.210.124.53:16620 backup;
-		server 20.210.124.32:16620 backup;
-		server 20.210.213.235:16620 backup;
-		server 20.89.19.54:16620 backup;
-        server 20.63.182.109:16620 backup;
-        server 20.222.105.170:16620 backup;
-		server 13.113.84.147:16620 backup;
-		server 13.250.53.248:16620 backup;
-		server 13.231.120.233:16620 backup;
-		server 20.222.186.50:16620 backup;
-        server 4.194.74.92:16620 backup; #azhk9
-		server 4.194.82.178:16620 backup; #azhk9
-		server 4.194.152.70:16620 backup; #azhk9
-		server 20.205.232.53:16620 backup; #azhk9
-		server 4.193.43.182:16620 backup; #azhk9
-        server 20.24.93.173:16620; #az13
-		server 20.187.93.76:16620; #az13
-		server 20.255.70.93:16620; #az23
-		server 20.24.95.25:16620; #az14
-		server 20.24.74.24:16620; #az16
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
-}
 upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落地
         server 20.187.96.154:6688 weight=3;     #AZHK9     ID268
         server 20.24.64.48:6634;     #AZHK17F8s   ID269   #FKU-1
@@ -307,7 +281,7 @@ server {
 server {
     listen 16620;
     location / {
-		proxy_pass http://mjhk;
+		proxy_pass http://219.78.236.93:6616;
 		include /usr/local/nginx/ws; 
         }
 }
