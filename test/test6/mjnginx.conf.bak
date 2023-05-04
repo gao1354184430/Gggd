@@ -7,13 +7,13 @@
 #azjp3-f4s   20.89.19.54   #psa
 #azjp4-f4s   20.63.182.109   #psa #passwd Aa112211.....
 #azjp5-f4s   20.222.105.170     #lansing
-#azjp6-f4s   20.89.129.59    #日本承载6
+#azjp6-f4s   20.89.129.59    #langsing
 #azjp7-f4s   54.199.159.81    #日本承载7
 #azjp8-f4s   52.195.4.125    #日本承载8
 #azjp9-f4s   20.222.186.50    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
 #azsg6-f4s   20.212.54.135      #lansing
-#azsg7-f4s   20.212.216.58   #mj新加坡7
+#azsg7-f4s   20.212.216.58   #lansing
 #azsg8-f2s   4.194.74.92        #lansing
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  4.194.152.70              #todog  KLSC-1  这个pass没有加IP作为测试3.1
