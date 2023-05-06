@@ -87,9 +87,9 @@ server {
 }
 upstream gkdtsg01{
     #hash $remote_addr;
-    server 51.79.251.244:23000 max_fails=3 fail_timeout=30s; 
-    server 51.79.250.250:23000 max_fails=3 fail_timeout=30s backup;
-    server 51.79.250.225:23000 max_fails=3 fail_timeout=30s backup; 
+    server 157.245.60.92:23000 max_fails=3 fail_timeout=30s; 
+    server 167.71.192.177:23000 max_fails=3 fail_timeout=30s backup;
+    server 143.198.208.233:23000 max_fails=3 fail_timeout=30s backup; 
 }
 server {
     listen  443 ssl;
@@ -104,9 +104,9 @@ server {
 }	
 upstream gkdtsg02{
     #hash $remote_addr;
-    server 51.79.251.244:23000 max_fails=3 fail_timeout=30s backup; 
-    server 51.79.250.250:23000 max_fails=3 fail_timeout=30s;
-    server 51.79.250.225:23000 max_fails=3 fail_timeout=30s backup; 
+    server 157.245.60.92:23000 max_fails=3 fail_timeout=30s backup; 
+    server 167.71.192.177:23000 max_fails=3 fail_timeout=30s;
+    server 143.198.208.233:23000 max_fails=3 fail_timeout=30s backup; 
 }
 server {
     listen  443 ssl;
@@ -121,9 +121,9 @@ server {
 }
 upstream gkdtsg03{
     #hash $remote_addr;
-    server 51.79.251.244:23000 max_fails=3 fail_timeout=30s backup; 
-    server 51.79.250.250:23000 max_fails=3 fail_timeout=30s backup;
-    server 51.79.250.225:23000 max_fails=3 fail_timeout=30s; 
+    server 157.245.60.92:23000 max_fails=3 fail_timeout=30s backup; 
+    server 167.71.192.177:23000 max_fails=3 fail_timeout=30s backup;
+    server 143.198.208.233:23000 max_fails=3 fail_timeout=30s; 
 }
 server {
     listen  443 ssl;
@@ -137,10 +137,8 @@ server {
     proxy_pass gkdtsg03;
 }
 upstream gkdtjp{
-    hash $remote_addr;
-    server 153.122.175.116:23000 max_fails=3 fail_timeout=30s; 
-    server 153.122.98.49:23000 max_fails=3 fail_timeout=30s;
-    server 153.122.175.8:23000 max_fails=3 fail_timeout=30s; 
+    #hash $remote_addr;
+    server 203.138.99.106:23000 max_fails=3 fail_timeout=30s; 
 }
 server {
     listen  443 ssl;
@@ -495,9 +493,9 @@ server {
 }
 upstream kapoksg10{
     #hash $remote_addr;
-    server 51.79.251.244:23100 max_fails=3 fail_timeout=30s; 
-    server 51.79.250.225:23100 max_fails=3 fail_timeout=30s backup;
-    server 51.79.250.250:23100 max_fails=3 fail_timeout=30s backup;
+    server 157.245.60.92:23100 max_fails=3 fail_timeout=30s; 
+    server 167.71.192.177:23100 max_fails=3 fail_timeout=30s backup;
+    server 143.198.208.233:23100 max_fails=3 fail_timeout=30s backup; 
 }
 server {
     listen  443 ssl;
@@ -512,9 +510,9 @@ server {
 }
 upstream kapoksg11{
     #hash $remote_addr;
-    server 51.79.251.244:23100 max_fails=3 fail_timeout=30s backup; 
-    server 51.79.250.225:23100 max_fails=3 fail_timeout=30s;
-    server 51.79.250.250:23100 max_fails=3 fail_timeout=30s backup;
+    server 157.245.60.92:23100 max_fails=3 fail_timeout=30s backup; 
+    server 167.71.192.177:23100 max_fails=3 fail_timeout=30s;
+    server 143.198.208.233:23100 max_fails=3 fail_timeout=30s backup; 
 }
 server {
     listen  443 ssl;
@@ -529,10 +527,9 @@ server {
 }
 upstream kapoksg12{
     #hash $remote_addr;
-    server 51.79.251.244:23100 max_fails=3 fail_timeout=30s backup; 
-    server 51.79.250.225:23100 max_fails=3 fail_timeout=30s backup;
-    server 51.79.250.250:23100 max_fails=3 fail_timeout=30s;
-}
+    server 157.245.60.92:23100 max_fails=3 fail_timeout=30s backup; 
+    server 167.71.192.177:23100 max_fails=3 fail_timeout=30s backup;
+    server 143.198.208.233:23100 max_fails=3 fail_timeout=30s; 
 server {
     listen  443 ssl;
     server_name sg12.trojanyyds.com;
@@ -545,10 +542,11 @@ server {
     proxy_pass kapoksg12;
 }
 upstream kapokjp{
-    hash $remote_addr;
-    server 153.122.98.49:23100 max_fails=3 fail_timeout=30s; 
-    server 153.122.109.217:23100 max_fails=3 fail_timeout=30s;
-    server 153.122.175.8:23100 max_fails=3 fail_timeout=30s;
+    #hash $remote_addr;
+    server 203.138.99.106:23100 max_fails=3 fail_timeout=30s; 
+    server 153.122.98.49:23100 max_fails=3 fail_timeout=30s backup; 
+    server 153.122.109.217:23100 max_fails=3 fail_timeout=30s backup;
+    server 153.122.175.8:23100 max_fails=3 fail_timeout=30s backup;
 }
 server {
     listen  443 ssl;
@@ -675,5 +673,5 @@ server {
     ssl_session_cache   shared:SSL:10m;             # SSL TCP会话缓存设置共享内存区域名为# SSL，区域大小为10MB                                                   
     ssl_session_timeout 10m;                        # SSL TCP会话缓存超时时间为10分钟
     proxy_protocol    on; # 获取真实ip
-    proxy_pass awtus;
+    proxy_pass 170.187.151.25:2338;
 }	
