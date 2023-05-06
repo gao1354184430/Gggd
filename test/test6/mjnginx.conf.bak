@@ -167,7 +167,7 @@ upstream mjfdchk{
 		server 20.187.93.76:16622 backup;
 		server 20.24.95.25:16622 backup;
 		server 20.24.74.24:16622 backup;
-        server 16.163.156.90:6616;
+        server 16.163.146.19:6616;
 		server 16.162.89.70:6616;
 		server 16.162.187.154:6616;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -281,7 +281,7 @@ server {
 server {
     listen 16620;
     location / {
-		proxy_pass http://219.78.236.93:6616;
+		proxy_pass http://219.78.236.141:6616;
 		include /usr/local/nginx/ws; 
         }
 }
