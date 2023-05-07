@@ -66,11 +66,11 @@ upstream mjhkjp{
         server 13.231.240.251:6617;  #日本5-Linode
         server 139.162.102.142:6617;   #日本6-Linode-月抛####nodeID=229
         server 52.193.67.38:6617;   #日本7-Linode-月抛####nodeID=230
-		server 139.162.86.104:6617;   #日本8-Linode-月抛####nodeID=282
-		server 43.207.35.231:6617;   #日本9-Linode-月抛####nodeID=283
+		server 35.78.124.112:6617;   #日本8-Linode-月抛####nodeID=282
+		server 43.207.181.191:6617;   #日本9-Linode-月抛####nodeID=283
 		server 43.206.155.242:6617;   #日本10-Linode-月抛####nodeID=284
-		server 18.183.39.153:6617;   #日本11-Linode-月抛####nodeID=285
-		server 43.207.231.62:6617;   #日本12-Linode-月抛####nodeID=286
+		server 13.231.225.4:6617;   #日本11-Linode-月抛####nodeID=285
+		server 18.183.34.80:6617;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhkjp{
