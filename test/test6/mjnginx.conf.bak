@@ -18,7 +18,7 @@
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  4.194.152.70              #todog  KLSC-1  这个pass没有加IP作为测试3.1
 #azsg11-f2s  20.212.115.202              #todog  MKSCS
-#azsg12-f2s  20.212.2.189     #SG结束  #todog  NNS-1
+#azsg12-f2s  20.212.2.189     #SG结束  #todog  WSQMM-2
 #azhk12-f4s  20.24.93.173
 #azhk13-f4s  20.187.93.76     #lansing
 #azhk14-f4s  20.24.95.25   #todog  HKC-4
