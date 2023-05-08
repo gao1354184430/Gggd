@@ -14,7 +14,7 @@
 #azsg5-f4s   20.205.215.210    #sg承载开始
 #azsg6-f4s   20.212.54.135      #lansing
 #azsg7-f4s   20.212.216.58   #lansing
-#azsg8-f2s   18.142.45.18        #lansing
+#azsg8-f2s   18.142.45.18        #新加坡承载8
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  4.194.152.70              #todog  KLSC-1  这个pass没有加IP作为测试3.1
 #azsg11-f2s  20.205.232.53              #todog  MKSCS
