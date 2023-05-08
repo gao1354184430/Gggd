@@ -67,9 +67,9 @@ upstream mjhkjp{
         server 54.250.114.67:6617;   #日本6-Linode-月抛####nodeID=229
         server 95.85.94.101:6617;   #日本7-GCORE-测试####nodeID=230
 		server 54.168.189.123:6617;   #日本8-Linode-月抛####nodeID=282
-		server 43.207.181.191:6617;   #日本9-Linode-月抛####nodeID=283
+		server 35.79.219.230:6617;   #日本9-Linode-月抛####nodeID=283
 		server 31.223.184.227:6617;   #日本10-GCORE-月抛####nodeID=284
-		server 13.231.225.4:6617;   #日本11-Linode-月抛####nodeID=285
+		server 18.179.44.144:6617;   #日本11-Linode-月抛####nodeID=285
 		server 18.183.34.80:6617;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
