@@ -4,11 +4,11 @@
 #azjp0-f4s   20.210.124.53    #todog MMH-1    #pass没有改
 #azjp1-f4s   20.210.124.32    #todog MMH-2
 #azjp2-f4s   20.210.213.235    #todog  MKISCSSS-1
-#azjp3-f4s   20.89.19.54   #psa
-#azjp4-f4s   52.140.214.182   #psa #passwd Aa112211.....
+#azjp3-f4s   20.63.182.109   #psa #椰子管理
+#azjp4-f4s   52.140.214.182   #psa #passwd Aa112211.....  #阿伟管理？
 #azjp5-f4s   20.210.204.71     #lansing
 #azjp6-f4s   20.89.129.59    #langsing
-#azjp7-f4s   52.253.119.85    #lansibg
+#azjp7-f4s   20.222.6.62    #lansibg
 #azjp8-f4s   20.222.169.178    #lansing
 #azjp9-f4s   20.222.186.50    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
@@ -39,11 +39,11 @@ upstream jp{
         server 20.210.124.53:16617;
 		server 20.210.124.32:16617;
 		server 20.210.213.235:16617;
-		server 20.89.19.54:16617;
+		server 20.63.182.109:16617;
         server 52.140.214.182:16617;
         server 20.210.204.71:16617;
 		server 20.89.129.59:16617;
-		server 52.253.119.85:16617;
+		server 20.222.6.62:16617;
 		server 20.222.169.178:16617;
 		server 20.222.186.50:16617;
         server 20.205.215.210:16617 backup;
@@ -66,11 +66,11 @@ upstream mjusla{
         server 20.210.124.53:16648;
 		server 20.210.124.32:16648;
 		server 20.210.213.235:16648;
-		server 20.89.19.54:16648;
+		server 20.63.182.109:16648;
         server 52.140.214.182:16648;
         server 20.210.204.71:16648;
 		server 20.89.129.59:16648;
-		server 52.253.119.85:16648;
+		server 20.222.6.62:16648;
 		server 20.222.169.178:16648;
 		server 20.222.186.50:16648;
         server 20.205.215.210:16648 backup;
@@ -93,11 +93,11 @@ upstream mjeupt{
         server 20.210.124.53:16624;
 		server 20.210.124.32:16624;
 		server 20.210.213.235:16624;
-		server 20.89.19.54:16624;
+		server 20.63.182.109:16624;
         server 52.140.214.182:16624;
         server 20.210.204.71:16624;
 		server 20.89.129.59:16624;
-		server 52.253.119.85:16624;
+		server 20.222.6.62:16624;
 		server 20.222.169.178:16624;
 		server 20.222.186.50:16624;
         server 20.205.215.210:16624 backup;
@@ -120,11 +120,11 @@ upstream sg{
         server 20.210.124.53:16618 backup;
 		server 20.210.124.32:16618 backup;
 		server 20.210.213.235:16618 backup;
-		server 20.89.19.54:16618 backup;
+		server 20.63.182.109:16618 backup;
         server 52.140.214.182:16618 backup;
         server 20.210.204.71:16618 backup;
 		server 20.89.129.59:16618 backup;
-		server 52.253.119.85:16618 backup;
+		server 20.222.6.62:16618 backup;
 		server 20.222.169.178:16618 backup;
 		server 20.222.186.50:16618 backup;
         server 20.205.215.210:16618;
@@ -146,11 +146,11 @@ upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
         server 20.205.215.210:16622 backup;
 		server 4.193.64.130:16622 backup;
-        server 52.253.119.85:16622 backup;
+        server 20.222.6.62:16622 backup;
         server 20.210.124.53:16622 backup;
 		server 20.210.124.32:16622 backup;
 		server 20.210.213.235:16622 backup;
-		server 20.89.19.54:16622 backup;
+		server 20.63.182.109:16622 backup;
         server 52.140.214.182:16622 backup;
         server 20.210.204.71:16622 backup;
 		server 20.89.129.59:16622 backup;
@@ -176,11 +176,11 @@ upstream tw_n{
         server 20.210.124.53:16616;
 		server 20.210.124.32:16616;
 		server 20.210.213.235:16616;
-		server 20.89.19.54:16616;
+		server 20.63.182.109:16616;
         server 52.140.214.182:16616;
         server 20.210.204.71:16616;
 		server 20.89.129.59:16616;
-		server 52.253.119.85:16616;
+		server 20.222.6.62:16616;
 		server 20.222.169.178:16616;
 		server 20.222.186.50:16616;
         server 20.205.215.210:16616;
@@ -227,11 +227,11 @@ upstream mjar{
         server 20.210.124.53:16628;
 		server 20.210.124.32:16628;
 		server 20.210.213.235:16628;
-		server 20.89.19.54:16628;
+		server 20.63.182.109:16628;
         server 52.140.214.182:16628;
         server 20.210.204.71:16628;
 		server 20.89.129.59:16628;
-		server 52.253.119.85:16628;
+		server 20.222.6.62:16628;
 		server 20.222.169.178:16628;
 		server 20.222.186.50:16628;
         server 20.205.215.210:16628;
