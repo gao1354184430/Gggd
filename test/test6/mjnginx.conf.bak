@@ -12,7 +12,7 @@
 #azjp8-f4s   20.243.48.27    #lansing
 #azjp9-f4s   20.89.143.4    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
-#azsg6-f4s   4.193.64.130      #lansing
+#azsg6-f4s   4.194.177.229      #lansing
 #azsg7-f4s   20.24.159.116   #lansing
 #azsg8-f2s   3.1.221.162        #新加坡承载8
 #azsg9-f2s   4.194.82.178    #
@@ -47,7 +47,7 @@ upstream jp{
 		server 20.243.48.27:16617;
 		server 20.89.143.4:16617;
         server 20.205.215.210:16617 backup;
-		server 4.193.64.130:16617 backup;
+		server 4.194.177.229:16617 backup;
         server 20.24.159.116:16617 backup;
         server 3.1.221.162:16617 backup; #azhk9临时
 		server 4.194.82.178:16617 backup; #azhk9临时
@@ -74,7 +74,7 @@ upstream mjusla{
 		server 20.243.48.27:16648;
 		server 20.89.143.4:16648;
         server 20.205.215.210:16648 backup;
-		server 4.193.64.130:16648 backup;
+		server 4.194.177.229:16648 backup;
         server 20.24.159.116:16648 backup;
         server 3.1.221.162:16648 backup; #azhk9临时
 		server 4.194.82.178:16648 backup; #azhk9临时
@@ -101,7 +101,7 @@ upstream mjeupt{
 		server 20.243.48.27:16624;
 		server 20.89.143.4:16624;
         server 20.205.215.210:16624 backup;
-		server 4.193.64.130:16624 backup;
+		server 4.194.177.229:16624 backup;
         server 20.24.159.116:16624 backup;
         server 3.1.221.162:16624 backup; #azhk9临时
 		server 4.194.82.178:16624 backup; #azhk9临时
@@ -128,7 +128,7 @@ upstream sg{
 		server 20.243.48.27:16618 backup;
 		server 20.89.143.4:16618 backup;
         server 20.205.215.210:16618;
-		server 4.193.64.130:16618;
+		server 4.194.177.229:16618;
         server 20.24.159.116:16618;
         server 3.1.221.162:16618; #
 		server 4.194.82.178:16618; #
@@ -145,7 +145,7 @@ upstream sg{
 upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
         server 20.205.215.210:16622 backup;
-		server 4.193.64.130:16622 backup;
+		server 4.194.177.229:16622 backup;
         server 20.78.204.242:16622 backup;
         server 20.222.7.25:16622 backup;
 		server 20.222.5.118:16622 backup;
@@ -184,7 +184,7 @@ upstream tw_n{
 		server 20.243.48.27:16616;
 		server 20.89.143.4:16616;
         server 20.205.215.210:16616;
-		server 4.193.64.130:16616;
+		server 4.194.177.229:16616;
         server 20.24.159.116:16616;
         server 3.1.221.162:16616; #azhk9
 		server 4.194.82.178:16616; #azhk9
@@ -235,7 +235,7 @@ upstream mjar{
 		server 20.243.48.27:16628;
 		server 20.89.143.4:16628;
         server 20.205.215.210:16628;
-		server 4.193.64.130:16628;
+		server 4.194.177.229:16628;
         server 20.24.159.116:16628;
         server 3.1.221.162:16628; #azhk9
 		server 4.194.82.178:16628; #azhk9
