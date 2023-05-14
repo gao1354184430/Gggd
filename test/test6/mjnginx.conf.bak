@@ -4,7 +4,7 @@
 #azjp0-f4s   20.222.7.25    #todog MHCS-1    #pass没有改
 #azjp1-f4s   20.89.59.231    #todog MHCS-2
 #azjp2-f4s   20.210.213.235    #todog  MKISCSSS-1
-#azjp3-f4s   20.63.182.109   #psa #椰子管理
+#azjp3-f4s   40.74.77.109   #psa #jpwest
 #azjp4-f4s   20.63.182.170   #psa #passwd Aa112211.....  #ysjp
 #azjp5-f4s   20.210.204.71     #lansing
 #azjp6-f4s   20.89.129.59    #langsing
@@ -168,7 +168,7 @@ upstream mjfdchk{
 		server 20.24.95.25:16622 backup;
 		server 20.24.74.24:16622 backup;
         server 18.163.188.99:6616;
-		server 18.167.167.95:6616;
+		server 16.162.252.87:6616;
 		server 18.162.188.175:6616;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
