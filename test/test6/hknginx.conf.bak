@@ -62,10 +62,10 @@ upstream mjhkjp{
         #ip_hash;
         server 52.69.142.102:6617;      #日本2-Linode--ID72 ##注意，此处用椰子接手
         server 43.206.155.234:6619;   #日本3-Linode-月抛
-        server 52.196.75.28:6617;    #日本4-linode
+        server 52.198.99.75:6617;    #日本4-linode
         server 13.231.181.98:6617;  #日本5-Linode
         server 18.183.252.16:6617;   #日本6-Linode-月抛####nodeID=229
-        server 95.85.94.101:6617;   #日本7-GCORE-测试####nodeID=230
+        server 31.223.184.41:6617;   #日本7-GCORE-测试####nodeID=230
 		server 54.248.195.229:6617;   #日本8-Linode-月抛####nodeID=282
 		server 13.231.39.227:6617;   #日本9-Linode-月抛####nodeID=283
 		server 31.223.184.227:6617;   #日本10-GCORE-月抛####nodeID=284
@@ -82,9 +82,12 @@ upstream cvhkjp{
 }
 upstream mjhkusla{
         ip_hash;
-        server 5.78.95.18:6616;      #hz1
-        server 5.78.95.9:6616;   #hz2
-        #server 5.78.95.20:6616;    #hz3
+        server 5.78.95.18:6616;     #hz1
+        server 5.78.95.9:6616;      #hz2
+        server 5.78.68.135:6616;    #hz3
+        server 5.78.86.71:6616;     #hz4
+        server 5.78.65.187:6616;    #hz5
+        server 5.78.104.25:6616;    #hz6
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 server {
