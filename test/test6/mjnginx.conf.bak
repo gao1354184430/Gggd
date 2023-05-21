@@ -6,9 +6,9 @@
 #azjp2-f4s   20.210.213.235    #todog  MKISCSSS-1
 #azjp3-f4s   20.210.176.49   #psa #jp面板
 #azjp4-f4s   20.63.182.170   #psa #passwd Aa112211.....  #ysjp
-#azjp5-f4s   52.140.215.82     #lansing
-#azjp6-f4s   20.89.129.59    #langsing
-#azjp7-f4s   20.78.204.242    #lansibg
+#azjp5-f4s   4.241.106.226     #lansing
+#azjp6-f4s   52.140.209.251    #langsing
+#azjp7-f4s   52.140.206.90    #lansibg
 #azjp8-f4s   20.243.48.27    #lansing
 #azjp9-f4s   20.210.232.109    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
@@ -41,9 +41,9 @@ upstream jp{
 		server 20.210.213.235:16617;
 		server 20.210.176.49:16617;
         server 20.63.182.170:16617;
-        server 52.140.215.82:16617;
-		server 20.89.129.59:16617;
-		server 20.78.204.242:16617;
+        server 4.241.106.226:16617;
+		server 52.140.209.251:16617;
+		server 52.140.206.90:16617;
 		server 20.243.48.27:16617;
 		server 20.210.232.109:16617;
         server 20.205.215.210:16617 backup;
@@ -68,9 +68,9 @@ upstream mjusla{
 		server 20.210.213.235:16648;
 		server 20.210.176.49:16648;
         server 20.63.182.170:16648;
-        server 52.140.215.82:16648;
-		server 20.89.129.59:16648;
-		server 20.78.204.242:16648;
+        server 4.241.106.226:16648;
+		server 52.140.209.251:16648;
+		server 52.140.206.90:16648;
 		server 20.243.48.27:16648;
 		server 20.210.232.109:16648;
         server 20.205.215.210:16648 backup;
@@ -95,9 +95,9 @@ upstream mjeupt{
 		server 20.210.213.235:16624;
 		server 20.210.176.49:16624;
         server 20.63.182.170:16624;
-        server 52.140.215.82:16624;
-		server 20.89.129.59:16624;
-		server 20.78.204.242:16624;
+        server 4.241.106.226:16624;
+		server 52.140.209.251:16624;
+		server 52.140.206.90:16624;
 		server 20.243.48.27:16624;
 		server 20.210.232.109:16624;
         server 20.205.215.210:16624 backup;
@@ -122,9 +122,9 @@ upstream sg{
 		server 20.210.213.235:16618 backup;
 		server 20.210.176.49:16618 backup;
         server 20.63.182.170:16618 backup;
-        server 52.140.215.82:16618 backup;
-		server 20.89.129.59:16618 backup;
-		server 20.78.204.242:16618 backup;
+        server 4.241.106.226:16618 backup;
+		server 52.140.209.251:16618 backup;
+		server 52.140.206.90:16618 backup;
 		server 20.243.48.27:16618 backup;
 		server 20.210.232.109:16618 backup;
         server 20.205.215.210:16618;
@@ -146,14 +146,14 @@ upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
         server 20.205.215.210:16622 backup;
 		server 4.193.82.152:16622 backup;
-        server 20.78.204.242:16622 backup;
+        server 52.140.206.90:16622 backup;
         server 20.222.7.25:16622 backup;
 		server 20.89.59.231:16622 backup;
 		server 20.210.213.235:16622 backup;
 		server 20.210.176.49:16622 backup;
         server 20.63.182.170:16622 backup;
-        server 52.140.215.82:16622 backup;
-		server 20.89.129.59:16622 backup;
+        server 4.241.106.226:16622 backup;
+		server 52.140.209.251:16622 backup;
 		server 4.194.85.183:16622 backup;
 		server 20.243.48.27:16622 backup;
 		server 20.210.232.109:16622 backup;
@@ -178,9 +178,9 @@ upstream tw_n{
 		server 20.210.213.235:16616;
 		server 20.210.176.49:16616;
         server 20.63.182.170:16616;
-        server 52.140.215.82:16616;
-		server 20.89.129.59:16616;
-		server 20.78.204.242:16616;
+        server 4.241.106.226:16616;
+		server 52.140.209.251:16616;
+		server 52.140.206.90:16616;
 		server 20.243.48.27:16616;
 		server 20.210.232.109:16616;
         server 20.205.215.210:16616;
@@ -229,9 +229,9 @@ upstream mjar{
 		server 20.210.213.235:16628;
 		server 20.210.176.49:16628;
         server 20.63.182.170:16628;
-        server 52.140.215.82:16628;
-		server 20.89.129.59:16628;
-		server 20.78.204.242:16628;
+        server 4.241.106.226:16628;
+		server 52.140.209.251:16628;
+		server 52.140.206.90:16628;
 		server 20.243.48.27:16628;
 		server 20.210.232.109:16628;
         server 20.205.215.210:16628;
