@@ -69,8 +69,8 @@ upstream mjhkjp{
 		server 18.181.216.67:6617;   #日本8-Linode-月抛####nodeID=282
 		server 3.115.19.185:6617;   #日本9-Linode-月抛####nodeID=283
 		server 31.223.184.227:6617;   #日本10-GCORE-月抛####nodeID=284
-		server 13.115.217.153:6617;   #日本11-Linode-月抛####nodeID=285
-		server 13.114.139.66:6617;   #日本12-Linode-月抛####nodeID=286
+		server 43.207.57.19:6617;   #日本11-Linode-月抛####nodeID=285
+		server 18.181.225.113:6617;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhkjp{
@@ -409,7 +409,7 @@ server {
 server {
     listen 10023; #新加坡 V1 A
     location / {
-		proxy_pass http://128.199.115.165:7717;   
+		proxy_pass http://172.104.175.61:30000;   
 		include /usr/local/nginx/ws; 
         }
 }
