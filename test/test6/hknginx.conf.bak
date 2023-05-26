@@ -60,7 +60,7 @@ upstream dogtw{
 #日本-FDC-JP
 upstream mjhkjp{
         #ip_hash;
-        server 43.207.215.124:6617;      #日本2-Linode--ID72 ##注意，此处用椰子接手
+        server 161.34.0.58:6617;      #日本2-Linode--ID72 ##注意，此处用椰子接手
         server 54.248.62.188:6619;   #日本3-Linode-月抛
         server 18.183.39.154:6617;    #日本4-linode
         server 18.182.36.164:6617;  #日本5-Linode
