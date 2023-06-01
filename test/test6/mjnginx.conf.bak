@@ -8,7 +8,7 @@
 #azjp4-f4s   20.210.120.247   #psa #passwd Aa112211.....  #JP1
 #azjp5-f4s   4.241.106.226     #lansing
 #azjp6-f4s   52.140.209.251    #langsing
-#azjp7-f4s   20.89.43.216    #lansibg
+#azjp7-f4s   20.188.25.59    #lansibg
 #azjp8-f4s   20.210.222.153    #lansing
 #azjp9-f4s   20.27.34.219    #lansing
 #azsg5-f4s   20.205.215.210    #sg承载开始
@@ -43,7 +43,7 @@ upstream jp{
         server 20.210.120.247:16617;
         server 4.241.106.226:16617;
 		server 52.140.209.251:16617;
-		server 20.89.43.216:16617;
+		server 20.188.25.59:16617;
 		server 20.210.222.153:16617;
 		server 20.27.34.219:16617;
         server 20.205.215.210:16617 backup;
@@ -70,7 +70,7 @@ upstream mjusla{
         server 20.210.120.247:16648;
         server 4.241.106.226:16648;
 		server 52.140.209.251:16648;
-		server 20.89.43.216:16648;
+		server 20.188.25.59:16648;
 		server 20.210.222.153:16648;
 		server 20.27.34.219:16648;
         server 20.205.215.210:16648 backup;
@@ -97,7 +97,7 @@ upstream mjeupt{
         server 20.210.120.247:16624;
         server 4.241.106.226:16624;
 		server 52.140.209.251:16624;
-		server 20.89.43.216:16624;
+		server 20.188.25.59:16624;
 		server 20.210.222.153:16624;
 		server 20.27.34.219:16624;
         server 20.205.215.210:16624 backup;
@@ -124,7 +124,7 @@ upstream sg{
         server 20.210.120.247:16618 backup;
         server 4.241.106.226:16618 backup;
 		server 52.140.209.251:16618 backup;
-		server 20.89.43.216:16618 backup;
+		server 20.188.25.59:16618 backup;
 		server 20.210.222.153:16618 backup;
 		server 20.27.34.219:16618 backup;
         server 20.205.215.210:16618;
@@ -146,7 +146,7 @@ upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
         server 20.205.215.210:16622 backup;
 		server 4.193.174.9:16622 backup;
-        server 20.89.43.216:16622 backup;
+        server 20.188.25.59:16622 backup;
         server 20.222.7.25:16622 backup;
 		server 20.89.59.231:16622 backup;
 		server 20.210.213.235:16622 backup;
@@ -180,7 +180,7 @@ upstream tw_n{
         server 20.210.120.247:16616;
         server 4.241.106.226:16616;
 		server 52.140.209.251:16616;
-		server 20.89.43.216:16616;
+		server 20.188.25.59:16616;
 		server 20.210.222.153:16616;
 		server 20.27.34.219:16616;
         server 20.205.215.210:16616;
@@ -231,7 +231,7 @@ upstream mjar{
         server 20.210.120.247:16628;
         server 4.241.106.226:16628;
 		server 52.140.209.251:16628;
-		server 20.89.43.216:16628;
+		server 20.188.25.59:16628;
 		server 20.210.222.153:16628;
 		server 20.27.34.219:16628;
         server 20.205.215.210:16628;
