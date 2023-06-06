@@ -51,9 +51,9 @@ upstream jp{
 		server 54.249.44.173:16617;
 		server 20.210.2.123:16617 weight=2;
         server 4.194.158.185:16617 backup;
-		server 4.193.107.58:16617 backup;
-        server 20.212.202.221:16617 backup;
-        #4.194.14.196:16617 backup; #azhk9临时
+		#server 4.193.107.58:16617 backup;
+        #server 20.212.202.221:16617 backup;
+        #server 4.194.14.196:16617 backup; #azhk9临时
 		server 4.194.82.178:16617 backup; #azhk9临时
 		server 4.194.193.196:16617 backup; #azhk9临时
 		server 4.194.153.34:16617 backup; #azhk9临时
@@ -80,9 +80,9 @@ upstream mjusla{
 		server 54.249.44.173:16648;
 		server 20.210.2.123:16648 weight=2;
         server 4.194.158.185:16648 backup;
-		server 4.193.107.58:16648 backup;
-        server 20.212.202.221:16648 backup;
-        #4.194.14.196:16648 backup; #azhk9临时
+		#server 4.193.107.58:16648 backup;
+        #server 20.212.202.221:16648 backup;
+        #server 4.194.14.196:16648 backup; #azhk9临时
 		server 4.194.82.178:16648 backup; #azhk9临时
 		server 4.194.193.196:16648 backup; #azhk9临时
 		server 4.194.153.34:16648 backup; #azhk9临时
@@ -109,9 +109,9 @@ upstream mjeupt{
 		server 54.249.44.173:16624;
 		server 20.210.2.123:16624 weight=2;
         server 4.194.158.185:16624 backup;
-		server 4.193.107.58:16624 backup;
-        server 20.212.202.221:16624 backup;
-        #4.194.14.196:16624 backup; #azhk9临时
+		#server 4.193.107.58:16624 backup;
+        #server 20.212.202.221:16624 backup;
+        #server 4.194.14.196:16624 backup; #azhk9临时
 		server 4.194.82.178:16624 backup; #azhk9临时
 		server 4.194.193.196:16624 backup; #azhk9临时
 		server 4.194.153.34:16624 backup; #azhk9临时
@@ -138,9 +138,9 @@ upstream sg{
 		server 54.249.44.173:16618 backup;
 		server 20.210.2.123:16618 backup;
         server 4.194.158.185:16618;
-		server 4.193.107.58:16618;
-        server 20.212.202.221:16618;
-        #4.194.14.196:16618; #
+		#server 4.193.107.58:16618;
+        #server 20.212.202.221:16618;
+        #server 4.194.14.196:16618; #
 		server 4.194.82.178:16618; #
 		server 4.194.193.196:16618; #
 		server 4.194.153.34:16618; #
@@ -155,7 +155,7 @@ upstream sg{
 upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
         server 4.194.158.185:16622 backup;
-		server 4.193.107.58:16622 backup;
+		#server 4.193.107.58:16622 backup;
         server 20.188.25.59:16622 backup;
         server 20.222.7.25:16622 backup;
 		server 20.89.59.231:16622 backup;
@@ -164,12 +164,12 @@ upstream mjfdchk{
         server 20.210.112.61:16622 backup;
         server 20.78.238.34:16622 backup;
 		server 20.78.237.29:16622 backup;
-		server 20.212.202.221:16622 backup;
+		#server 20.212.202.221:16622 backup;
 		server 20.78.238.122:16622 backup;
 		server 20.194.171.75:16622 backup;
 		server 54.249.44.173:16622 backup;
 		server 20.210.2.123:16622 backup;
-        #4.194.14.196:16622 backup;
+        #server 4.194.14.196:16622 backup;
 		server 4.194.82.178:16622 backup;
 		server 4.194.193.196:16622 backup;
 		server 4.194.153.34:16622 backup;
@@ -198,9 +198,9 @@ upstream tw_n{
 		server 54.249.44.173:16616;
 		server 20.210.2.123:16616 weight=2;
         server 4.194.158.185:16616;
-		server 4.193.107.58:16616;
-        server 20.212.202.221:16616;
-        #4.194.14.196:16616; #azhk9
+		#server 4.193.107.58:16616;
+        #server 20.212.202.221:16616;
+        #server 4.194.14.196:16616; #azhk9
 		server 4.194.82.178:16616; #azhk9
 		server 4.194.193.196:16616; #azhk9
 		server 4.194.153.34:16616; #azhk9
@@ -251,9 +251,9 @@ upstream mjar{
 		server 54.249.44.173:16628;
 		server 20.210.2.123:16628 weight=2;
         server 4.194.158.185:16628;
-		server 4.193.107.58:16628;
-        server 20.212.202.221:16628;
-        #4.194.14.196:16628; #azhk9
+		#server 4.193.107.58:16628;
+        #server 20.212.202.221:16628;
+        #server 4.194.14.196:16628; #azhk9
 		server 4.194.82.178:16628; #azhk9
 		server 4.194.193.196:16628; #azhk9
 		server 4.194.153.34:16628; #azhk9
