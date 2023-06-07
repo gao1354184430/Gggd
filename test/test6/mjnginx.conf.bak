@@ -6,17 +6,17 @@
 #azjp2-f4s   20.18.25.79    #todog  MCSIIIX-1
 #azjp3-f4s   20.18.28.146   #psa #jp3
 #azjp4-f4s   20.210.112.61   #psa #passwd Aa112211.....  #Autopsajp10AW
-#azjp5-f4s   20.78.238.34     #lansing
-#azjp6-f4s   20.78.237.29    #langsing
+#azjp5-f4s   20.78.238.34     #lansing  #注释
+#azjp6-f4s   20.78.237.29    #langsing  #注释
 #azjp7-f4s   20.188.25.59    #lansibg
-#azjp8-f4s   20.78.238.122    #lansing
+#azjp8-f4s   20.78.238.122    #lansing  #注释
 #azjp9-f4s   20.194.171.75    #ZEC
-#azjp10-f4s   54.249.44.173    #aws1
+#azjp10-f4s   54.249.44.173    #aws1  #注释
 #azjp11-f4s   20.210.2.123    #喵星人
 #azsg5-f4s   4.194.158.185    #KMSC-2
-#azsg6-f4s   4.193.107.58      #lansing
-#azsg7-f4s   20.212.202.221   #lansing
-#azsg8-f2s   4.194.14.196        #lansing
+#azsg6-f4s   4.193.107.58      #lansing  #注释
+#azsg7-f4s   20.212.202.221   #lansing  #注释
+#azsg8-f2s   4.194.14.196        #lansing  #注释
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  4.194.193.196              #todog  HGF  这个pass没有加IP作为测试3.1
 #azsg11-f2s  4.194.153.34              #todog  MLSC
@@ -43,12 +43,12 @@ upstream jp{
 		server 20.18.25.79:16617;
 		server 20.18.28.146:16617 weight=2;
         server 20.210.112.61:16617 weight=2;
-        server 20.78.238.34:16617;
-		server 20.78.237.29:16617;
+        #server 20.78.238.34:16617;
+		#server 20.78.237.29:16617;
 		server 20.188.25.59:16617;
-		server 20.78.238.122:16617;
+		#server 20.78.238.122:16617;
 		server 20.194.171.75:16617;
-		server 54.249.44.173:16617;
+		#server 54.249.44.173:16617;
 		server 20.210.2.123:16617 weight=2;
         server 4.194.158.185:16617 backup;
 		#server 4.193.107.58:16617 backup;
@@ -72,12 +72,12 @@ upstream mjusla{
 		server 20.18.25.79:16648;
 		server 20.18.28.146:16648 weight=2;
         server 20.210.112.61:16648 weight=2;
-        server 20.78.238.34:16648;
-		server 20.78.237.29:16648;
+        #server 20.78.238.34:16648;
+		#server 20.78.237.29:16648;
 		server 20.188.25.59:16648;
-		server 20.78.238.122:16648;
+		#server 20.78.238.122:16648;
 		server 20.194.171.75:16648;
-		server 54.249.44.173:16648;
+		#server 54.249.44.173:16648;
 		server 20.210.2.123:16648 weight=2;
         server 4.194.158.185:16648 backup;
 		#server 4.193.107.58:16648 backup;
@@ -101,12 +101,12 @@ upstream mjeupt{
 		server 20.18.25.79:16624;
 		server 20.18.28.146:16624 weight=2;
         server 20.210.112.61:16624 weight=2;
-        server 20.78.238.34:16624;
-		server 20.78.237.29:16624;
+        #server 20.78.238.34:16624;
+		#server 20.78.237.29:16624;
 		server 20.188.25.59:16624;
-		server 20.78.238.122:16624;
+		#server 20.78.238.122:16624;
 		server 20.194.171.75:16624;
-		server 54.249.44.173:16624;
+		#server 54.249.44.173:16624;
 		server 20.210.2.123:16624 weight=2;
         server 4.194.158.185:16624 backup;
 		#server 4.193.107.58:16624 backup;
@@ -130,12 +130,12 @@ upstream sg{
 		server 20.18.25.79:16618 backup;
 		server 20.18.28.146:16618 backup;
         server 20.210.112.61:16618 backup;
-        server 20.78.238.34:16618 backup;
-		server 20.78.237.29:16618 backup;
+        #server 20.78.238.34:16618 backup;
+		#server 20.78.237.29:16618 backup;
 		server 20.188.25.59:16618 backup;
-		server 20.78.238.122:16618 backup;
+		#server 20.78.238.122:16618 backup;
 		server 20.194.171.75:16618 backup;
-		server 54.249.44.173:16618 backup;
+		#server 54.249.44.173:16618 backup;
 		server 20.210.2.123:16618 backup;
         server 4.194.158.185:16618;
 		#server 4.193.107.58:16618;
@@ -162,12 +162,12 @@ upstream mjfdchk{
 		server 20.18.25.79:16622 backup;
 		server 20.18.28.146:16622 backup;
         server 20.210.112.61:16622 backup;
-        server 20.78.238.34:16622 backup;
-		server 20.78.237.29:16622 backup;
+        #server 20.78.238.34:16622 backup;
+		#server 20.78.237.29:16622 backup;
 		#server 20.212.202.221:16622 backup;
-		server 20.78.238.122:16622 backup;
+		#server 20.78.238.122:16622 backup;
 		server 20.194.171.75:16622 backup;
-		server 54.249.44.173:16622 backup;
+		#server 54.249.44.173:16622 backup;
 		server 20.210.2.123:16622 backup;
         #server 4.194.14.196:16622 backup;
 		server 4.194.82.178:16622 backup;
@@ -190,12 +190,12 @@ upstream tw_n{
 		server 20.18.25.79:16616;
 		server 20.18.28.146:16616 weight=2;
         server 20.210.112.61:16616 weight=2;
-        server 20.78.238.34:16616;
-		server 20.78.237.29:16616;
+        #server 20.78.238.34:16616;
+		#server 20.78.237.29:16616;
 		server 20.188.25.59:16616;
-		server 20.78.238.122:16616;
+		#server 20.78.238.122:16616;
 		server 20.194.171.75:16616;
-		server 54.249.44.173:16616;
+		#server 54.249.44.173:16616;
 		server 20.210.2.123:16616 weight=2;
         server 4.194.158.185:16616;
 		#server 4.193.107.58:16616;
@@ -243,12 +243,12 @@ upstream mjar{
 		server 20.18.25.79:16628;
 		server 20.18.28.146:16628 weight=2;
         server 20.210.112.61:16628 weight=2;
-        server 20.78.238.34:16628;
-		server 20.78.237.29:16628;
+        #server 20.78.238.34:16628;
+		#server 20.78.237.29:16628;
 		server 20.188.25.59:16628;
-		server 20.78.238.122:16628;
+		#server 20.78.238.122:16628;
 		server 20.194.171.75:16628;
-		server 54.249.44.173:16628;
+		#server 54.249.44.173:16628;
 		server 20.210.2.123:16628 weight=2;
         server 4.194.158.185:16628;
 		#server 4.193.107.58:16628;
