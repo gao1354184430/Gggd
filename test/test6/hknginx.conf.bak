@@ -70,7 +70,7 @@ upstream mjhkjp{
 		server 43.207.161.208:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
 		server 54.199.62.136:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
 		server 43.207.181.50:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
-		server 139.162.83.220:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
+		server 54.250.202.244:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhkjp{
