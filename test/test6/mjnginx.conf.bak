@@ -8,7 +8,7 @@
 #azjp4-f4s   20.210.112.61   #psa #passwd Aa112211.....  #Autopsajp10AW
 #azjp5-f4s   20.89.157.156     #lansing  #注释
 #azjp6-f4s   20.78.237.29    #langsing  #注释
-#azjp7-f4s   20.188.25.59    #lansibg
+#azjp7-f4s   20.210.239.164    #lansibg
 #azjp8-f4s   20.78.238.122    #lansing  #注释
 #azjp9-f4s   20.194.171.75    #ZEC
 #azjp10-f4s   18.183.36.211    #aws1  #注释
@@ -45,7 +45,7 @@ upstream jp{
         server 20.210.112.61:16617 weight=2;
         server 20.89.157.156:16617;
 		#server 20.78.237.29:16617;
-		server 20.188.25.59:16617;
+		server 20.210.239.164:16617;
 		#server 20.78.238.122:16617;
 		server 20.194.171.75:16617;
 		server 18.183.36.211:16617;
@@ -74,7 +74,7 @@ upstream mjusla{
         server 20.210.112.61:16648 weight=2;
         server 20.89.157.156:16648;
 		#server 20.78.237.29:16648;
-		server 20.188.25.59:16648;
+		server 20.210.239.164:16648;
 		#server 20.78.238.122:16648;
 		server 20.194.171.75:16648;
 		server 18.183.36.211:16648;
@@ -103,7 +103,7 @@ upstream mjeupt{
         server 20.210.112.61:16624 weight=2;
         server 20.89.157.156:16624;
 		#server 20.78.237.29:16624;
-		server 20.188.25.59:16624;
+		server 20.210.239.164:16624;
 		#server 20.78.238.122:16624;
 		server 20.194.171.75:16624;
 		server 18.183.36.211:16624;
@@ -132,7 +132,7 @@ upstream sg{
         server 20.210.112.61:16618 backup;
         server 20.89.157.156:16618 backup;
 		#server 20.78.237.29:16618 backup;
-		server 20.188.25.59:16618 backup;
+		server 20.210.239.164:16618 backup;
 		#server 20.78.238.122:16618 backup;
 		server 20.194.171.75:16618 backup;
 		server 18.183.36.211:16618 backup;
@@ -156,7 +156,7 @@ upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
         server 18.136.213.140:16622 backup;
 		#server 4.193.107.58:16622 backup;
-        server 20.188.25.59:16622 backup;
+        server 20.210.239.164:16622 backup;
         server 20.222.101.88:16622 backup;
 		server 20.222.101.78:16622 backup;
 		server 20.18.25.79:16622 backup;
@@ -192,7 +192,7 @@ upstream tw_n{
         server 20.210.112.61:16616 weight=2;
         server 20.89.157.156:16616;
 		#server 20.78.237.29:16616;
-		server 20.188.25.59:16616;
+		server 20.210.239.164:16616;
 		#server 20.78.238.122:16616;
 		server 20.194.171.75:16616;
 		server 18.183.36.211:16616;
@@ -245,7 +245,7 @@ upstream mjar{
         server 20.210.112.61:16628 weight=2;
         server 20.89.157.156:16628;
 		#server 20.78.237.29:16628;
-		server 20.188.25.59:16628;
+		server 20.210.239.164:16628;
 		#server 20.78.238.122:16628;
 		server 20.194.171.75:16628;
 		server 18.183.36.211:16628;
