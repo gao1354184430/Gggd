@@ -5,7 +5,7 @@
 #azjp1-f4s   20.222.101.78    #todog MICRO-3
 #azjp2-f4s   20.18.25.79    #todog  MCSIIIX-1
 #azjp3-f4s   20.63.159.254   #psa #jp6121
-#azjp4-f4s   20.78.74.83   #psa #passwd Aa112211.....  #Autopsajp10AW
+#azjp4-f4s   20.222.159.61   #psa #passwd Aa112211.....  #Autopsajp10AW
 #azjp5-f4s   20.89.157.156     #lansing  #注释
 #azjp6-f4s   20.78.237.29    #langsing  #注释
 #azjp7-f4s   13.231.122.113    #lansibg
@@ -42,7 +42,7 @@ upstream jp{
 		server 20.222.101.78:16617;
 		server 20.18.25.79:16617;
 		server 20.63.159.254:16617 weight=2;
-        server 20.78.74.83:16617 weight=2;
+        server 20.222.159.61:16617 weight=2;
         server 20.89.157.156:16617;
 		#server 20.78.237.29:16617;
 		server 13.231.122.113:16617;
@@ -71,7 +71,7 @@ upstream mjusla{
 		server 20.222.101.78:16648;
 		server 20.18.25.79:16648;
 		server 20.63.159.254:16648 weight=2;
-        server 20.78.74.83:16648 weight=2;
+        server 20.222.159.61:16648 weight=2;
         server 20.89.157.156:16648;
 		#server 20.78.237.29:16648;
 		server 13.231.122.113:16648;
@@ -100,7 +100,7 @@ upstream mjeupt{
 		server 20.222.101.78:16624;
 		server 20.18.25.79:16624;
 		server 20.63.159.254:16624 weight=2;
-        server 20.78.74.83:16624 weight=2;
+        server 20.222.159.61:16624 weight=2;
         server 20.89.157.156:16624;
 		#server 20.78.237.29:16624;
 		server 13.231.122.113:16624;
@@ -129,7 +129,7 @@ upstream sg{
 		server 20.222.101.78:16618 backup;
 		server 20.18.25.79:16618 backup;
 		server 20.63.159.254:16618 backup;
-        server 20.78.74.83:16618 backup;
+        server 20.222.159.61:16618 backup;
         server 20.89.157.156:16618 backup;
 		#server 20.78.237.29:16618 backup;
 		server 13.231.122.113:16618 backup;
@@ -161,7 +161,7 @@ upstream mjfdchk{
 		server 20.222.101.78:16622 backup;
 		server 20.18.25.79:16622 backup;
 		server 20.63.159.254:16622 backup;
-        server 20.78.74.83:16622 backup;
+        server 20.222.159.61:16622 backup;
         server 20.89.157.156:16622 backup;
 		#server 20.78.237.29:16622 backup;
 		#server 20.212.202.221:16622 backup;
@@ -189,7 +189,7 @@ upstream tw_n{
 		server 20.222.101.78:16616;
 		server 20.18.25.79:16616;
 		server 20.63.159.254:16616 weight=2;
-        server 20.78.74.83:16616 weight=2;
+        server 20.222.159.61:16616 weight=2;
         server 20.89.157.156:16616;
 		#server 20.78.237.29:16616;
 		server 13.231.122.113:16616;
@@ -215,16 +215,16 @@ upstream tw_n{
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落地
-        server 20.24.99.188:6688 weight=3;     #AZHK9     ID268 #PSA HK  coco
-        server 20.239.51.110:6634;     #AZHK17F8s   ID269   #FKU-1
-        server 20.255.59.7:6640 weight=3;     #AZHK18F8s   ID270  #喵星人
-		server 20.24.208.111:6634;  #AZHK19   ID271   #LMM-1
-		server 104.208.65.51:6622;    #AZHK24  ID275
-		server 20.24.96.56:6654 weight=3;  #AZHK22   ID274
-		server 20.187.93.147:6622;  #AZHK10   ID167
+        server 20.187.73.159:6688;     #AZHK9     ID268 #PSA HK  coco
+        #server 20.239.51.110:6634;     #AZHK17F8s   ID269   #FKU-1
+        #server 20.255.59.7:6640 weight=3;     #AZHK18F8s   ID270  #喵星人
+		#server 20.24.208.111:6634;  #AZHK19   ID271   #LMM-1
+		#server 104.208.65.51:6622;    #AZHK24  ID275
+		#server 20.24.96.56:6654 weight=3;  #AZHK22   ID274
+		#server 20.187.93.147:6622;  #AZHK10   ID167
 		#server 20.205.119.35:6622 weight=3;  #AZHK15F8S   ID238
         #server 20.24.64.119:6622 weight=3;  #由椰子添加AWS1-测试，ID267
-		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
+		#check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ru{
         server 45.144.179.69:6616;  #魔戒俄罗斯
@@ -242,7 +242,7 @@ upstream mjar{
 		server 20.222.101.78:16628;
 		server 20.18.25.79:16628;
 		server 20.63.159.254:16628 weight=2;
-        server 20.78.74.83:16628 weight=2;
+        server 20.222.159.61:16628 weight=2;
         server 20.89.157.156:16628;
 		#server 20.78.237.29:16628;
 		server 13.231.122.113:16628;
