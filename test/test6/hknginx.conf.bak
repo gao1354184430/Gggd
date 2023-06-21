@@ -69,7 +69,7 @@ upstream mjhkjp{
 		server 18.182.62.3:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
 		server 13.231.32.92:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
 		server 52.193.59.147:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
-		server 18.181.254.6:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
+		server 43.207.203.20:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
 		server 54.64.153.116:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
@@ -82,12 +82,16 @@ upstream cvhkjp{
 }
 upstream mjhkusla{
         ip_hash;
-        server 5.78.95.18:6616;     #hz1
-        server 5.78.95.9:6616;      #hz2
-        server 5.78.68.135:6616;    #hz3
-        server 5.78.86.71:6616;     #hz4
-        server 5.78.65.187:6616;    #hz5
-        server 5.78.104.25:6616;    #hz6
+        server 5.78.106.98:6616;     #hz-new-1
+        server 5.78.89.241:6616;      #hz-new-2
+        server 5.78.46.165:6616;      #hz-new-3
+        server 5.78.93.41:6616;      #hz-new-4
+        server 5.78.73.244:6616;      #hz-new-5
+        server 5.78.71.83:6616;      #hz-new-6
+        server 5.78.73.4:6616;      #hz-new-7
+        server 5.78.103.103:6616;    #hz-new-8
+        server 5.78.67.60:6616;     #hz-new-9
+        server 5.78.64.22:6616;    #hz-new-10
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 server {
