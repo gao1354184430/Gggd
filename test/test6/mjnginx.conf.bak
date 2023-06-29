@@ -175,12 +175,12 @@ upstream mjfdchk{
 		server 4.194.153.34:16622 backup;
 		server 4.194.153.172:16622 backup;
         server 20.255.70.93:16622 backup;
-		server 20.24.93.173:16622 backup;
-		server 20.187.93.76:16622 backup;
-		server 20.24.95.25:16622 backup;
-		server 20.24.74.24:16622 backup;
+		server 20.24.93.173:16622;
+		server 20.187.93.76:16622;
+		server 20.24.95.25:16622;
+		server 20.24.74.24:16622;
         server 18.166.113.146:6616;  #id=278
-		server 16.162.143.120:6616;   #id=281
+		server 38.207.142.45:6616;   #id=281 waphk1
 		server 43.198.85.24:6616;   #id=287
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
