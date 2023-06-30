@@ -68,9 +68,9 @@ upstream mjhkjp{
         server 18.183.141.38:6617 weight=2;   #日本7-GCORE-测试####nodeID=230
 		server 52.196.150.0:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
 		server 139.162.71.63:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
-		server 13.114.198.56:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
+		server 18.179.42.81:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
 		server 52.199.107.73:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
-		server 54.238.134.170:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
+		server 18.176.58.25:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhkjp{
@@ -417,7 +417,7 @@ server {
 ####################番茄二次反代配置###################
 #####新加坡二次反代#####
 server {
-    listen 10023; #新加坡 V1 A
+    listen 10123; #新加坡 V1 A
     location / {
 		proxy_pass http://172.104.175.61:30001;   
 		include /usr/local/nginx/ws; 
