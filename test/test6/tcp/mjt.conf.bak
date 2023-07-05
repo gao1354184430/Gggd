@@ -2,7 +2,7 @@
 ####负载均衡放在在前
 upstream mjtsg{
     #hash $remote_addr;
-    #server 15.235.163.186:6626 max_fails=3 fail_timeout=30s;
+    server 38.181.73.140:6626 max_fails=3 fail_timeout=30s;
     server 159.223.77.180:6626 max_fails=3 fail_timeout=30s;
 }
 upstream cvtsg{ 
