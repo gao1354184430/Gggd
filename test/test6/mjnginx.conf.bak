@@ -214,7 +214,7 @@ upstream tw_n{
 upstream mjazhk{  #MJ-az-默认直接azhk4落地，故障转移az承载-FDC落地
         server 20.187.73.159:6688;     #AZHK9     ID268 #PSA HK  coco
         #server 20.239.51.110:6634;     #AZHK17F8s   ID269   #FKU-1
-        #server 20.255.59.7:6640 weight=3;     #AZHK18F8s   ID270  #喵星人
+        server 34.84.250.136:6640 weight=3;     #AZHK18F8s   ID270  #喵星人
 		#server 20.24.208.111:6634;  #AZHK19   ID271   #LMM-1
 		#server 104.208.65.51:6622;    #AZHK24  ID275
 		#server 20.24.96.56:6654 weight=3;  #AZHK22   ID274
