@@ -66,9 +66,9 @@ upstream mjhkjp{
         server 13.114.221.100:6617 weight=2;  #日本5-Linode
         server 35.77.24.158:6617 weight=2;   #日本6-Linode-月抛####nodeID=229
         server 13.230.165.241:6617 weight=2;   #日本7-GCORE-测试####nodeID=230
-		server 43.207.147.105:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
+		server 52.195.171.53:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
 		server 54.168.223.70:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
-		server 18.179.42.81:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
+		server 43.207.160.34:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
 		server 43.207.177.11:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
 		server 54.238.106.214:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -455,7 +455,7 @@ server {
 server {
     listen 10049; #香港 V1 C
     location / {
-		proxy_pass http://kcdhkt.ddns.me:17714;   
+		proxy_pass http://kcdhkt.ddns.me:17778;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -476,7 +476,7 @@ server {
 server {
     listen 10027; #香港 V3 A
     location / {
-		proxy_pass http://46.20.109.91:7717;   
+		proxy_pass http://46.20.109.91:7716;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -490,7 +490,7 @@ server {
 server {
     listen 10014; #台湾 V3
     location / {
-		proxy_pass http://yftw2.ddns.me:16666;   
+		proxy_pass http://yftw2.ddns.me:16668;   
 		include /usr/local/nginx/ws; 
         }
 }
