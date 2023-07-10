@@ -15,8 +15,8 @@ upstream mjtjp{
     server 43.206.212.37:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7  gcore
     server 3.112.17.86:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 43.206.237.92:6626 max_fails=3 fail_timeout=30s; #T13  ID12
-    server 54.95.161.213:6626 max_fails=3 fail_timeout=30s; #T14  ID14
-    server 3.112.229.149:6626 max_fails=3 fail_timeout=30s; #T15  ID15
+    server 3.112.221.65:6626 max_fails=3 fail_timeout=30s; #T14  ID14
+    server 35.78.198.161:6626 max_fails=3 fail_timeout=30s; #T15  ID15
     server 139.162.67.222:6626 max_fails=3 fail_timeout=30s backup;
 }
 upstream mjtvn{
