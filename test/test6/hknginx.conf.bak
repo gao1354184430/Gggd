@@ -66,7 +66,7 @@ upstream mjhkjp{
         server 18.183.131.159:6617 weight=2;  #日本5-Linode
         server 43.206.213.111:6617 weight=2;   #日本6-Linode-月抛####nodeID=229
         server 13.230.165.241:6617 weight=2;   #日本7-GCORE-测试####nodeID=230
-		server 18.181.245.11:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
+		server 18.181.51.172:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
 		server 52.68.216.81:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
 		server 43.207.160.34:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
 		server 43.207.177.11:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
