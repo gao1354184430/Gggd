@@ -3,7 +3,7 @@
 upstream mjtsg{
     #hash $remote_addr;
     server 38.181.73.140:6626 max_fails=3 fail_timeout=30s; #T3 ID50
-    server 159.223.77.180:6626 max_fails=3 fail_timeout=30s; #T5 ID5
+    server 159.89.205.231:6626 max_fails=3 fail_timeout=30s; #T1 ID5
 }
 upstream cvtsg{ 
     #hash $remote_addr;
