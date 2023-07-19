@@ -22,7 +22,7 @@
 #azsg11-f2s  4.194.153.34              #todog  MLSC
 #azsg12-f2s  20.205.234.218     #SG结束  #todog  AAA-1
 #azhk12-f4s  20.187.93.222   #lansing
-#azhk13-f4s  20.205.42.163     #CCCCC1
+#azhk13-f4s  20.24.72.167     #HK3-1
 #azhk14-f4s  20.24.95.25   #todog
 #azhk16-f4s  20.24.74.24   #
 #azhk23-f4s  20.255.70.93
@@ -60,7 +60,7 @@ upstream jp{
 		server 20.205.234.218:16617 backup; #azhk9临时
         server 20.255.70.93:16617 backup; 
 		server 20.187.93.222:16617 backup;
-		server 20.205.42.163:16617 backup;
+		server 20.24.72.167:16617 backup;
 		server 20.24.95.25:16617 backup; 
 		server 20.24.74.24:16617 backup; 
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -89,7 +89,7 @@ upstream mjusla{
 		server 20.205.234.218:16648 backup; #azhk9临时
         server 20.255.70.93:16648 backup; 
 		server 20.187.93.222:16648 backup;
-		server 20.205.42.163:16648 backup;
+		server 20.24.72.167:16648 backup;
 		server 20.24.95.25:16648 backup; 
 		server 20.24.74.24:16648 backup; 
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -118,7 +118,7 @@ upstream mjeupt{
 		server 20.205.234.218:16624 backup; #azhk9临时
         server 20.255.70.93:16624 backup; 
 		server 20.187.93.222:16624 backup;
-		server 20.205.42.163:16624 backup;
+		server 20.24.72.167:16624 backup;
 		server 20.24.95.25:16624 backup; 
 		server 20.24.74.24:16624 backup; 
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -146,7 +146,7 @@ upstream sg{
 		server 4.194.153.34:16618; #
 		server 20.205.234.218:16618; #
         server 20.187.93.222:16618 backup; #az13
-		server 20.205.42.163:16618 backup; #az13
+		server 20.24.72.167:16618 backup; #az13
 		server 20.255.70.93:16618 backup; #az23
 		server 20.24.95.25:16618 backup; #az14
 		server 20.24.74.24:16618 backup; #az16
@@ -176,7 +176,7 @@ upstream mjfdchk{
 		server 20.205.234.218:16622 backup;
         server 20.255.70.93:16622 backup;
 		server 20.187.93.222:16622;
-		server 20.205.42.163:16622;
+		server 20.24.72.167:16622;
 		server 20.24.95.25:16622;
 		server 20.24.74.24:16622;
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -203,7 +203,7 @@ upstream tw_n{
 		server 4.194.153.34:16616; #azhk9
 		server 20.205.234.218:16616; #azhk9
         server 20.187.93.222:16616; #azjp13
-		server 20.205.42.163:16616; #azjp13
+		server 20.24.72.167:16616; #azjp13
 		server 20.255.70.93:16616; #azjp23
 		server 20.24.95.25:16616; #azjp14
 		server 20.24.74.24:16616; #azjp16
@@ -256,7 +256,7 @@ upstream mjar{
 		server 4.194.153.34:16628; #azhk9
 		server 20.205.234.218:16628; #azhk9
         server 20.187.93.222:16628; #az13
-		server 20.205.42.163:16628; #az13
+		server 20.24.72.167:16628; #az13
 		server 20.255.70.93:16628; #az23
 		server 20.24.95.25:16628; #az14
 		server 20.24.74.24:16628; #az16
