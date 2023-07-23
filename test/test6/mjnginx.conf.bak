@@ -7,7 +7,7 @@
 #azjp3-f4s   40.115.193.160   #psa #jp7.17
 #azjp4-f4s   20.222.159.61   #psa #passwd Aa112211.....  #Autopsajp10AW
 #azjp5-f4s   20.63.153.92     #lansing  
-#azjp6-f4s   4.241.99.163    #CLOUJP-2  #注释
+#azjp6-f4s   20.210.230.9    #CLOUJP-2  #注释
 #azjp7-f4s   3.112.131.102    #lansibg
 #azjp8-f4s   35.72.3.54    #lansing  #注释
 #azjp9-f4s   20.194.171.75    #ZEC
@@ -15,7 +15,7 @@
 #azjp11-f4s   20.89.149.191    #喵星人
 #azsg5-f4s   4.194.146.31    #TEST2-1
 #azsg6-f4s   4.193.86.94      #MASMC
-#azsg7-f4s   20.212.202.221   #lansing  #注释
+#azsg7-f4s   3.1.218.251   #lansing  #注释
 #azsg8-f2s   4.194.14.196        #lansing  #注释
 #azsg9-f2s   4.194.82.178    #
 #azsg10-f2s  4.194.146.50              #todog  TEST2-2  这个pass没有加IP作为测试3.1
@@ -44,7 +44,7 @@ upstream jp{
 		server 40.115.193.160:16617 weight=2;
         server 20.222.159.61:16617 weight=2;
         server 20.63.153.92:16617;
-		#server 4.241.99.163:16617;
+		#server 20.210.230.9:16617;
 		server 3.112.131.102:16617;
 		server 35.72.3.54:16617;
 		server 20.194.171.75:16617;
@@ -52,7 +52,7 @@ upstream jp{
 		server 20.89.149.191:16617 weight=2;
         server 4.194.146.31:16617 backup;
 		server 4.193.86.94:16617 backup;
-        #server 20.212.202.221:16617 backup;
+        #server 3.1.218.251:16617 backup;
         #server 4.194.14.196:16617 backup; #azhk9临时
 		server 4.194.82.178:16617 backup; #azhk9临时
 		server 4.194.146.50:16617 backup; #azhk9临时
@@ -73,7 +73,7 @@ upstream mjusla{
 		server 40.115.193.160:16648 weight=2;
         server 20.222.159.61:16648 weight=2;
         server 20.63.153.92:16648;
-		#server 4.241.99.163:16648;
+		#server 20.210.230.9:16648;
 		server 3.112.131.102:16648;
 		server 35.72.3.54:16648;
 		server 20.194.171.75:16648;
@@ -81,7 +81,7 @@ upstream mjusla{
 		server 20.89.149.191:16648 weight=2;
         server 4.194.146.31:16648 backup;
 		server 4.193.86.94:16648 backup;
-        #server 20.212.202.221:16648 backup;
+        #server 3.1.218.251:16648 backup;
         #server 4.194.14.196:16648 backup; #azhk9临时
 		server 4.194.82.178:16648 backup; #azhk9临时
 		server 4.194.146.50:16648 backup; #azhk9临时
@@ -102,7 +102,7 @@ upstream mjeupt{
 		server 40.115.193.160:16624 weight=2;
         server 20.222.159.61:16624 weight=2;
         server 20.63.153.92:16624;
-		#server 4.241.99.163:16624;
+		#server 20.210.230.9:16624;
 		server 3.112.131.102:16624;
 		server 35.72.3.54:16624;
 		server 20.194.171.75:16624;
@@ -110,7 +110,7 @@ upstream mjeupt{
 		server 20.89.149.191:16624 weight=2;
         server 4.194.146.31:16624 backup;
 		server 4.193.86.94:16624 backup;
-        #server 20.212.202.221:16624 backup;
+        #server 3.1.218.251:16624 backup;
         #server 4.194.14.196:16624 backup; #azhk9临时
 		server 4.194.82.178:16624 backup; #azhk9临时
 		server 4.194.146.50:16624 backup; #azhk9临时
@@ -131,7 +131,7 @@ upstream sg{
 		server 40.115.193.160:16618 backup;
         server 20.222.159.61:16618 backup;
         server 20.63.153.92:16618 backup;
-		#server 4.241.99.163:16618 backup;
+		#server 20.210.230.9:16618 backup;
 		server 3.112.131.102:16618 backup;
 		server 35.72.3.54:16618 backup;
 		server 20.194.171.75:16618 backup;
@@ -139,7 +139,7 @@ upstream sg{
 		server 20.89.149.191:16618 backup;
         server 4.194.146.31:16618;
 		server 4.193.86.94:16618;
-        #server 20.212.202.221:16618;
+        #server 3.1.218.251:16618;
         #server 4.194.14.196:16618; #
 		server 4.194.82.178:16618; #
 		server 4.194.146.50:16618; #
@@ -163,8 +163,8 @@ upstream mjfdchk{
 		server 40.115.193.160:16622 backup;
         server 20.222.159.61:16622 backup;
         server 20.63.153.92:16622 backup;
-		#server 4.241.99.163:16622 backup;
-		#server 20.212.202.221:16622 backup;
+		#server 20.210.230.9:16622 backup;
+		#server 3.1.218.251:16622 backup;
 		server 35.72.3.54:16622 backup;
 		server 20.194.171.75:16622 backup;
 		server 35.72.9.248:16622 backup;
@@ -188,7 +188,7 @@ upstream tw_n{
 		server 40.115.193.160:16616 weight=2;
         server 20.222.159.61:16616 weight=2;
         server 20.63.153.92:16616;
-		#server 4.241.99.163:16616;
+		#server 20.210.230.9:16616;
 		server 3.112.131.102:16616;
 		server 35.72.3.54:16616;
 		server 20.194.171.75:16616;
@@ -196,7 +196,7 @@ upstream tw_n{
 		server 20.89.149.191:16616 weight=2;
         server 4.194.146.31:16616;
 		server 4.193.86.94:16616;
-        #server 20.212.202.221:16616;
+        #server 3.1.218.251:16616;
         #server 4.194.14.196:16616; #azhk9
 		server 4.194.82.178:16616; #azhk9
 		server 4.194.146.50:16616; #azhk9
@@ -241,7 +241,7 @@ upstream mjar{
 		server 40.115.193.160:16628 weight=2;
         server 20.222.159.61:16628 weight=2;
         server 20.63.153.92:16628;
-		#server 4.241.99.163:16628;
+		#server 20.210.230.9:16628;
 		server 3.112.131.102:16628;
 		server 35.72.3.54:16628;
 		server 20.194.171.75:16628;
@@ -249,7 +249,7 @@ upstream mjar{
 		server 20.89.149.191:16628 weight=2;
         server 4.194.146.31:16628;
 		server 4.193.86.94:16628;
-        #server 20.212.202.221:16628;
+        #server 3.1.218.251:16628;
         #server 4.194.14.196:16628; #azhk9
 		server 4.194.82.178:16628; #azhk9
 		server 4.194.146.50:16628; #azhk9
