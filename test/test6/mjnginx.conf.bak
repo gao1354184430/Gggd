@@ -13,7 +13,7 @@
 #azjp9-f4s   20.194.171.75    #ZEC
 #azjp10-f4s   35.72.9.248    #aws1  #注释
 #azjp11-f4s   20.89.149.191    #喵星人
-#azsg5-f4s   4.194.146.31    #TEST2-1
+#azsg5-f4s   4.194.201.60    #Micro-3
 #azsg6-f4s   4.193.86.94      #MASMC
 #azsg7-f4s   3.1.218.251   #lansing  #注释
 #azsg8-f2s   3.1.218.25        #lansing  #注释
@@ -50,7 +50,7 @@ upstream jp{
 		server 20.194.171.75:16617;
 		server 35.72.9.248:16617;
 		server 20.89.149.191:16617 weight=2;
-        server 4.194.146.31:16617 backup;
+        server 4.194.201.60:16617 backup;
 		server 4.193.86.94:16617 backup;
         server 3.1.218.251:16617 backup;
         server 3.1.218.25:16617 backup; #azhk9临时
@@ -79,7 +79,7 @@ upstream mjusla{
 		server 20.194.171.75:16648;
 		server 35.72.9.248:16648;
 		server 20.89.149.191:16648 weight=2;
-        server 4.194.146.31:16648 backup;
+        server 4.194.201.60:16648 backup;
 		server 4.193.86.94:16648 backup;
         server 3.1.218.251:16648 backup;
         server 3.1.218.25:16648 backup; #azhk9临时
@@ -108,7 +108,7 @@ upstream mjeupt{
 		server 20.194.171.75:16624;
 		server 35.72.9.248:16624;
 		server 20.89.149.191:16624 weight=2;
-        server 4.194.146.31:16624 backup;
+        server 4.194.201.60:16624 backup;
 		server 4.193.86.94:16624 backup;
         server 3.1.218.251:16624 backup;
         server 3.1.218.25:16624 backup; #azhk9临时
@@ -137,7 +137,7 @@ upstream sg{
 		server 20.194.171.75:16618 backup;
 		server 35.72.9.248:16618 backup;
 		server 20.89.149.191:16618 backup;
-        server 4.194.146.31:16618;
+        server 4.194.201.60:16618;
 		server 4.193.86.94:16618;
         server 3.1.218.251:16618;
         server 3.1.218.25:16618; #
@@ -154,7 +154,7 @@ upstream sg{
 }
 upstream mjfdchk{
         #ip_hash;  #这个是FDC香港，但是只有aws到达速度优。所以优先使用aws承载，故放在这里
-        server 4.194.146.31:16622 backup;
+        server 4.194.201.60:16622 backup;
 		server 4.193.86.94:16622 backup;
         server 3.112.131.102:16622 backup;
         server 20.222.164.24:16622 backup;
@@ -194,7 +194,7 @@ upstream tw_n{
 		server 20.194.171.75:16616;
 		server 35.72.9.248:16616;
 		server 20.89.149.191:16616 weight=2;
-        server 4.194.146.31:16616;
+        server 4.194.201.60:16616;
 		server 4.193.86.94:16616;
         server 3.1.218.251:16616;
         server 3.1.218.25:16616; #azhk9
@@ -247,7 +247,7 @@ upstream mjar{
 		server 20.194.171.75:16628;
 		server 35.72.9.248:16628;
 		server 20.89.149.191:16628 weight=2;
-        server 4.194.146.31:16628;
+        server 4.194.201.60:16628;
 		server 4.193.86.94:16628;
         server 3.1.218.251:16628;
         server 3.1.218.25:16628; #azhk9
