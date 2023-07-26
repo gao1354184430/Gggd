@@ -1,7 +1,7 @@
 #start
 #魔戒负载均衡dynamic_resolve fallback=stale fail_timeout=60s;  
 #azure承载节点-直接查找替换
-#azjp0-f4s   20.222.164.24    #todog JPM   #pass没有改
+#azjp0-f4s   20.191.191.5    #todog JPA   #pass没有改
 #azjp1-f4s   4.216.30.116    #todog DASD-1
 #azjp2-f4s   20.210.226.10    #todog  CLJP-2
 #azjp3-f4s   40.115.193.160   #psa #jp7.17
@@ -38,7 +38,7 @@
 ######结束
 upstream jp{
         #ip_hash;  #MJ-JP AZ承载  微调后由azjp3.4.5.6联入，其他备份
-        server 20.222.164.24:16617;
+        server 20.191.191.5:16617;
 		server 4.216.30.116:16617;
 		server 20.210.226.10:16617;
 		server 40.115.193.160:16617 weight=2;
@@ -67,7 +67,7 @@ upstream jp{
 }
 upstream mjusla{
         #ip_hash;	#美国的连接方案跟日本一样，优先走日本承载
-        server 20.222.164.24:16648;
+        server 20.191.191.5:16648;
 		server 4.216.30.116:16648;
 		server 20.210.226.10:16648;
 		server 40.115.193.160:16648 weight=2;
@@ -96,7 +96,7 @@ upstream mjusla{
 }
 upstream mjeupt{
         #ip_hash;	#葡萄牙的连接方案跟日本一样，优先走日本承载
-        server 20.222.164.24:16624;
+        server 20.191.191.5:16624;
 		server 4.216.30.116:16624;
 		server 20.210.226.10:16624;
 		server 40.115.193.160:16624 weight=2;
@@ -125,7 +125,7 @@ upstream mjeupt{
 }
 upstream sg{
         #ip_hash;  #BGP承载，AZ备用
-        server 20.222.164.24:16618 backup;
+        server 20.191.191.5:16618 backup;
 		server 4.216.30.116:16618 backup;
 		server 20.210.226.10:16618 backup;
 		server 40.115.193.160:16618 backup;
@@ -157,7 +157,7 @@ upstream mjfdchk{
         server 20.212.35.199:16622 backup;
 		server 4.193.86.94:16622 backup;
         server 52.194.183.219:16622 backup;
-        server 20.222.164.24:16622 backup;
+        server 20.191.191.5:16622 backup;
 		server 4.216.30.116:16622 backup;
 		server 20.210.226.10:16622 backup;
 		server 40.115.193.160:16622 backup;
@@ -182,7 +182,7 @@ upstream mjfdchk{
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream tw_n{
-        server 20.222.164.24:16616;
+        server 20.191.191.5:16616;
 		server 4.216.30.116:16616;
 		server 20.210.226.10:16616;
 		server 40.115.193.160:16616 weight=2;
@@ -235,7 +235,7 @@ upstream mjkh{
 }
 #结束
 upstream mjar{
-        server 20.222.164.24:16628;
+        server 20.191.191.5:16628;
 		server 4.216.30.116:16628;
 		server 20.210.226.10:16628;
 		server 40.115.193.160:16628 weight=2;
