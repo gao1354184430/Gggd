@@ -18,7 +18,7 @@
 #azsg7-f4s   3.1.218.251   #lansing  #注释
 #azsg8-f2s   3.1.218.25        #lansing  #注释
 #azsg9-f2s   4.194.82.178    #
-#azsg10-f2s  4.193.141.84              #todog  TEST2-2  这个pass没有加IP作为测试3.1
+#azsg10-f2s  4.193.141.84              #todog  Micro-1  这个pass没有加IP作为测试3.1
 #azsg11-f2s  4.194.153.34              #todog  MLSC
 #azsg12-f2s  20.205.234.218     #SG结束  #todog  AAA-1
 #azhk12-f4s  20.187.93.222   #lansing
