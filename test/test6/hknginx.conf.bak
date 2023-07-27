@@ -64,10 +64,10 @@ upstream mjhkjp{
         server 43.207.93.236:6619 weight=2;   #日本3-Linode-月抛
         server 38.207.136.62:6617 weight=3;    #日本4-WAP
         server 54.199.164.144:6617 weight=2;  #日本5-Linode
-        server 35.78.236.150:6617 weight=2;   #日本6-Linode-月抛####nodeID=229
-        server 18.181.81.10:6617 weight=2;   #日本7-GCORE-测试####nodeID=230
+        server 3.115.106.236:6617 weight=2;   #日本6-Linode-月抛####nodeID=229
+        server 52.195.19.1:6617 weight=2;   #日本7-GCORE-测试####nodeID=230
 		server 18.181.51.172:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
-		server 52.195.194.224:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
+		server 18.183.196.70:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
 		server 43.207.56.249:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
 		server 13.115.253.173:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
 		server 35.78.83.3:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
@@ -497,7 +497,7 @@ server {
 server {
     listen 10014; #台湾 V3
     location / {
-		proxy_pass http://yftw2.ddns.me:1688;   
+		proxy_pass http://yftw2.ddns.me:8066;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -598,8 +598,8 @@ upstream ypsg{
 upstream yphkbgp{
         #ip_hash;  #香港BGP Xhosts
         server 104.234.176.10:5513;   #要饭BGP
-	server 46.20.109.91:5513;   #Xhosts
-	#server 46.20.99.71:5513;   #Xhosts
+	server 46.20.109.91:5513;   #Wap
+	server 103.135.102.147:5513;   #Wap
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream ypkr{
@@ -611,7 +611,7 @@ upstream ypkr{
 }
 upstream ypjp{
         #ip_hash;  #日本
-        server 103.20.198.30:5513;   #要饭原生日本
+        server 38.207.136.162:5513;   #wap原生日本
 	server 139.162.90.150:5513;   #Vultr
 	server 172.105.234.196:5513;   #Vultr
 	server 172.105.239.52:5513;   #Linode 
