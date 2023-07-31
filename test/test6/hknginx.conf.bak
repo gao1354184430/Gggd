@@ -124,7 +124,7 @@ upstream cvazhgc{
 upstream mjazwap{
         ip_hash;
         server 38.207.142.45:6660;   #WAP1
-        server 38.207.142.64:6660;    #WAP2
+        server 38.207.142.64:6666;    #WAP2
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 server {
