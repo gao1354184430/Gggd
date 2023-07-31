@@ -51,6 +51,7 @@ server {
 upstream tw{
         dynamic_resolve fallback=stale fail_timeout=60s; 
         server mjtw.ddns.me:6617;
+		server 108.165.144.180:6617;
         #server yftw2.ddns.me:6617;
 }
 upstream dogtw{
