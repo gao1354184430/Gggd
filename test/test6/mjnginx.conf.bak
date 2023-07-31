@@ -3,7 +3,7 @@
 #azure承载节点-直接查找替换
 #azjp0-f4s   20.191.191.5    #todog JPA   #pass没有改
 #azjp1-f4s   4.216.30.116    #todog DASD-1
-#azjp2-f4s   40.115.211.64    #todog  CLJP-2
+#azjp2-f4s   52.140.204.87    #todog  CLJP-2
 #azjp3-f4s   40.115.193.160   #psa #jp7.17
 #azjp4-f4s   20.210.92.241   #psa #passwd Aa112211.....  #psa7.172
 #azjp5-f4s   43.206.215.127     #lansing  
@@ -40,7 +40,7 @@ upstream jp{
         #ip_hash;  #MJ-JP AZ承载  微调后由azjp3.4.5.6联入，其他备份
         server 20.191.191.5:16617;
 		server 4.216.30.116:16617;
-		server 40.115.211.64:16617;
+		server 52.140.204.87:16617;
 		server 40.115.193.160:16617 weight=2;
         server 20.210.92.241:16617 weight=2;
         server 43.206.215.127:16617;
@@ -69,7 +69,7 @@ upstream mjusla{
         #ip_hash;	#美国的连接方案跟日本一样，优先走日本承载
         server 20.191.191.5:16648;
 		server 4.216.30.116:16648;
-		server 40.115.211.64:16648;
+		server 52.140.204.87:16648;
 		server 40.115.193.160:16648 weight=2;
         server 20.210.92.241:16648 weight=2;
         server 43.206.215.127:16648;
@@ -98,7 +98,7 @@ upstream mjeupt{
         #ip_hash;	#葡萄牙的连接方案跟日本一样，优先走日本承载
         server 20.191.191.5:16624;
 		server 4.216.30.116:16624;
-		server 40.115.211.64:16624;
+		server 52.140.204.87:16624;
 		server 40.115.193.160:16624 weight=2;
         server 20.210.92.241:16624 weight=2;
         server 43.206.215.127:16624;
@@ -127,7 +127,7 @@ upstream sg{
         #ip_hash;  #BGP承载，AZ备用
         server 20.191.191.5:16618 backup;
 		server 4.216.30.116:16618 backup;
-		server 40.115.211.64:16618 backup;
+		server 52.140.204.87:16618 backup;
 		server 40.115.193.160:16618 backup;
         server 20.210.92.241:16618 backup;
         server 43.206.215.127:16618 backup;
@@ -159,7 +159,7 @@ upstream mjfdchk{
         server 52.194.183.219:16622 backup;
         server 20.191.191.5:16622 backup;
 		server 4.216.30.116:16622 backup;
-		server 40.115.211.64:16622 backup;
+		server 52.140.204.87:16622 backup;
 		server 40.115.193.160:16622 backup;
         server 20.210.92.241:16622 backup;
         server 43.206.215.127:16622 backup;
@@ -184,7 +184,7 @@ upstream mjfdchk{
 upstream tw_n{
         server 20.191.191.5:16616;
 		server 4.216.30.116:16616;
-		server 40.115.211.64:16616;
+		server 52.140.204.87:16616;
 		server 40.115.193.160:16616 weight=2;
         server 20.210.92.241:16616 weight=2;
         server 43.206.215.127:16616;
@@ -237,7 +237,7 @@ upstream mjkh{
 upstream mjar{
         server 20.191.191.5:16628;
 		server 4.216.30.116:16628;
-		server 40.115.211.64:16628;
+		server 52.140.204.87:16628;
 		server 40.115.193.160:16628 weight=2;
         server 20.210.92.241:16628 weight=2;
         server 43.206.215.127:16628;
