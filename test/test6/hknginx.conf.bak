@@ -86,10 +86,10 @@ upstream mjhkusla{
         server 5.78.106.98:6616;     #hz-new-1
         server 5.78.89.241:6616;      #hz-new-2
         server 5.78.46.165:6616;      #hz-new-3
-        server 5.78.93.41:6616;      #hz-new-4
-        server 5.78.73.244:6616;      #hz-new-5
-        server 5.78.71.83:6616;      #hz-new-6
-        server 5.78.73.4:6616;      #hz-new-7
+        server 146.190.139.167:6616;      #dous1
+        server 67.205.176.135:6616;      #dous2
+        server 137.184.16.31:6616;      #dous3
+        server 157.230.89.191:6616;      #dous4
         server 5.78.103.103:6616;    #hz-new-8
         server 5.78.67.60:6616;     #hz-new-9
         server 5.78.64.22:6616;    #hz-new-10
