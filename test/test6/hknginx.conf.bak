@@ -84,7 +84,7 @@ upstream cvhkjp{
 upstream mjhkusla{
         ip_hash;
         server 5.78.106.98:6616;     #hz-new-1
-        server 5.78.89.241:6616;      #hz-new-2
+        server 157.230.230.246:6616;      #dous4
         server 5.78.46.165:6616;      #hz-new-3
         server 146.190.139.167:6616;      #dous1
         server 67.205.176.135:6616;      #dous2
