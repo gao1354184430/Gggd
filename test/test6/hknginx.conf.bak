@@ -69,7 +69,7 @@ upstream mjhkjp{
         server 35.77.13.96:6617 weight=2;   #日本7-GCORE-测试####nodeID=230
 		server 18.181.51.172:6617 weight=2;   #日本8-Linode-月抛####nodeID=282
 		server 35.72.32.227:6617 weight=2;   #日本9-Linode-月抛####nodeID=283
-		server 18.183.200.248:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
+		server 43.207.166.254:6617 weight=2;   #日本10-GCORE-月抛####nodeID=284
 		server 18.182.35.139:6617 weight=2;   #日本11-Linode-月抛####nodeID=285
 		server 43.207.126.49:6617 weight=2;   #日本12-Linode-月抛####nodeID=286
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
