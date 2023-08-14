@@ -62,7 +62,7 @@ upstream dogtw{
 upstream mjhkjp{
         #ip_hash;
         server 38.207.136.230:6617 weight=3;      #日本2-WAP--ID72 ##注意，此处用椰子接手
-        server 43.207.93.236:6619 weight=2;   #日本3-Linode-月抛
+        server 54.238.187.215:6619 weight=2;   #日本3-Linode-月抛
         server 38.207.136.229:6617 weight=3;    #日本4-WAP
         server 54.199.248.151:6617 weight=2;  #日本5-Linode
         server 54.238.122.189:6617 weight=2;   #日本6-Linode-月抛####nodeID=229
