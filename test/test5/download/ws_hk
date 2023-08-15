@@ -3,7 +3,7 @@ set_real_ip_from   125.46.42.0/24; #许昌-联通
 set_real_ip_from   121.31.49.0/24; #广西-联通
 set_real_ip_from   116.162.172.0/24; #长沙-联通
 #cm
-set_real_ip_from   117.177.54.0/24; #成都-移动
+set_real_ip_from   112.45.36.0/24; #成都-移动
 set_real_ip_from   112.28.229.0/24; #合肥-移动
 set_real_ip_from   120.233.43.0/24; #广州-移动
 #月抛机器保持更新
