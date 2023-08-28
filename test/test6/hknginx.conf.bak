@@ -17,7 +17,7 @@ upstream mjhksg{
         server 128.199.175.110:6616;    #新加坡4-OVH-代购####nodeID=179
         server 159.223.41.239:6616;    #新加坡6-DO月抛号####nodeID=276	
         server 128.199.169.111:6616;    #新加坡7-do月抛自购买####nodeID=277
-		server 139.59.248.144:6616;    #新加坡8-do月抛自购买####nodeID=288
+		server 38.181.73.36:6616;    #新加坡8-do月抛自购买####nodeID=288
 		server 128.199.216.170:6616;    #新加坡9-do月抛自购买####nodeID=289
 		server 128.199.160.184:6616;    #新加坡10-do月抛自购买####nodeID=290
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
@@ -89,7 +89,7 @@ upstream mjhkusla{
         server 142.93.189.25:6616;      #do7 id=292
         server 146.190.139.167:6616;      #dous1   id=293
         server 67.205.176.135:6616;      #dous2  id=294
-        server 157.230.93.84:6616;      #dous3  id=295
+        server 157.245.214.232:6616;      #dous3  id=295
         server 157.230.89.191:6616;      #dous4  id=297
         server 5.78.67.60:6616;     #hz-new-9
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
