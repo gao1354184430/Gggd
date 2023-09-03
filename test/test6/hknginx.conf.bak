@@ -13,7 +13,7 @@ server {
 upstream mjhksg{
         ip_hash;
         server 128.199.236.158:6616;   #新加坡2-do月抛自购买####nodeID=75
-        server 159.65.2.101:6616;   #新加坡3-do月抛自购买####nodeID=73
+        #server 159.65.2.101:6616;   #新加坡3-do月抛自购买####nodeID=73
         server 128.199.175.110:6616;    #新加坡4-OVH-代购####nodeID=179
         server 159.223.41.239:6616;    #新加坡6-DO月抛号####nodeID=276	
         server 128.199.169.111:6616;    #新加坡7-do月抛自购买####nodeID=277
