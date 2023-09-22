@@ -86,7 +86,7 @@ upstream mjhkusla{
         server 159.203.114.192:6616;      #dous1   id=293
         server 143.198.22.249:6616;      #dous2  id=294
         server 157.245.214.232:6616;      #dous3  id=295
-        server 138.197.96.229:6616;      #dous4  id=297
+        server 167.71.162.77:6616;      #dous4  id=297
         server 5.78.67.60:6616;     #hz-new-9
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
