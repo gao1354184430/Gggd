@@ -87,6 +87,8 @@ upstream mjhkusla{
         server 143.198.22.249:6616;      #dous2  id=294
         server 157.245.214.232:6616;      #dous3  id=295
         server 167.71.162.77:6616;      #dous4  id=297
+		server 134.209.165.82:6616;      #dous4  id=299
+		server 159.203.100.209:6616;      #dous4  id=300
         server 5.78.67.60:6616;     #hz-new-9
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
@@ -485,7 +487,7 @@ server {
 server {
     listen 10014; #台湾 V3
     location / {
-		proxy_pass http://lbtw.ddns.net:7717;   
+		proxy_pass http://61.57.140.28:7717;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -558,10 +560,10 @@ server {
 ####################悦跑香港负载均衡###################
 upstream yptw{
         #ip_hash;  #台湾
-        server lbtw.ddns.net:5519;   #快车道台湾
-	server kcdtw2.ddns.me:5519;   #gkd快车道台湾
+#       server lbtw.ddns.net:5519;   #快车道台湾
+#	server kcdtw2.ddns.me:5519;   #gkd快车道台湾
 #	server mjtw.ddns.me:5519;   #要饭台湾
-#	server yftw2.ddns.me:5519;   #要饭台湾
+	server 61.57.140.28:5519;   #要饭台湾
 	server 108.165.144.4:5519;   #laoba要饭台湾
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
