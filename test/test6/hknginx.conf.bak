@@ -81,11 +81,11 @@ upstream cvhkjp{
 upstream mjhkusla{
         ip_hash;
         server 159.89.51.44:6616;     #do6 id=23
-        server 159.65.172.209:6616;      #dous5 id=279
+        server 45.79.20.140:6616;      #dous5 id=279
         server 142.93.189.25:6616;      #do7 id=292
         server 159.203.114.192:6616;      #dous1   id=293
         server 143.198.22.249:6616;      #dous2  id=294
-        server 157.245.214.232:6616;      #dous3  id=295
+        server 172.104.31.173:6616;      #dous3  id=295
         server 23.239.1.208:6616;      #dous4  id=297
 		server 134.209.165.82:6616;      #dous4  id=299
 		server 159.203.100.209:6616;      #dous4  id=300
