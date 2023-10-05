@@ -2,8 +2,8 @@
 #魔戒负载均衡dynamic_resolve fallback=stale fail_timeout=60s;  
 #azure承载节点-直接查找替换
 #azjp0-f4s   20.89.52.15    #todog AJP1   #pass没有改
-#azjp1-f4s   20.222.175.67    #todog som-2
-#azjp2-f4s   20.89.98.75    #todog  NSJP-2
+#azjp1-f4s   20.89.51.131    #todog AJP2
+#azjp2-f4s   20.222.175.67    #todog  som-2
 #azjp3-f4s   52.253.107.213   #psa #jp9.24
 #azjp4-f4s   13.73.236.87   #psa #passwd Aa112211.....  #psa10.4
 #azjp5-f4s   20.18.247.95     #AZPJP-2 
@@ -39,8 +39,8 @@
 upstream jp{
         #ip_hash;  #MJ-JP AZ承载  微调后由azjp3.4.5.6联入，其他备份
         server 20.89.52.15:16617;
+		server 20.89.51.131:16617;
 		server 20.222.175.67:16617;
-		server 20.89.98.75:16617;
 		server 52.253.107.213:16617;
         server 13.73.236.87:16617;
         server 20.18.247.95:16617;
@@ -68,8 +68,8 @@ upstream jp{
 upstream mjusla{
         #ip_hash;	#美国的连接方案跟日本一样，优先走日本承载
         server 20.89.52.15:16648;
+		server 20.89.51.131:16648;
 		server 20.222.175.67:16648;
-		server 20.89.98.75:16648;
 		server 52.253.107.213:16648;
         server 13.73.236.87:16648;
         server 20.18.247.95:16648;
@@ -97,8 +97,8 @@ upstream mjusla{
 upstream mjeupt{
         #ip_hash;	#葡萄牙的连接方案跟日本一样，优先走日本承载
         server 20.89.52.15:16624;
+		server 20.89.51.131:16624;
 		server 20.222.175.67:16624;
-		server 20.89.98.75:16624;
 		server 52.253.107.213:16624;
         server 13.73.236.87:16624;
         server 20.18.247.95:16624;
@@ -126,8 +126,8 @@ upstream mjeupt{
 upstream sg{
         #ip_hash;  #BGP承载，AZ备用
         server 20.89.52.15:16618 backup;
+		server 20.89.51.131:16618 backup;
 		server 20.222.175.67:16618 backup;
-		server 20.89.98.75:16618 backup;
 		server 52.253.107.213:16618 backup;
         server 13.73.236.87:16618 backup;
         server 20.18.247.95:16618 backup;
@@ -158,8 +158,8 @@ upstream mjfdchk{
 		server 4.193.100.213:16622 backup;
         server 23.102.91.45:16622 backup;
         server 20.89.52.15:16622 backup;
+		server 20.89.51.131:16622 backup;
 		server 20.222.175.67:16622 backup;
-		server 20.89.98.75:16622 backup;
 		server 52.253.107.213:16622 backup;
         server 13.73.236.87:16622 backup;
         server 20.18.247.95:16622 backup;
@@ -183,8 +183,8 @@ upstream mjfdchk{
 }
 upstream tw_n{
         server 20.89.52.15:16616;
+		server 20.89.51.131:16616;
 		server 20.222.175.67:16616;
-		server 20.89.98.75:16616;
 		server 52.253.107.213:16616;
         server 13.73.236.87:16616;
         server 20.18.247.95:16616;
@@ -236,8 +236,8 @@ upstream mjkh{
 #结束
 upstream mjar{
         server 20.89.52.15:16628;
+		server 20.89.51.131:16628;
 		server 20.222.175.67:16628;
-		server 20.89.98.75:16628;
 		server 52.253.107.213:16628;
         server 13.73.236.87:16628;
         server 20.18.247.95:16628;
