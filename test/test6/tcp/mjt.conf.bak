@@ -13,7 +13,7 @@ upstream cvtsg{
 }
 upstream mjtjp{
     #hash $remote_addr;
-    server 18.182.65.158:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7  gcore
+    server 18.181.215.79:6626 max_fails=3 fail_timeout=30s; #T11  NodeID7  gcore
     server 43.206.149.144:6626 max_fails=3 fail_timeout=30s;  #T12  ID8
     server 18.183.2.150:6626 max_fails=3 fail_timeout=30s; #T13  ID12
     server 52.198.233.29:6626 max_fails=3 fail_timeout=30s; #T14  ID14
