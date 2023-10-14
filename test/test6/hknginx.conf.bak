@@ -53,6 +53,7 @@ upstream tw{
         #server mjtw.ddns.me:6617;
 		server 108.165.144.180:6617;
 		server 108.165.144.41:6617;
+		server 34.81.17.14:6617;
         #server yftw2.ddns.me:6617;
 }
 #日本-FDC-JP
@@ -485,6 +486,13 @@ server {
         }
 }
 server {
+    listen 10054; #台湾 V1 A
+    location / {
+		proxy_pass http://108.165.144.203:7717;   
+		include /usr/local/nginx/ws; 
+        }
+}
+server {
     listen 10014; #台湾 V3
     location / {
 		proxy_pass http://61.57.140.28:7717;   
@@ -515,7 +523,7 @@ server {
 server {
     listen 10029; #香港 HKBN
     location / {
-		proxy_pass http://104.234.176.10:7719;   
+		proxy_pass http://104.234.176.10:7720;   
 		include /usr/local/nginx/ws; 
         }
 }
@@ -562,9 +570,9 @@ upstream yptw{
         #ip_hash;  #台湾
 #       server lbtw.ddns.net:5519;   #快车道台湾
 #	server kcdtw2.ddns.me:5519;   #gkd快车道台湾
-#	server mjtw.ddns.me:5519;   #要饭台湾
+	server 108.165.144.203:5519;   #wap台湾
 	server 61.57.140.28:5519;   #要饭台湾
-	server 108.165.144.4:5519;   #laoba要饭台湾
+	server 108.165.144.4:5519;   #wap台湾
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream yphkt{
