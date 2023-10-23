@@ -84,7 +84,7 @@ upstream mjhkusla{
         server 159.89.47.4:6616;     #do6 id=23
         server 45.79.20.140:6616;      #dous5 id=279
         server 142.93.189.25:6616;      #do7 id=292
-        server 159.203.114.192:6616;      #dous1   id=293
+        server 142.93.58.56:6616;      #dous1   id=293
         server 143.198.22.249:6616;      #dous2  id=294
         server 167.99.48.19:6616;      #dous3  id=295
         server 23.239.1.208:6616;      #dous4  id=297
