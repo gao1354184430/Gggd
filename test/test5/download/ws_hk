@@ -2,6 +2,7 @@
 set_real_ip_from   110.72.101.0/24; #广西-联通
 set_real_ip_from   61.133.1.0/24; #山东-联通
 set_real_ip_from   116.162.172.0/24; #长沙-联通
+set_real_ip_from   61.241.142.0/24; #安徽-联通
 #cm
 set_real_ip_from   112.45.36.0/24; #成都-移动
 set_real_ip_from   39.175.168.0/24; #嘉兴-移动
