@@ -90,7 +90,7 @@ upstream mjhkusla{
         server 167.99.48.19:6616;      #dous3  id=295
         server 23.239.1.208:6616;      #dous4  id=297
 		server 104.236.197.220:6616;      #dous9  id=299
-		server 159.203.100.209:6616;      #dous10  id=300
+		server 172.234.27.206:6616;      #dous10  id=300
         server 5.78.67.60:6616;     #hz-new-9
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
@@ -454,7 +454,7 @@ server {
 server {
     listen 10020; #香港 V1 A
     location / {
-		proxy_pass http://38.207.142.122:7717;   
+		proxy_pass http://38.207.142.122:7718;   
 		include /usr/local/nginx/ws; 
         }
 }
