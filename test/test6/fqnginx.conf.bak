@@ -8,10 +8,10 @@
 #azjp0-f4s   20.222.210.161
 #azjp1-f4s   52.140.218.118
 #azjp2-f4s   20.48.62.118
-#azjp4-f4s   52.140.205.137
-#azsg10-f2s  20.212.38.123
-#azsg11-f2s  4.194.100.59
-#azsg12-f2s  4.193.63.184
+#azjp4-f4s   20.243.221.151
+#azsg10-f2s  20.205.236.151
+#azsg11-f2s  20.205.239.177
+#azsg12-f2s  4.193.163.234
 #####
 #两会端口：30001
 #####
@@ -185,10 +185,10 @@ upstream fqhkv1a{
     server 20.222.210.161:10020;  #azjp0-f4s
     server 52.140.218.118:10020;  #azjp1-f4s
     server 20.48.62.118:10020;  #azjp2-f4s
-    server 52.140.205.137:10020;  #azjp4-f4s
-    server 20.212.38.123:10020;  #azsg10-f2s
-    server 4.194.100.59:10020;  #azsg11-f2s
-    server 4.193.63.184:10020;  #azsg12-f2s
+    server 20.243.221.151:10020;  #azjp4-f4s
+    server 20.205.236.151:10020;  #azsg10-f2s
+    server 20.205.239.177:10020;  #azsg11-f2s
+    server 4.193.163.234:10020;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqkcdhkt{
@@ -199,10 +199,10 @@ upstream fqkcdhkt{
 	server 20.222.210.161:10049;  #azjp0-f4s
         server 52.140.218.118:10049;  #azjp1-f4s
         server 20.48.62.118:10049;  #azjp2-f4s
-        server 52.140.205.137:10049;  #azjp4-f4s
-        server 20.212.38.123:10049;  #azsg10-f2s
-        server 4.194.100.59:10049;  #azsg11-f2s
-        server 4.193.63.184:10049;  #azsg12-f2s
+        server 20.243.221.151:10049;  #azjp4-f4s
+        server 20.205.236.151:10049;  #azsg10-f2s
+        server 20.205.239.177:10049;  #azsg11-f2s
+        server 4.193.163.234:10049;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqkcdhgc{
@@ -213,10 +213,10 @@ upstream fqkcdhgc{
 	server 20.222.210.161:10021;  #azjp0-f4s
         server 52.140.218.118:10021;  #azjp1-f4s
         server 20.48.62.118:10021;  #azjp2-f4s
-        server 52.140.205.137:10021;  #azjp4-f4s
-        server 20.212.38.123:10021;  #azsg10-f2s
-        server 4.194.100.59:10021;  #azsg11-f2s
-        server 4.193.63.184:10021;  #azsg12-f2s
+        server 20.243.221.151:10021;  #azjp4-f4s
+        server 20.205.236.151:10021;  #azsg10-f2s
+        server 20.205.239.177:10021;  #azsg11-f2s
+        server 4.193.163.234:10021;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqwzhkt{
@@ -227,10 +227,10 @@ upstream fqwzhkt{
 	server 20.222.210.161:10027;  #azjp0-f4s
         server 52.140.218.118:10027;  #azjp1-f4s
         server 20.48.62.118:10027;  #azjp2-f4s
-        server 52.140.205.137:10027;  #azjp4-f4s
-        server 20.212.38.123:10027;  #azsg10-f2s
-        server 4.194.100.59:10027;  #azsg11-f2s
-        server 4.193.63.184:10027;  #azsg12-f2s
+        server 20.243.221.151:10027;  #azjp4-f4s
+        server 20.205.236.151:10027;  #azsg10-f2s
+        server 20.205.239.177:10027;  #azsg11-f2s
+        server 4.193.163.234:10027;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqwzhkt2{
@@ -241,10 +241,10 @@ upstream fqwzhkt2{
 	server 20.222.210.161:10046;  #azjp0-f4s
         server 52.140.218.118:10046;  #azjp1-f4s
         server 20.48.62.118:10046;  #azjp2-f4s
-        server 52.140.205.137:10046;  #azjp4-f4s
-        server 20.212.38.123:10046;  #azsg10-f2s
-        server 4.194.100.59:10046;  #azsg11-f2s
-        server 4.193.63.184:10046;  #azsg12-f2s
+        server 20.243.221.151:10046;  #azjp4-f4s
+        server 20.205.236.151:10046;  #azsg10-f2s
+        server 20.205.239.177:10046;  #azsg11-f2s
+        server 4.193.163.234:10046;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqtwv1a{
@@ -255,10 +255,10 @@ upstream fqtwv1a{
 	server 20.222.210.161:10054;  #azjp0-f4s
         server 52.140.218.118:10054;  #azjp1-f4s
         server 20.48.62.118:10054;  #azjp2-f4s
-        server 52.140.205.137:10054;  #azjp4-f4s
-        server 20.212.38.123:10054;  #azsg10-f2s
-        server 4.194.100.59:10054;  #azsg11-f2s
-        server 4.193.63.184:10054;  #azsg12-f2s
+        server 20.243.221.151:10054;  #azjp4-f4s
+        server 20.205.236.151:10054;  #azsg10-f2s
+        server 20.205.239.177:10054;  #azsg11-f2s
+        server 4.193.163.234:10054;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqyftw{
@@ -269,10 +269,10 @@ upstream fqyftw{
 	server 20.222.210.161:10014;  #azjp0-f4s
         server 52.140.218.118:10014;  #azjp1-f4s
         server 20.48.62.118:10014;  #azjp2-f4s
-        server 52.140.205.137:10014;  #azjp4-f4s
-        server 20.212.38.123:10014;  #azsg10-f2s
-        server 4.194.100.59:10014;  #azsg11-f2s
-        server 4.193.63.184:10014;  #azsg12-f2s
+        server 20.243.221.151:10014;  #azjp4-f4s
+        server 20.205.236.151:10014;  #azsg10-f2s
+        server 20.205.239.177:10014;  #azsg11-f2s
+        server 4.193.163.234:10014;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqsgv1a{
@@ -283,10 +283,10 @@ upstream fqsgv1a{
 	server 20.222.210.161:10123;  #azjp0-f4s
         server 52.140.218.118:10123;  #azjp1-f4s
         server 20.48.62.118:10123;  #azjp2-f4s
-        server 52.140.205.137:10123;  #azjp4-f4s
-        server 20.212.38.123:10123;  #azsg10-f2s
-        server 4.194.100.59:10123;  #azsg11-f2s
-        server 4.193.63.184:10123;  #azsg12-f2s
+        server 20.243.221.151:10123;  #azjp4-f4s
+        server 20.205.236.151:10123;  #azsg10-f2s
+        server 20.205.239.177:10123;  #azsg11-f2s
+        server 4.193.163.234:10123;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqsgv1b{
@@ -297,10 +297,10 @@ upstream fqsgv1b{
 	server 20.222.210.161:10034;  #azjp0-f4s
         server 52.140.218.118:10034;  #azjp1-f4s
         server 20.48.62.118:10034;  #azjp2-f4s
-        server 52.140.205.137:10034;  #azjp4-f4s
-        server 20.212.38.123:10034;  #azsg10-f2s
-        server 4.194.100.59:10034;  #azsg11-f2s
-        server 4.193.63.184:10034;  #azsg12-f2s
+        server 20.243.221.151:10034;  #azjp4-f4s
+        server 20.205.236.151:10034;  #azsg10-f2s
+        server 20.205.239.177:10034;  #azsg11-f2s
+        server 4.193.163.234:10034;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqsgv2{
@@ -311,10 +311,10 @@ upstream fqsgv2{
 	server 20.222.210.161:10024;  #azjp0-f4s
         server 52.140.218.118:10024;  #azjp1-f4s
         server 20.48.62.118:10024;  #azjp2-f4s
-        server 52.140.205.137:10024;  #azjp4-f4s
-        server 20.212.38.123:10024;  #azsg10-f2s
-        server 4.194.100.59:10024;  #azsg11-f2s
-        server 4.193.63.184:10024;  #azsg12-f2s
+        server 20.243.221.151:10024;  #azjp4-f4s
+        server 20.205.236.151:10024;  #azsg10-f2s
+        server 20.205.239.177:10024;  #azsg11-f2s
+        server 4.193.163.234:10024;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqsgv2l{
@@ -325,10 +325,10 @@ upstream fqsgv2l{
 	server 20.222.210.161:10025;  #azjp0-f4s
         server 52.140.218.118:10025;  #azjp1-f4s
         server 20.48.62.118:10025;  #azjp2-f4s
-        server 52.140.205.137:10025;  #azjp4-f4s
-        server 20.212.38.123:10025;  #azsg10-f2s
-        server 4.194.100.59:10025;  #azsg11-f2s
-        server 4.193.63.184:10025;  #azsg12-f2s
+        server 20.243.221.151:10025;  #azjp4-f4s
+        server 20.205.236.151:10025;  #azsg10-f2s
+        server 20.205.239.177:10025;  #azsg11-f2s
+        server 4.193.163.234:10025;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqsgv3{
@@ -339,10 +339,10 @@ upstream fqsgv3{
 	server 20.222.210.161:10040;  #azjp0-f4s
         server 52.140.218.118:10040;  #azjp1-f4s
         server 20.48.62.118:10040;  #azjp2-f4s
-        server 52.140.205.137:10040;  #azjp4-f4s
-        server 20.212.38.123:10040;  #azsg10-f2s
-        server 4.194.100.59:10040;  #azsg11-f2s
-        server 4.193.63.184:10040;  #azsg12-f2s
+        server 20.243.221.151:10040;  #azjp4-f4s
+        server 20.205.236.151:10040;  #azsg10-f2s
+        server 20.205.239.177:10040;  #azsg11-f2s
+        server 4.193.163.234:10040;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqjpv1b{
@@ -353,10 +353,10 @@ upstream fqjpv1b{
 	server 20.222.210.161:10003;  #azjp0-f4s
         server 52.140.218.118:10003;  #azjp1-f4s
         server 20.48.62.118:10003;  #azjp2-f4s
-        server 52.140.205.137:10003;  #azjp4-f4s
-        server 20.212.38.123:10003;  #azsg10-f2s
-        server 4.194.100.59:10003;  #azsg11-f2s
-        server 4.193.63.184:10003;  #azsg12-f2s
+        server 20.243.221.151:10003;  #azjp4-f4s
+        server 20.205.236.151:10003;  #azsg10-f2s
+        server 20.205.239.177:10003;  #azsg11-f2s
+        server 4.193.163.234:10003;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqjpv3a{
@@ -367,10 +367,10 @@ upstream fqjpv3a{
 	server 20.222.210.161:10008;  #azjp0-f4s
         server 52.140.218.118:10008;  #azjp1-f4s
         server 20.48.62.118:10008;  #azjp2-f4s
-        server 52.140.205.137:10008;  #azjp4-f4s
-        server 20.212.38.123:10008;  #azsg10-f2s
-        server 4.194.100.59:10008;  #azsg11-f2s
-        server 4.193.63.184:10008;  #azsg12-f2s
+        server 20.243.221.151:10008;  #azjp4-f4s
+        server 20.205.236.151:10008;  #azsg10-f2s
+        server 20.205.239.177:10008;  #azsg11-f2s
+        server 4.193.163.234:10008;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqusv1a{
@@ -381,10 +381,10 @@ upstream fqusv1a{
 	server 20.222.210.161:10013;  #azjp0-f4s
         server 52.140.218.118:10013;  #azjp1-f4s
         server 20.48.62.118:10013;  #azjp2-f4s
-        server 52.140.205.137:10013;  #azjp4-f4s
-        server 20.212.38.123:10013;  #azsg10-f2s
-        server 4.194.100.59:10013;  #azsg11-f2s
-        server 4.193.63.184:10013;  #azsg12-f2s
+        server 20.243.221.151:10013;  #azjp4-f4s
+        server 20.205.236.151:10013;  #azsg10-f2s
+        server 20.205.239.177:10013;  #azsg11-f2s
+        server 4.193.163.234:10013;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqhkbnv3{
@@ -395,10 +395,10 @@ upstream fqhkbnv3{
        server 20.222.210.161:10029;  #azjp0-f4s
        server 52.140.218.118:10029;  #azjp1-f4s
        server 20.48.62.118:10029;  #azjp2-f4s
-       server 52.140.205.137:10029;  #azjp4-f4s
-       server 20.212.38.123:10029;  #azsg10-f2s
-       server 4.194.100.59:10029;  #azsg11-f2s
-       server 4.193.63.184:10029;  #azsg12-f2s
+       server 20.243.221.151:10029;  #azjp4-f4s
+       server 20.205.236.151:10029;  #azsg10-f2s
+       server 20.205.239.177:10029;  #azsg11-f2s
+       server 4.193.163.234:10029;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqjpv1a{
@@ -409,10 +409,10 @@ upstream fqjpv1a{
     server 20.222.210.161:10004;  #azjp0-f4s
     server 52.140.218.118:10004;  #azjp1-f4s
     server 20.48.62.118:10004;  #azjp2-f4s 
-    server 52.140.205.137:10004;  #azjp4-f4s
-    server 20.212.38.123:10004;  #azsg10-f2s
-    server 4.194.100.59:10004;  #azsg11-f2s
-    server 4.193.63.184:10004;  #azsg12-f2s
+    server 20.243.221.151:10004;  #azjp4-f4s
+    server 20.205.236.151:10004;  #azsg10-f2s
+    server 20.205.239.177:10004;  #azsg11-f2s
+    server 4.193.163.234:10004;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqjpv3b{
@@ -423,10 +423,10 @@ upstream fqjpv3b{
     server 20.222.210.161:10010;  #azjp0-f4s
     server 52.140.218.118:10010;  #azjp1-f4s
     server 20.48.62.118:10010;  #azjp2-f4s 
-    server 52.140.205.137:10010;  #azjp4-f4s
-    server 20.212.38.123:10010;  #azsg10-f2s
-    server 4.194.100.59:10010;  #azsg11-f2s
-    server 4.193.63.184:10010;  #azsg12-f2s
+    server 20.243.221.151:10010;  #azjp4-f4s
+    server 20.205.236.151:10010;  #azsg10-f2s
+    server 20.205.239.177:10010;  #azsg11-f2s
+    server 4.193.163.234:10010;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqhkv4{
@@ -437,10 +437,10 @@ upstream fqhkv4{
     server 20.222.210.161:10053;  #azjp0-f4s
     server 52.140.218.118:10053;  #azjp1-f4s
     server 20.48.62.118:10053;  #azjp2-f4s 
-    server 52.140.205.137:10053;  #azjp4-f4s
-    server 20.212.38.123:10053;  #azsg10-f2s
-    server 4.194.100.59:10053;  #azsg11-f2s
-    server 4.193.63.184:10053;  #azsg12-f2s
+    server 20.243.221.151:10053;  #azjp4-f4s
+    server 20.205.236.151:10053;  #azsg10-f2s
+    server 20.205.239.177:10053;  #azsg11-f2s
+    server 4.193.163.234:10053;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream fqtw{
@@ -448,7 +448,7 @@ upstream fqtw{
 		server 52.140.218.118:23330;  #二次反代
 		server 20.48.62.118:23330;  #二次反代
 		server 20.89.130.230:23330;  #二次反代
-        server 52.140.205.137:23330;
+        server 20.243.221.151:23330;
         server 52.198.42.231:23330;
 		server 52.199.137.93:23330;
 		server 54.178.67.184:23330;
@@ -459,9 +459,9 @@ upstream fqtw{
         server 52.221.250.229:23330;
         server 13.212.142.41:23330; #azhk9
 		server 4.194.82.178:23330; #azhk9
-		server 20.212.38.123:23330; #azhk9
-		server 4.194.100.59:23330; #azhk9
-		server 4.193.63.184:23330; #azhk9
+		server 20.205.236.151:23330; #azhk9
+		server 20.205.239.177:23330; #azhk9
+		server 4.193.163.234:23330; #azhk9
         server 20.24.93.173:23330; #azjp13
 		server 20.205.108.184:23330; #azjp13
 		server 20.255.70.93:23330; #azjp23
@@ -481,7 +481,7 @@ upstream fqmalai_vnet{
 		server 52.140.218.118:10044;  #交给隧道处理
 		server 20.48.62.118:10044;  #交给隧道处理
 		server 20.89.130.230:10044;  #交给隧道处理
-        server 52.140.205.137:10044;
+        server 20.243.221.151:10044;
         server 52.198.42.231:10044;
 		server 52.199.137.93:10044;
 		server 54.178.67.184:10044;
@@ -712,10 +712,10 @@ upstream yptw{
 	server 20.222.210.161:15503;  #azjp0-f4s
 	server 52.140.218.118:15503;  #azjp1-f4s
 	server 20.48.62.118:15503;  #azjp2-f4s    #二次反代  
-        server 52.140.205.137:15503;  #azjp4-f4s
-	server 20.212.38.123:15503;  #azsg10-f2s
-	server 4.194.100.59:15503;  #azsg11-f2s
-	server 4.193.63.184:15503;  #azsg12-f2s
+        server 20.243.221.151:15503;  #azjp4-f4s
+	server 20.205.236.151:15503;  #azsg10-f2s
+	server 20.205.239.177:15503;  #azsg11-f2s
+	server 4.193.163.234:15503;  #azsg12-f2s
 		check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream yphkt{
@@ -726,10 +726,10 @@ upstream yphkt{
 	server 20.222.210.161:15505;  #azjp0-f4s
 	server 52.140.218.118:15505;  #azjp1-f4s
 	server 20.48.62.118:15505;  #azjp2-f4s 
-        server 52.140.205.137:15505;  #azjp4-f4s
-	server 20.212.38.123:15505;  #azsg10-f2s
-	server 4.194.100.59:15505;  #azsg11-f2s
-	server 4.193.63.184:15505;  #azsg12-f2s
+        server 20.243.221.151:15505;  #azjp4-f4s
+	server 20.205.236.151:15505;  #azsg10-f2s
+	server 20.205.239.177:15505;  #azsg11-f2s
+	server 4.193.163.234:15505;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ypsg{
@@ -740,10 +740,10 @@ upstream ypsg{
      server 20.222.210.161:15501;  #azjp0-f4s
      server 52.140.218.118:15501;  #azjp1-f4s
      server 20.48.62.118:15501;  #azjp2-f4s
-     server 52.140.205.137:15501;  #azjp4-f4s
-     server 20.212.38.123:15501;  #azsg10-f2s
-     server 4.194.100.59:15501;  #azsg11-f2s
-     server 4.193.63.184:15501;  #azsg12-f2s
+     server 20.243.221.151:15501;  #azjp4-f4s
+     server 20.205.236.151:15501;  #azsg10-f2s
+     server 20.205.239.177:15501;  #azsg11-f2s
+     server 4.193.163.234:15501;  #azsg12-f2s
      check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream yphkbgp{
@@ -754,10 +754,10 @@ upstream yphkbgp{
 	server 20.222.210.161:15504;  #azjp0-f4s
 	server 52.140.218.118:15504;  #azjp1-f4s
 	server 20.48.62.118:15504;  #azjp2-f4s 
-        server 52.140.205.137:15504;  #azjp4-f4s
-	server 20.212.38.123:15504;  #azsg10-f2s
-	server 4.194.100.59:15504;  #azsg11-f2s
-	server 4.193.63.184:15504;  #azsg12-f2s
+        server 20.243.221.151:15504;  #azjp4-f4s
+	server 20.205.236.151:15504;  #azsg10-f2s
+	server 20.205.239.177:15504;  #azsg11-f2s
+	server 4.193.163.234:15504;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ypkr{
@@ -768,10 +768,10 @@ upstream ypkr{
     server 20.222.210.161:15502;  #azjp0-f4s
     server 52.140.218.118:15502;  #azjp1-f4s
     server 20.48.62.118:15502;  #azjp2-f4s
-    server 52.140.205.137:15502;  #azjp4-f4s
-    server 20.212.38.123:15502;  #azsg10-f2s
-    server 4.194.100.59:15502;  #azsg11-f2s
-    server 4.193.63.184:15502;  #azsg12-f2s
+    server 20.243.221.151:15502;  #azjp4-f4s
+    server 20.205.236.151:15502;  #azsg10-f2s
+    server 20.205.239.177:15502;  #azsg11-f2s
+    server 4.193.163.234:15502;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ypjp{
@@ -782,10 +782,10 @@ upstream ypjp{
     server 20.222.210.161:15500;  #azjp0-f4s
     server 52.140.218.118:15500;  #azjp1-f4s
     server 20.48.62.118:15500;  #azjp2-f4s
-    server 52.140.205.137:15500;  #azjp4-f4s
-    server 20.212.38.123:15500;  #azsg10-f2s
-    server 4.194.100.59:15500;  #azsg11-f2s
-    server 4.193.63.184:15500;  #azsg12-f2s
+    server 20.243.221.151:15500;  #azjp4-f4s
+    server 20.205.236.151:15500;  #azsg10-f2s
+    server 20.205.239.177:15500;  #azsg11-f2s
+    server 4.193.163.234:15500;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ypmy{
@@ -796,10 +796,10 @@ upstream ypmy{
     server 20.222.210.161:15506;  #azjp0-f4s
     server 52.140.218.118:15506;  #azjp1-f4s
     server 20.48.62.118:15506;  #azjp2-f4s 
-    server 52.140.205.137:15506;  #azjp4-f4s
-    server 20.212.38.123:15506;  #azsg10-f2s
-    server 4.194.100.59:15506;  #azsg11-f2s
-    server 4.193.63.184:15506;  #azsg12-f2s
+    server 20.243.221.151:15506;  #azjp4-f4s
+    server 20.205.236.151:15506;  #azsg10-f2s
+    server 20.205.239.177:15506;  #azsg11-f2s
+    server 4.193.163.234:15506;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ypin{
@@ -810,10 +810,10 @@ upstream ypin{
      server 20.222.210.161:15507;  #azjp0-f4s
      server 52.140.218.118:15507;  #azjp1-f4s
      server 20.48.62.118:15507;  #azjp2-f4s
-     server 52.140.205.137:15507;  #azjp4-f4s
-     server 20.212.38.123:15507;  #azsg10-f2s
-     server 4.194.100.59:15507;  #azsg11-f2s
-     server 4.193.63.184:15507;  #azsg12-f2s
+     server 20.243.221.151:15507;  #azjp4-f4s
+     server 20.205.236.151:15507;  #azsg10-f2s
+     server 20.205.239.177:15507;  #azsg11-f2s
+     server 4.193.163.234:15507;  #azsg12-f2s
      check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 upstream ypus{
@@ -824,10 +824,10 @@ upstream ypus{
     server 20.222.210.161:15508;  #azjp0-f4s
     server 52.140.218.118:15508;  #azjp1-f4s
     server 20.48.62.118:15508;  #azjp2-f4s 
-    server 52.140.205.137:15508;  #azjp4-f4s
-    server 20.212.38.123:15508;  #azsg10-f2s
-    server 4.194.100.59:15508;  #azsg11-f2s
-    server 4.193.63.184:15508;  #azsg12-f2s
+    server 20.243.221.151:15508;  #azjp4-f4s
+    server 20.205.236.151:15508;  #azsg10-f2s
+    server 20.205.239.177:15508;  #azsg11-f2s
+    server 4.193.163.234:15508;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp;
 }
 ######悦跑香港负载端口监听######
@@ -904,10 +904,10 @@ upstream cvjp{
     server 20.222.210.161:26601 backup;  #azjp0-f4s
     server 52.140.218.118:26601 backup;  #azjp1-f4s
     server 20.48.62.118:26601 backup;  #azjp2-f4s
-    server 52.140.205.137:26601 backup;  #azjp4-f4s
-    server 20.212.38.123:26601 backup;  #azsg10-f2s
-    server 4.194.100.59:26601 backup;  #azsg11-f2s
-    server 4.193.63.184:26601 backup;  #azsg12-f2s
+    server 20.243.221.151:26601 backup;  #azjp4-f4s
+    server 20.205.236.151:26601 backup;  #azsg10-f2s
+    server 20.205.239.177:26601 backup;  #azsg11-f2s
+    server 4.193.163.234:26601 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cv2kr{
@@ -919,10 +919,10 @@ upstream cv2kr{
     server 20.222.210.161:26602 backup;  #azjp0-f4s
     server 52.140.218.118:26602 backup;  #azjp1-f4s
     server 20.48.62.118:26602 backup;  #azjp2-f4s
-    server 52.140.205.137:26602 backup;  #azjp4-f4s
-    server 20.212.38.123:26602 backup;  #azsg10-f2s
-    server 4.194.100.59:26602 backup;  #azsg11-f2s
-    server 4.193.63.184:26602 backup;  #azsg12-f2s
+    server 20.243.221.151:26602 backup;  #azjp4-f4s
+    server 20.205.236.151:26602 backup;  #azsg10-f2s
+    server 20.205.239.177:26602 backup;  #azsg11-f2s
+    server 4.193.163.234:26602 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvsg{
@@ -934,10 +934,10 @@ upstream cvsg{
     server 20.222.210.161:26603 backup;  #azjp0-f4s
     server 52.140.218.118:26603 backup;  #azjp1-f4s
     server 20.48.62.118:26603 backup;  #azjp2-f4s
-    server 52.140.205.137:26603 backup;  #azjp4-f4s
-    server 20.212.38.123:26603 backup;  #azsg10-f2s
-    server 4.194.100.59:26603 backup;  #azsg11-f2s
-    server 4.193.63.184:26603 backup;  #azsg12-f2s
+    server 20.243.221.151:26603 backup;  #azjp4-f4s
+    server 20.205.236.151:26603 backup;  #azsg10-f2s
+    server 20.205.239.177:26603 backup;  #azsg11-f2s
+    server 4.193.163.234:26603 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvtw{
@@ -948,10 +948,10 @@ upstream cvtw{
     server 20.222.210.161:26604 backup;  #azjp0-f4s
     server 52.140.218.118:26604 backup;  #azjp1-f4s
     server 20.48.62.118:26604 backup;  #azjp2-f4s
-    server 52.140.205.137:26604 backup;  #azjp4-f4s
-    server 20.212.38.123:26604 backup;  #azsg10-f2s
-    server 4.194.100.59:26604 backup;  #azsg11-f2s
-    server 4.193.63.184:26604 backup;  #azsg12-f2s
+    server 20.243.221.151:26604 backup;  #azjp4-f4s
+    server 20.205.236.151:26604 backup;  #azsg10-f2s
+    server 20.205.239.177:26604 backup;  #azsg11-f2s
+    server 4.193.163.234:26604 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cv2us{
@@ -963,10 +963,10 @@ upstream cv2us{
     server 20.222.210.161:26606 backup;  #azjp0-f4s
     server 52.140.218.118:26606 backup;  #azjp1-f4s
     server 20.48.62.118:26606 backup;  #azjp2-f4s
-    server 52.140.205.137:26606 backup;  #azjp4-f4s
-    server 20.212.38.123:26606 backup;  #azsg10-f2s
-    server 4.194.100.59:26606 backup;  #azsg11-f2s
-    server 4.193.63.184:26606 backup;  #azsg12-f2s
+    server 20.243.221.151:26606 backup;  #azjp4-f4s
+    server 20.205.236.151:26606 backup;  #azsg10-f2s
+    server 20.205.239.177:26606 backup;  #azsg11-f2s
+    server 4.193.163.234:26606 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhk{
@@ -977,10 +977,10 @@ upstream cvhk{
     server 20.222.210.161:26607 backup;  #azjp0-f4s
     server 52.140.218.118:26607 backup;  #azjp1-f4s
     server 20.48.62.118:26607 backup;  #azjp2-f4s
-    server 52.140.205.137:26607 backup;  #azjp4-f4s
-    server 20.212.38.123:26607 backup;  #azsg10-f2s
-    server 4.194.100.59:26607 backup;  #azsg11-f2s
-    server 4.193.63.184:26607 backup;  #azsg12-f2s
+    server 20.243.221.151:26607 backup;  #azjp4-f4s
+    server 20.205.236.151:26607 backup;  #azsg10-f2s
+    server 20.205.239.177:26607 backup;  #azsg11-f2s
+    server 4.193.163.234:26607 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvhgc{
@@ -992,10 +992,10 @@ upstream cvhgc{
     server 20.222.210.161:26608 backup;  #azjp0-f4s
     server 52.140.218.118:26608 backup;  #azjp1-f4s
     server 20.48.62.118:26608 backup;  #azjp2-f4s
-    server 52.140.205.137:26608 backup;  #azjp4-f4s
-    server 20.212.38.123:26608 backup;  #azsg10-f2s
-    server 4.194.100.59:26608 backup;  #azsg11-f2s
-    server 4.193.63.184:26608 backup;  #azsg12-f2s
+    server 20.243.221.151:26608 backup;  #azjp4-f4s
+    server 20.205.236.151:26608 backup;  #azsg10-f2s
+    server 20.205.239.177:26608 backup;  #azsg11-f2s
+    server 4.193.163.234:26608 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cv2hkbn{
@@ -1007,10 +1007,10 @@ upstream cv2hkbn{
     server 20.222.210.161:26609 backup;  #azjp0-f4s
     server 52.140.218.118:26609 backup;  #azjp1-f4s
     server 20.48.62.118:26609 backup;  #azjp2-f4s
-    server 52.140.205.137:26609 backup;  #azjp4-f4s
-    server 20.212.38.123:26609 backup;  #azsg10-f2s
-    server 4.194.100.59:26609 backup;  #azsg11-f2s
-    server 4.193.63.184:26609 backup;  #azsg12-f2s
+    server 20.243.221.151:26609 backup;  #azjp4-f4s
+    server 20.205.236.151:26609 backup;  #azsg10-f2s
+    server 20.205.239.177:26609 backup;  #azsg11-f2s
+    server 4.193.163.234:26609 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 upstream cvmalai_vnet{
@@ -1022,10 +1022,10 @@ upstream cvmalai_vnet{
     server 20.222.210.161:26610 backup;  #azjp0-f4s
     server 52.140.218.118:26610 backup;  #azjp1-f4s
     server 20.48.62.118:26610 backup;  #azjp2-f4s
-    server 52.140.205.137:26610 backup;  #azjp4-f4s
-    server 20.212.38.123:26610 backup;  #azsg10-f2s
-    server 4.194.100.59:26610 backup;  #azsg11-f2s
-    server 4.193.63.184:26610 backup;  #azsg12-f2s
+    server 20.243.221.151:26610 backup;  #azjp4-f4s
+    server 20.205.236.151:26610 backup;  #azsg10-f2s
+    server 20.205.239.177:26610 backup;  #azsg11-f2s
+    server 4.193.163.234:26610 backup;  #azsg12-f2s
     check interval=5000 rise=2 fall=2 timeout=3000 type=tcp; #健康检测
 }
 ######CV2负载端口监听######
