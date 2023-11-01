@@ -2,6 +2,12 @@
 #远端文件储存地址
 Github="https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test6"
 Github_shell="https://raw.githubusercontent.com/gao1354184430/Gggd/master/test/test5"
+#版本号
+#请务必确认版本号与version文件一致，cnsync和hksync也需要同步修改
+#增加该版本号，即可触发自动更新（需机器开启crontab）
+#1.0.3增加了nginx_ws/status每日检测更新
+#1.0.5只是测试推送更新是否可行
+shell_version="1.0.5"
 #定义探针函数
 SERVER_NAME=`sed -n '1p' /root/.status_name`  #请在root目录下创建 .status_name文件并填入机器名称
 NGX=`netstat -anput | grep nginx | wc -l`
@@ -30,11 +36,6 @@ rm -rf /root/.test.txt
 curl -s $Github/test > /root/.test.txt
 github_test=`sed -n '1p' /root/.test.txt`
 rm -rf /root/.test.txt /root/.crontab.txt
-#版本号
-#请务必确认版本号与version文件一致
-#增加该版本号，即可触发自动更新（需机器开启crontab）
-#1.0.3增加了nginx_ws/status每日检测更新
-shell_version="1.0.4"
 #从远端更新
 function Restart_vnets(){
 	rm -rf $vnet_Conf.back
